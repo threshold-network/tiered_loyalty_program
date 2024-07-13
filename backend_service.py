@@ -1,20 +1,37 @@
 import os
-import json
 import time
 import logging
+from logging.handlers import RotatingFileHandler
 from datetime import datetime, timedelta
 from web3 import Web3
 from eth_abi import decode_abi
 from dotenv import load_dotenv
-import requests
 from flask import Flask, jsonify
 import pinatapy
 import signal
 import sys
+from fetch_prices import update_price_data
+import json
+from bisect import bisect_left
+from web3.datastructures import AttributeDict
+from eth_utils import to_checksum_address
+from hexbytes import HexBytes
+import asyncio
 
 # Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(log_formatter)
+
+file_handler = RotatingFileHandler('app.log', maxBytes=1024 * 1024 * 100, backupCount=20)
+file_handler.setFormatter(log_formatter)
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+logger.addHandler(console_handler)
+logger.addHandler(file_handler)
 
 # Load environment variables
 load_dotenv()
@@ -31,6 +48,12 @@ START_BLOCK = int(os.getenv("START_BLOCK"))
 # Connect to Arbitrum using Alchemy
 infura_url = f"https://arbitrum-mainnet.infura.io/v3/{INFURA_KEY}"
 w3 = Web3(Web3.HTTPProvider(infura_url))
+
+if w3.isConnected():
+    logger.info("Successfully connected to Arbitrum network")
+else:
+    logger.error("Failed to connect to Arbitrum network")
+    sys.exit(1)
 
 # Load ABIs from ./abi directory
 def load_abi(filename):
@@ -56,10 +79,14 @@ def to_checksum_address(address):
 
 # Pool addresses and configurations
 POOLS = [
-    {"address": to_checksum_address("0x186cf879186986a20aadfb7ead50e3c20cb26cec"), "abi": CURVE_ABI, "tokens": ["tbtc", "wbtc"], "event": "AddLiquidity"},
-    {"address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"), "abi": UNIV3_ABI, "tokens": ["tbtc", "wbtc"], "event": "Mint"},
-    {"address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"), "abi": UNIV3_ABI, "tokens": ["tbtc", "eth"], "event": "Mint"}
+    {"address": to_checksum_address("0x186cf879186986a20aadfb7ead50e3c20cb26cec"), "abi": CURVE_ABI, "tokens": ["tbtc", "wbtc"]},
+    # {"address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"), "abi": UNIV3_ABI, "tokens": ["tbtc", "wbtc"]},
+    # {"address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"), "abi": UNIV3_ABI, "tokens": ["tbtc", "eth"]}
 ]
+
+# Load historical prices once at the start of the script
+with open('token_historical_prices.json', 'r') as f:
+    HISTORICAL_PRICES = json.load(f)
 
 # Program dates and block heights
 END_DATE = START_DATE + timedelta(weeks=PROGRAM_DURATION_WEEKS)
@@ -85,53 +112,60 @@ def save_state(last_block, events_cid, rewards_cid):
             'events_cid': events_cid,
             'rewards_cid': rewards_cid
         }, f)
+    logger.info(f"State saved. Last processed block: {last_block}")
 
 def load_state():
     try:
         with open(STATE_FILE, 'r') as f:
-            return json.load(f)
+            state = json.load(f)
+        logger.info(f"State loaded. Last processed block: {state['last_processed_block']}")
+        return state
     except FileNotFoundError:
+        logger.info(f"No state file found. Starting from block {START_BLOCK}")
         return {'last_processed_block': START_BLOCK, 'events_cid': None, 'rewards_cid': None}
 
-# Rate limiting for CoinGecko API
-last_request_time = {}
-def rate_limited_request(url, params):
-    current_time = time.time()
-    if url in last_request_time and current_time - last_request_time[url] < 1:
-        time.sleep(1 - (current_time - last_request_time[url]))
-    response = requests.get(url, params=params)
-    last_request_time[url] = time.time()
-    return response
 
-# Function to fetch token price from CoinGecko at a specific date
+def serialize_web3_data(obj):
+    if isinstance(obj, HexBytes):
+        return obj.hex()
+    if isinstance(obj, AttributeDict):
+        return {k: serialize_web3_data(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [serialize_web3_data(item) for item in obj]
+    if isinstance(obj, dict):
+        return {k: serialize_web3_data(v) for k, v in obj.items()}
+    if isinstance(obj, (int, float, str, bool, type(None))):
+        return obj
+    return str(obj)
+
+# Function to fetch token price
 def fetch_token_price(token_name, date):
     token_id = TOKEN_TO_COINGECKO_ID.get(token_name.lower())
-    if not token_id:
-        logger.error(f"Unknown token: {token_name}")
+    if not token_id or token_id not in HISTORICAL_PRICES:
+        logger.error(f"Unknown token or no price data: {token_name}")
         return 0
 
-    url = f"https://api.coingecko.com/api/v3/coins/{token_id}/history"
+    target_timestamp = int(date.timestamp() * 1000)  # Convert to milliseconds
+    price_data = HISTORICAL_PRICES[token_id]
     
-    for i in range(4):  # Try current date and up to 3 days before
-        try_date = date - timedelta(days=i)
-        params = {
-            "date": try_date.strftime("%d-%m-%Y"),
-            "localization": "false"
-        }
-        try:
-            response = rate_limited_request(url, params)
-            response.raise_for_status()
-            data = response.json()
-            price = data['market_data']['current_price']['usd']
-            if price > 0:
-                if i > 0:
-                    logger.info(f"Used price from {i} day(s) ago for {token_name} on {date}")
-                return price
-        except requests.RequestException as e:
-            logger.warning(f"Failed to fetch price for {token_name} on {try_date}: {str(e)}")
+    # Find the index of the closest timestamp
+    timestamps = [entry[0] for entry in price_data]
+    index = bisect_left(timestamps, target_timestamp)
     
-    logger.error(f"Failed to fetch price for {token_name} on {date} and 3 days prior")
-    return 0
+    if index == 0:
+        closest_price = price_data[0][1]
+    elif index == len(price_data):
+        closest_price = price_data[-1][1]
+    else:
+        before = price_data[index - 1]
+        after = price_data[index]
+        if target_timestamp - before[0] < after[0] - target_timestamp:
+            closest_price = before[1]
+        else:
+            closest_price = after[1]
+
+    logger.info(f"Found price for {token_name} on {date}: {closest_price}")
+    return closest_price
 
 def get_event_abi(contract, event_name):
     for item in contract.abi:
@@ -194,6 +228,8 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
                 'address': pool["address"],
                 'topics': [event_signature_hash]
             })
+
+            logger.info(f"Fetched {len(logs)} {event_name} events for pool {pool['address']}")
             
             for log in logs:
                 try:
@@ -210,6 +246,7 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
     except Exception as e:
         logger.error(f"Failed to fetch events for pool {pool['address']}: {str(e)}")
 
+    logger.info(f"Total events fetched for pool {pool['address']}: {len(all_events)}")
     return all_events
 
 # Function to calculate rewards based on events
@@ -220,30 +257,46 @@ def calculate_rewards(events):
     sorted_events = sorted(events, key=lambda x: x['timestamp'])
 
     for event in sorted_events:
-        provider = event['args']['provider'] if 'provider' in event['args'] else event['args']['owner']
-        timestamp = datetime.fromtimestamp(event['timestamp'])
-        event_type = event['event']
-        
         try:
+            provider = event['args']['provider'] if 'provider' in event['args'] else event['args'].get('owner')
+            if not provider:
+                logger.warning(f"No provider found for event: {event}")
+                continue
+
+            timestamp = datetime.fromtimestamp(event['timestamp'])
+            event_type = event['event']
+            
             if event_type in ["AddLiquidity", "Mint"]:
                 action = "add"
                 if event_type == "AddLiquidity":
-                    amounts = event['args']['token_amounts']
+                    amounts = list(event['args'].get('token_amounts', []))
+                    # Ensure we have two values, add 0 if necessary
+                    amounts = amounts + [0] * (2 - len(amounts))
+                    logger.debug(f"AddLiquidity event details: provider={provider}, amounts={amounts}, timestamp={timestamp}")
                 else:  # Mint event
-                    amounts = [event['args']['amount0'], event['args']['amount1']]
+                    amounts = [event['args'].get('amount0', 0), event['args'].get('amount1', 0)]
             elif event_type in ["RemoveLiquidity", "RemoveLiquidityOne", "RemoveLiquidityImbalance", "Burn"]:
                 action = "remove"
                 if event_type in ["RemoveLiquidity", "RemoveLiquidityImbalance"]:
-                    amounts = event['args']['token_amounts']
+                    amounts = list(event['args'].get('token_amounts', []))
+                    # Ensure we have two values, add 0 if necessary
+                    amounts = amounts + [0] * (2 - len(amounts))
                 elif event_type == "RemoveLiquidityOne":
-                    amounts = [event['args']['token_amount'], 0]  # Assuming it's always the first token
+                    amounts = [event['args'].get('token_amount', 0), 0]  # Assuming it's always the first token
                 else:  # Burn event
-                    amounts = [event['args']['amount0'], event['args']['amount1']]
+                    amounts = [event['args'].get('amount0', 0), event['args'].get('amount1', 0)]
+            else:
+                logger.warning(f"Unknown event type: {event_type}")
+                continue
+
+            if len(amounts) < 2:
+                logger.warning(f"Invalid amounts for event: {event}")
+                continue
 
             token1_price = fetch_token_price(event['token1'], timestamp)
             token2_price = fetch_token_price(event['token2'], timestamp)
 
-            total_value = (amounts[0] * token1_price) + (amounts[1] * token2_price)
+            total_value = (float(amounts[0]) * token1_price) + (float(amounts[1]) * token2_price)
 
             if provider not in provider_liquidity:
                 provider_liquidity[provider] = []
@@ -260,11 +313,17 @@ def calculate_rewards(events):
                     last_event = provider_liquidity[provider][-1]
                     new_amount = max(0, last_event[1] - total_value)
                     provider_liquidity[provider].append((timestamp, new_amount))
+            
+            logger.info(f"Processed {action} event for provider {provider}: {total_value}")
         except Exception as e:
-            logger.error(f"Error calculating rewards for event: {str(e)}")
+            logger.error(f"Error processing event: {str(e)}", exc_info=True)
 
     weighted_avg_liquidity = {}
     for provider, liquidity_events in provider_liquidity.items():
+        if not liquidity_events:
+            logger.warning(f"No liquidity events for provider {provider}")
+            continue
+
         total_liquidity_time = 0
         for i in range(len(liquidity_events)):
             current_time, current_amount = liquidity_events[i]
@@ -277,58 +336,74 @@ def calculate_rewards(events):
             duration = (next_time - current_time).total_seconds()
             total_liquidity_time += current_amount * duration
 
-        total_duration = (end_timestamp - liquidity_events[0][0]).total_seconds()
-        weighted_avg_liquidity[provider] = total_liquidity_time / total_duration
+        start_time = liquidity_events[0][0]
+        total_duration = (end_timestamp - start_time).total_seconds()
+        
+        if total_duration > 0:
+            weighted_avg_liquidity[provider] = total_liquidity_time / total_duration
+        else:
+            logger.warning(f"Zero duration for provider {provider}")
+            weighted_avg_liquidity[provider] = 0
 
     total_weighted_liquidity = sum(weighted_avg_liquidity.values())
     rewards = []
-    for provider, avg_liquidity in weighted_avg_liquidity.items():
-        provider_reward = (avg_liquidity / total_weighted_liquidity) * TOTAL_REWARDS
-        rewards.append({
-            "provider": provider,
-            "weighted_avg_liquidity": avg_liquidity,
-            "estimated_reward": provider_reward
-        })
+    
+    if total_weighted_liquidity > 0:
+        for provider, avg_liquidity in weighted_avg_liquidity.items():
+            provider_reward = (avg_liquidity / total_weighted_liquidity) * TOTAL_REWARDS
+            rewards.append({
+                "provider": provider.hex() if isinstance(provider, bytes) else provider,
+                "weighted_avg_liquidity": avg_liquidity,
+                "estimated_reward": provider_reward
+            })
+            logger.info(f"Calculated reward for provider {provider.hex() if isinstance(provider, bytes) else provider}: {provider_reward}")
+    else:
+        logger.warning("Total weighted liquidity is zero, no rewards to distribute")
 
     return rewards
 
 # Function to log events and rewards to IPFS
 def log_to_ipfs(new_events, rewards):
-    state = load_state()
-    events_cid = state['events_cid']
-    
     try:
-        if events_cid:
-            response = requests.get(f'https://gateway.pinata.cloud/ipfs/{events_cid}')
-            response.raise_for_status()
-            existing_events = response.json()['events']
-        else:
-            existing_events = []
+        logger.info(f"Logging {len(new_events)} new events to IPFS")
 
-        all_events = existing_events + new_events
-        unique_events = {event['transactionHash']: event for event in all_events}.values()
+        serialized_events = serialize_web3_data(new_events)
+        serialized_rewards = serialize_web3_data(rewards)
 
-        events_json = json.dumps({"events": list(unique_events)})
-        rewards_json = json.dumps({
+        events_json = {"events": serialized_events}
+        rewards_json = {
             "overall_weighted_avg_liquidity": sum(r["weighted_avg_liquidity"] for r in rewards),
-            "rewards": rewards
-        })
+            "rewards": serialized_rewards
+        }
+
+        # Pin JSON data to IPFS
+        events_response = pinata.pin_json_to_ipfs(events_json)
+        rewards_response = pinata.pin_json_to_ipfs(rewards_json)
         
-        events_response = pinata.pin_json(events_json)
-        rewards_response = pinata.pin_json(rewards_json)
-        
-        new_events_cid = events_response['IpfsHash']
-        new_rewards_cid = rewards_response['IpfsHash']
+        # Debug logging
+        logger.debug(f"Events response from Pinata: {events_response}")
+        logger.debug(f"Rewards response from Pinata: {rewards_response}")
+
+        # Extract CIDs from response
+        new_events_cid = events_response.get('IpfsHash')
+        new_rewards_cid = rewards_response.get('IpfsHash')
+
+        if not new_events_cid or not new_rewards_cid:
+            raise ValueError("Failed to extract IPFS hash from Pinata response")
+
+        logger.info(f"New events pinned to IPFS with CID: {new_events_cid}")
+        logger.info(f"New rewards pinned to IPFS with CID: {new_rewards_cid}")
         
         return new_events_cid, new_rewards_cid
     except Exception as e:
-        logger.error(f"Error logging to IPFS: {str(e)}")
+        logger.error(f"Error logging to IPFS: {str(e)}", exc_info=True)
         raise
 
 # API endpoint to get latest CIDs
 @app.route('/api/latest-cids', methods=['GET'])
 def get_latest_cids():
     state = load_state()
+    logger.info(f"API request for latest CIDs. Returning: {state['events_cid']}, {state['rewards_cid']}")
     return jsonify({
         'events_cid': state['events_cid'],
         'rewards_cid': state['rewards_cid']
@@ -343,21 +418,22 @@ signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
 
 def main():
-    state = load_state()
-    last_processed_block = state['last_processed_block']
-    
-    while datetime.now() < END_DATE:
+    while datetime.now() <= END_DATE + timedelta(days=1):
         try:
+            asyncio.run(update_price_data())
             current_block = w3.eth.get_block('latest')['number']
+            logger.info(f"Processing blocks from {START_BLOCK} to {current_block}")
             
             all_events = []
             for pool in POOLS:
-                events = fetch_events(w3, pool, last_processed_block, current_block, START_TIMESTAMP, END_TIMESTAMP)
+                events = fetch_events(w3, pool, START_BLOCK, current_block, START_TIMESTAMP, END_TIMESTAMP)
                 for event in events:
                     event['token1'] = pool['tokens'][0]
                     event['token2'] = pool['tokens'][1]
                 all_events.extend(events)
-            
+
+            logger.info(f"Total events fetched: {len(all_events)}")
+
             if all_events:
                 rewards = calculate_rewards(all_events)
                 events_cid, rewards_cid = log_to_ipfs(all_events, rewards)
@@ -368,13 +444,11 @@ def main():
                 logger.info(f"Rewards logged to IPFS with CID: {rewards_cid}")
             else:
                 logger.info("No new events in the specified date range.")
-            
-            last_processed_block = current_block + 1
         except Exception as e:
             logger.error(f"An error occurred in the main loop: {str(e)}")
-            time.sleep(60)  # Wait for 1 minute before retrying
+            time.sleep(86400)  # Wait for 24 hours before retrying
         
-        time.sleep(5)  # Wait for 5 secs before the next iteration
+        time.sleep(10800)  # Wait for 3 hours before the next iteration
 
 if __name__ == "__main__":
     # Run the main loop in a separate thread
