@@ -14,7 +14,7 @@ from fetch_prices import update_price_data
 import json
 from bisect import bisect_left
 from web3.datastructures import AttributeDict
-from eth_utils import to_checksum_address
+from eth_utils import to_checksum_address, remove_0x_prefix
 from hexbytes import HexBytes
 import asyncio
 
@@ -235,7 +235,7 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
                 try:
                     block = w3.eth.get_block(log['blockNumber'])
                     event_timestamp = block['timestamp']
-                    if start_timestamp <= event_timestamp < end_timestamp:
+                    if start_timestamp <= event_timestamp <= end_timestamp:
                         decoded_event = decode_log(event_abi, log)
                         decoded_event['timestamp'] = event_timestamp
                         decoded_event['transactionHash'] = log['transactionHash'].hex()
@@ -362,18 +362,86 @@ def calculate_rewards(events):
 
     return rewards
 
+def is_contract(w3, address):
+    code = w3.eth.get_code(address)
+    return len(code) > 0
+
+def normalize_address(address):
+    # Convert bytes to hex string if address is of bytes type
+    if isinstance(address, bytes):
+        address = address.hex()
+    elif not isinstance(address, str):
+        raise ValueError(f"Unsupported address format: {type(address)}")
+
+    # Common processing steps for both bytes and str types
+    address = address.lower().removeprefix('0x').lstrip('0').zfill(40)
+    address = '0x' + address
+    
+    return to_checksum_address(address)
+
 # Function to log events and rewards to IPFS
-def log_to_ipfs(new_events, rewards):
+def log_to_ipfs(w3, new_events, rewards):
     try:
         logger.info(f"Logging {len(new_events)} new events to IPFS")
 
-        serialized_events = serialize_web3_data(new_events)
-        serialized_rewards = serialize_web3_data(rewards)
+        formatted_events = []
+        for event in new_events:
+            event_type = event['event'].lower()
+            provider = event['args'].get('provider') or event['args'].get('owner')
+            
+            logger.debug(f"Original provider address: {provider} (type: {type(provider)})")
+            
+            # Normalize and convert provider to checksum address
+            try:
+                provider = normalize_address(provider)
+                logger.debug(f"Normalized provider address: {provider}")
+            except Exception as e:
+                logger.error(f"Error normalizing address: {str(e)}", exc_info=True)
+                continue
 
-        events_json = {"events": serialized_events}
+            formatted_event = {
+                "event": "add" if event_type in ["addliquidity", "mint"] else "remove",
+                "provider": provider,
+                "providerType": "contract" if is_contract(w3, provider) else "wallet",
+                "tokens": {
+                    "token1": event['token1'],
+                    "token2": event['token2'] if 'token2' in event else None
+                },
+                "token_amounts": {},
+                "timestamp": event['timestamp'],
+                "transactionHash": event['transactionHash']
+            }
+
+            if event_type in ["addliquidity", "removeliquidity", "removeliquidityimbalance"]:
+                amounts = event['args'].get('token_amounts', [])
+                formatted_event["token_amounts"]["token1"] = str(amounts[0]) if len(amounts) > 0 else '0'
+                formatted_event["token_amounts"]["token2"] = str(amounts[1]) if len(amounts) > 1 else '0'
+            elif event_type == "removeliquidityone":
+                formatted_event["token_amounts"]["token1"] = str(event['args'].get('token_amount', 0))
+                formatted_event["token_amounts"]["token2"] = '0'
+            elif event_type in ["mint", "burn"]:
+                # For UniswapV3, we need to match the token order with the pool's token order
+                formatted_event["token_amounts"]["token1"] = str(event['args'].get('amount0', 0))
+                formatted_event["token_amounts"]["token2"] = str(event['args'].get('amount1', 0))
+
+            formatted_events.append(formatted_event)
+
+        events_json = {"events": formatted_events}
+        
+        # Format rewards
+        formatted_rewards = []
+        for reward in rewards:
+            provider = normalize_address(reward['provider'])
+            
+            formatted_rewards.append({
+                "provider": provider,
+                "weighted_avg_liquidity": str(reward['weighted_avg_liquidity']),
+                "estimated_reward": str(reward['estimated_reward'])
+            })
+        
         rewards_json = {
-            "overall_weighted_avg_liquidity": sum(r["weighted_avg_liquidity"] for r in rewards),
-            "rewards": serialized_rewards
+            "overall_weighted_avg_liquidity": str(sum(float(r["weighted_avg_liquidity"]) for r in formatted_rewards)),
+            "rewards": formatted_rewards
         }
 
         # Pin JSON data to IPFS
@@ -398,7 +466,7 @@ def log_to_ipfs(new_events, rewards):
     except Exception as e:
         logger.error(f"Error logging to IPFS: {str(e)}", exc_info=True)
         raise
-
+    
 # API endpoint to get latest CIDs
 @app.route('/api/latest-cids', methods=['GET'])
 def get_latest_cids():
@@ -429,14 +497,14 @@ def main():
                 events = fetch_events(w3, pool, START_BLOCK, current_block, START_TIMESTAMP, END_TIMESTAMP)
                 for event in events:
                     event['token1'] = pool['tokens'][0]
-                    event['token2'] = pool['tokens'][1]
+                    event['token2'] = pool['tokens'][1] if len(pool['tokens']) > 1 else None
                 all_events.extend(events)
 
             logger.info(f"Total events fetched: {len(all_events)}")
 
             if all_events:
                 rewards = calculate_rewards(all_events)
-                events_cid, rewards_cid = log_to_ipfs(all_events, rewards)
+                events_cid, rewards_cid = log_to_ipfs(w3, all_events, rewards)
                 
                 save_state(current_block, events_cid, rewards_cid)
                 
