@@ -49,10 +49,9 @@ Create a .env file in the root directory and add the following:
     - Returns the latest CIDs for events and rewards logged to IPFS.
 
 ## Files and Directories
-
-backend_service.py: Main script to fetch events, calculate rewards, and run the Flask API.
-fetch_prices.py: Script to fetch historical token prices from CoinGecko.
-abi/curve_abi.json: ABI file for Curve pools.
-abi/univ3_abi.json: ABI file for Uniswap V3 pools.
-requirements.txt: List of Python dependencies.
-.env: Environment configuration file (not included in the repository).
+- backend_service.py: Main script to fetch events, calculate rewards, and run the Flask API.
+- fetch_prices.py: Script to fetch historical token prices from CoinGecko.
+- abi/curve_abi.json: ABI file for Curve pools.
+- abi/univ3_abi.json: ABI file for Uniswap V3 pools.
+- requirements.txt: List of Python dependencies.
+- .env: Environment configuration file (not included in the repository).
