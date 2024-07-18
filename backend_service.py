@@ -254,6 +254,17 @@ def decode_log(abi, log):
     return event
 
 def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp):
+    """
+    Fetch and decode events from a blockchain pool within a specified block range and time period.
+
+    :param w3: Web3 instance connected to the blockchain.
+    :param pool: Dictionary containing pool address, ABI, and token configurations.
+    :param from_block: Starting block number for fetching events.
+    :param to_block: Ending block number for fetching events.
+    :param start_timestamp: Starting Unix timestamp for filtering events.
+    :param end_timestamp: Ending Unix timestamp for filtering events.
+    :return: List of decoded events.
+    """    
     contract = w3.eth.contract(address=pool["address"], abi=pool["abi"])
     all_events = []
     try:
@@ -308,6 +319,13 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
     return all_events
 
 def get_token_name_by_address(address, pool):
+    """
+    Retrieve the token name by its address from the pool configuration.
+
+    :param address: Token contract address.
+    :param pool: Pool configuration dictionary.
+    :return: Token name or None if not found.
+    """    
     for token in pool['tokens']:
         if isinstance(token, dict):
             for name, addr in token.items():
@@ -316,6 +334,12 @@ def get_token_name_by_address(address, pool):
     return None
 
 def get_tokens_from_contract(pool):
+    """
+    Get the names of the tokens associated with a pool contract.
+
+    :param pool: Pool configuration dictionary.
+    :return: Tuple containing the names of the two tokens.
+    """    
     contract = w3.eth.contract(address=pool["address"], abi=pool["abi"])
     try:
         if hasattr(contract.functions, 'token0') and hasattr(contract.functions, 'token1'):
@@ -335,8 +359,13 @@ def get_tokens_from_contract(pool):
         return None, None
     return None, None
 
-# Function to calculate rewards based on events
 def calculate_rewards(events):
+    """
+    Calculate rewards for liquidity providers based on their activity.
+
+    :param events: List of decoded events.
+    :return: List of rewards for each liquidity provider.
+    """    
     provider_liquidity = {}
     end_timestamp = datetime.now()
 
@@ -448,10 +477,24 @@ def calculate_rewards(events):
     return rewards
 
 def is_contract(w3, address):
+    """
+    Check if the given address is a smart contract.
+
+    :param w3: Web3 instance connected to the blockchain.
+    :param address: Ethereum address to check.
+    :return: True if the address is a contract, False otherwise.
+    """
     code = w3.eth.get_code(address)
     return len(code) > 0
 
 def normalize_address(address):
+    """
+    Normalize an Ethereum address to its checksummed version.
+    This function handles both string and bytes input formats.
+
+    :param address: Ethereum address to normalize.
+    :return: Checksummed Ethereum address.
+    """    
     # Convert bytes to hex string if address is of bytes type
     if isinstance(address, bytes):
         address = address.hex()
@@ -464,8 +507,15 @@ def normalize_address(address):
     
     return to_checksum_address(address)
 
-# Function to log events and rewards to IPFS
 def log_to_ipfs(w3, new_events, rewards):
+    """
+    Log events and rewards to IPFS using Pinata.
+
+    :param w3: Web3 instance connected to the blockchain.
+    :param new_events: List of new events to log.
+    :param rewards: List of calculated rewards to log.
+    :return: Tuple containing the IPFS CIDs for the logged events and rewards.
+    """    
     try:
         logger.info(f"Logging {len(new_events)} new events to IPFS")
 
@@ -550,9 +600,13 @@ def log_to_ipfs(w3, new_events, rewards):
         logger.error(f"Error logging to IPFS: {str(e)}", exc_info=True)
         raise
 
-# API endpoint to get latest CIDs
 @app.route('/api/latest-cids', methods=['GET'])
 def get_latest_cids():
+    """
+    API endpoint to get the latest IPFS CIDs for events and rewards.
+
+    :return: JSON response containing the latest IPFS CIDs.
+    """    
     state = load_state()
     logger.info(f"API request for latest CIDs. Returning: {state['events_cid']}, {state['rewards_cid']}")
     return jsonify({
@@ -560,8 +614,13 @@ def get_latest_cids():
         'rewards_cid': state['rewards_cid']
     }), 200
 
-# Graceful shutdown
 def signal_handler(sig, frame):
+    """
+    Handle shutdown signals to gracefully exit the application.
+
+    :param sig: Signal number.
+    :param frame: Current stack frame.
+    """    
     logger.info("Shutting down gracefully...")
     sys.exit(0)
 
@@ -569,6 +628,10 @@ signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
 
 def main():
+    """
+    Main function to run the rewards calculation and logging loop.
+    This function periodically updates price data, fetches events, calculates rewards, logs data to IPFS, and saves the program state.
+    """    
     while datetime.now() <= END_DATE + timedelta(days=1):
         try:
             asyncio.run(update_price_data())
