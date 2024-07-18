@@ -13,10 +13,10 @@ import sys
 from fetch_prices import update_price_data
 import json
 from bisect import bisect_left
-from web3.datastructures import AttributeDict
-from eth_utils import to_checksum_address, remove_0x_prefix
-from hexbytes import HexBytes
+from eth_utils import to_checksum_address
 import asyncio
+from decimal import Decimal
+
 
 # Set up logging
 log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -55,8 +55,15 @@ else:
     logger.error("Failed to connect to Arbitrum network")
     sys.exit(1)
 
-# Load ABIs from ./abi directory
 def load_abi(filename):
+    """
+    Load the ABI (Application Binary Interface) file from the given filename.
+    This function reads the ABI file from the './abi' directory and parses it as JSON.
+
+    :param filename: Name of the ABI file to load.
+    :return: Parsed ABI JSON.
+    :raises FileNotFoundError: If the ABI file is not found.
+    """    
     try:
         with open(f"./abi/{filename}", 'r') as file:
             return json.load(file)
@@ -68,6 +75,12 @@ CURVE_ABI = load_abi("curve_abi.json")
 UNIV3_ABI = load_abi("univ3_abi.json")
 
 def to_checksum_address(address):
+    """
+    Convert an Ethereum address to its checksummed version.
+
+    :param address: Ethereum address in string format.
+    :return: Checksummed Ethereum address.
+    """    
     return Web3.toChecksumAddress(address)
 
 # Pool addresses and configurations dictionary
@@ -99,6 +112,14 @@ app = Flask(__name__)
 STATE_FILE = 'program_state.json'
 
 def save_state(last_block, events_cid, rewards_cid):
+    """
+    Save the current state of the program to a JSON file.
+    This function writes the last processed block number and the latest IPFS CIDs for events and rewards to a file.
+
+    :param last_block: The last processed block number.
+    :param events_cid: The IPFS CID for the latest events.
+    :param rewards_cid: The IPFS CID for the latest rewards.
+    """    
     with open(STATE_FILE, 'w') as f:
         json.dump({
             'last_processed_block': last_block,
@@ -108,6 +129,12 @@ def save_state(last_block, events_cid, rewards_cid):
     logger.info(f"State saved. Last processed block: {last_block}")
 
 def load_state():
+    """
+    Load the saved state of the program from a JSON file.
+    This function reads the last processed block number and the latest IPFS CIDs for events and rewards from a file.
+
+    :return: A dictionary containing the last processed block number, and the latest IPFS CIDs for events and rewards.
+    """    
     try:
         with open(STATE_FILE, 'r') as f:
             state = json.load(f)
@@ -117,9 +144,41 @@ def load_state():
         logger.info(f"No state file found. Starting from block {START_BLOCK}")
         return {'last_processed_block': START_BLOCK, 'events_cid': None, 'rewards_cid': None}
 
+class CustomJSONEncoder(json.JSONEncoder):
+    """
+    Custom JSON encoder for handling Decimal objects.
+    This encoder converts Decimal objects to their string representation when encoding JSON.
+    """    
+    def default(self, obj):
+        if isinstance(obj, Decimal):
+            return format(obj, 'f')
+        return super(CustomJSONEncoder, self).default(obj)
+    
+def decimal_to_str(obj):
+    """
+    Recursively convert all Decimal objects in the given object to their string representation.
+    This function handles nested structures like lists and dictionaries.
 
-# Function to fetch token price
+    :param obj: The object to convert.
+    :return: The object with all Decimal objects converted to strings.
+    """    
+    if isinstance(obj, Decimal):
+        return format(obj, 'f')
+    elif isinstance(obj, dict):
+        return {k: decimal_to_str(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [decimal_to_str(v) for v in obj]
+    return obj
+
 def fetch_token_price(token_name, date):
+    """
+    Fetch the historical price of a token for a specific date.
+    This function retrieves the price of the given token from the preloaded historical prices data.
+
+    :param token_name: The name of the token.
+    :param date: The date for which to fetch the token price.
+    :return: The price of the token at the specified date.
+    """    
     if not token_name or token_name not in HISTORICAL_PRICES:
         logger.error(f"Unknown token or no price data: {token_name}")
         return 0
@@ -145,18 +204,38 @@ def fetch_token_price(token_name, date):
     return closest_price
 
 def get_event_abi(contract, event_name):
+    """
+    Retrieve the ABI definition for a specific event from a contract's ABI.
+
+    :param contract: The contract object.
+    :param event_name: The name of the event.
+    :return: The ABI definition for the event, or None if the event is not found.
+    """    
     for item in contract.abi:
         if item['type'] == 'event' and item['name'] == event_name:
             return item
     return None
 
 def create_event_signature(event_abi):
+    """
+    Create the signature for an event using its ABI definition.
+
+    :param event_abi: The ABI definition of the event.
+    :return: The event signature string, or None if the event ABI is not provided.
+    """    
     if not event_abi:
         return None
     types = ','.join([input['type'] for input in event_abi['inputs']])
     return f"{event_abi['name']}({types})"
 
 def decode_log(abi, log):
+    """
+    Decode a log entry using the given ABI definition.
+
+    :param abi: The ABI definition of the event.
+    :param log: The log entry to decode.
+    :return: A dictionary containing the decoded event data.
+    """    
     topics = log['topics']
     if len(topics) > 0:
         topics = topics[1:]  # remove event signature
@@ -363,7 +442,6 @@ def calculate_rewards(events):
                 "weighted_avg_liquidity": avg_liquidity,
                 "estimated_reward": provider_reward
             })
-            # logger.info(f"Calculated reward for provider {normalize_address(provider)}: {provider_reward}")
     else:
         logger.warning("Total weighted liquidity is zero, no rewards to distribute")
 
@@ -419,15 +497,15 @@ def log_to_ipfs(w3, new_events, rewards):
 
             if event_type in ["addliquidity", "removeliquidity", "removeliquidityimbalance"]:
                 amounts = event['args'].get('token_amounts', [])
-                formatted_event["token_amounts"]["token1"] = str(amounts[0]) if len(amounts) > 0 else '0'
-                formatted_event["token_amounts"]["token2"] = str(amounts[1]) if len(amounts) > 1 else '0'
+                formatted_event["token_amounts"]["token1"] = amounts[0] if len(amounts) > 0 else '0'
+                formatted_event["token_amounts"]["token2"] = amounts[1] if len(amounts) > 1 else '0'
             elif event_type == "removeliquidityone":
-                formatted_event["token_amounts"]["token1"] = str(event['args'].get('token_amount', 0))
+                formatted_event["token_amounts"]["token1"] = event['args'].get('token_amount', 0)
                 formatted_event["token_amounts"]["token2"] = '0'
             elif event_type in ["mint", "burn"]:
                 # For UniswapV3, we need to match the token order with the pool's token order
-                formatted_event["token_amounts"]["token1"] = str(event['args'].get('amount0', 0))
-                formatted_event["token_amounts"]["token2"] = str(event['args'].get('amount1', 0))
+                formatted_event["token_amounts"]["token1"] = event['args'].get('amount0', 0)
+                formatted_event["token_amounts"]["token2"] = event['args'].get('amount1', 0)
 
             formatted_events.append(formatted_event)
 
@@ -440,14 +518,18 @@ def log_to_ipfs(w3, new_events, rewards):
             
             formatted_rewards.append({
                 "provider": provider,
-                "weighted_avg_liquidity": str(reward['weighted_avg_liquidity']),
-                "estimated_reward": str(reward['estimated_reward'])
+                "weighted_avg_liquidity": format(Decimal(str(reward['weighted_avg_liquidity'])), 'f'),
+                "estimated_reward": format(Decimal(str(reward['estimated_reward'])), 'f')
             })
         
         rewards_json = {
-            "overall_weighted_avg_liquidity": str(sum(float(r["weighted_avg_liquidity"]) for r in formatted_rewards)),
+            "overall_weighted_avg_liquidity": format(Decimal(str(sum(Decimal(str(r["weighted_avg_liquidity"])) for r in rewards))), 'f'),
             "rewards": formatted_rewards
         }
+
+        # Convert all Decimal objects to strings
+        events_json = decimal_to_str(events_json)
+        rewards_json = decimal_to_str(rewards_json)
 
         # Pin JSON data to IPFS
         events_response = pinata.pin_json_to_ipfs(events_json)
