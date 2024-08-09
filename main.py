@@ -316,7 +316,7 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
     except Exception as e:
         logger.error(f"Failed to fetch events for pool {pool['address']}: {str(e)}")
 
-    logger.info(f"Total events fetched for pool {pool['address']}: {len(all_events)}")
+    logger.info(f"Total events elegible for pool {pool['address']}: {len(all_events)}")
     return all_events
 
 def get_token_name_by_address(address, pool):
@@ -645,7 +645,7 @@ def main():
                 events = fetch_events(w3, pool, START_BLOCK, current_block, START_TIMESTAMP, END_TIMESTAMP)
                 all_events.extend(events)
 
-            logger.info(f"Total events fetched: {len(all_events)}")
+            logger.info(f"Total events elegible: {len(all_events)}")
 
             if all_events:
                 rewards = calculate_rewards(all_events)
@@ -661,6 +661,7 @@ def main():
             logger.error(f"An error occurred in the main loop: {str(e)}")
             time.sleep(86400)  # Wait for 24 hours before retrying
         
+        logger.info(f"Sleeping for 6 hours")
         time.sleep(21600)  # Wait for 6 hours before the next iteration
 
 if __name__ == "__main__":
