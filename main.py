@@ -86,8 +86,8 @@ def to_checksum_address(address):
 # Pool addresses and configurations dictionary
 POOLS = [
     {"address": to_checksum_address("0x186cf879186986a20aadfb7ead50e3c20cb26cec"), "abi": CURVE_ABI, "tokens": [{"tbtc": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}, {"wrapped-bitcoin": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"}]},
-    # {"address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"), "abi": UNIV3_ABI, "tokens": [{"tbtc": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}, {"wrapped-bitcoin": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"}]},
-    # {"address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"), "abi": UNIV3_ABI, "tokens": [{"tbtc": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}, {"ethereum": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"}]}
+    {"address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"), "abi": UNIV3_ABI, "tokens": [{"tbtc": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}, {"wrapped-bitcoin": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"}]},
+    {"address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"), "abi": UNIV3_ABI, "tokens": [{"tbtc": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}, {"ethereum": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"}]}
 ]
 
 # Load historical prices once at the start of the script
@@ -309,6 +309,7 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
                         decoded_event['transactionHash'] = log['transactionHash'].hex()
                         decoded_event['tokens'] = {"token1": token1, "token2": token2}
                         all_events.append(decoded_event)
+                    time.sleep(0.1)
                 except Exception as e:
                     logger.error(f"Error processing event: {str(e)}")
 
@@ -558,6 +559,7 @@ def log_to_ipfs(w3, new_events, rewards):
                 formatted_event["token_amounts"]["token2"] = event['args'].get('amount1', 0)
 
             formatted_events.append(formatted_event)
+            time.sleep(0.1)
 
         events_json = {"events": formatted_events}
         
@@ -659,7 +661,7 @@ def main():
             logger.error(f"An error occurred in the main loop: {str(e)}")
             time.sleep(86400)  # Wait for 24 hours before retrying
         
-        time.sleep(10800)  # Wait for 3 hours before the next iteration
+        time.sleep(21600)  # Wait for 6 hours before the next iteration
 
 if __name__ == "__main__":
     # Run the main loop in a separate thread
