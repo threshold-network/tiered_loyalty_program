@@ -5,3 +5,4 @@ pinatapy-vourhey==0.2
 flask==2.0.3
 werkzeug==2.0.3
 eth-abi==3.0.0
+Flask-CORS==3.0.10

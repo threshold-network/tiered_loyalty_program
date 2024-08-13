@@ -16,6 +16,7 @@ from bisect import bisect_left
 from eth_utils import to_checksum_address
 import asyncio
 from decimal import Decimal
+from flask_cors import CORS
 
 
 # Set up logging
@@ -107,6 +108,7 @@ pinata = pinatapy.PinataPy(PINATA_API_KEY, PINATA_SECRET_API_KEY)
 
 # Flask app for API
 app = Flask(__name__)
+CORS(app)
 
 # File to store latest CIDs and last processed block
 STATE_FILE = 'program_state.json'
