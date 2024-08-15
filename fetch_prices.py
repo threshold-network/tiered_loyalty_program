@@ -22,7 +22,9 @@ api_key = os.getenv("COINGECKO_API_KEY")
 tokens = {
     "tbtc": "tbtc",
     "wrapped-bitcoin": "wrapped-bitcoin",
-    "ethereum": "ethereum"
+    "ethereum": "ethereum",
+    "arbitrum": "arbitrum",
+    "threshold-network-token": "threshold-network-token",
 }
 
 # Output file name

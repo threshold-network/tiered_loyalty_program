@@ -86,9 +86,30 @@ def to_checksum_address(address):
 
 # Pool addresses and configurations dictionary
 POOLS = [
-    {"address": to_checksum_address("0x186cf879186986a20aadfb7ead50e3c20cb26cec"), "abi": CURVE_ABI, "tokens": [{"tbtc": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}, {"wrapped-bitcoin": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"}]},
-    {"address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"), "abi": UNIV3_ABI, "tokens": [{"tbtc": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}, {"wrapped-bitcoin": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f"}]},
-    {"address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"), "abi": UNIV3_ABI, "tokens": [{"tbtc": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"}, {"ethereum": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"}]}
+    {
+        "address": to_checksum_address("0x186cf879186986a20aadfb7ead50e3c20cb26cec"),
+        "abi": CURVE_ABI,
+        "tokens": [
+            {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
+            {"token2": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
+        ]
+    },
+    # {
+    #     "address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"),
+    #     "abi": UNIV3_ABI,
+    #     "tokens": [
+    #         {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
+    #         {"token2": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
+    #     ]
+    # },
+    # {
+    #     "address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"),
+    #     "abi": UNIV3_ABI,
+    #     "tokens": [
+    #         {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
+    #         {"token2": {"address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "decimals": 18, "symbol": "ETH", "coingecko_id": "ethereum"}}
+    #     ]
+    # }
 ]
 
 # Load historical prices once at the start of the script
@@ -146,47 +167,21 @@ def load_state():
         logger.info(f"No state file found. Starting from block {START_BLOCK}")
         return {'last_processed_block': START_BLOCK, 'events_cid': None, 'rewards_cid': None}
 
-class CustomJSONEncoder(json.JSONEncoder):
-    """
-    Custom JSON encoder for handling Decimal objects.
-    This encoder converts Decimal objects to their string representation when encoding JSON.
-    """    
-    def default(self, obj):
-        if isinstance(obj, Decimal):
-            return format(obj, 'f')
-        return super(CustomJSONEncoder, self).default(obj)
-    
-def decimal_to_str(obj):
-    """
-    Recursively convert all Decimal objects in the given object to their string representation.
-    This function handles nested structures like lists and dictionaries.
-
-    :param obj: The object to convert.
-    :return: The object with all Decimal objects converted to strings.
-    """    
-    if isinstance(obj, Decimal):
-        return format(obj, 'f')
-    elif isinstance(obj, dict):
-        return {k: decimal_to_str(v) for k, v in obj.items()}
-    elif isinstance(obj, list):
-        return [decimal_to_str(v) for v in obj]
-    return obj
-
-def fetch_token_price(token_name, date):
+def fetch_token_price(coingecko_id, date):
     """
     Fetch the historical price of a token for a specific date.
     This function retrieves the price of the given token from the preloaded historical prices data.
 
-    :param token_name: The name of the token.
+    :param coingecko_id: The name of the token.
     :param date: The date for which to fetch the token price.
     :return: The price of the token at the specified date.
     """    
-    if not token_name or token_name not in HISTORICAL_PRICES:
-        logger.error(f"Unknown token or no price data: {token_name}")
+    if not coingecko_id or coingecko_id not in HISTORICAL_PRICES:
+        logger.error(f"Unknown token or no price data: {coingecko_id}")
         return 0
 
     target_timestamp = int(date.timestamp() * 1000)  # Convert to milliseconds
-    price_data = HISTORICAL_PRICES[token_name]
+    price_data = HISTORICAL_PRICES[coingecko_id]
     
     # Find the index of the closest timestamp
     timestamps = [entry[0] for entry in price_data]
@@ -268,7 +263,8 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
     :return: List of decoded events.
     """    
     contract = w3.eth.contract(address=pool["address"], abi=pool["abi"])
-    all_events = []
+    events = []
+
     try:
         if pool["abi"] == CURVE_ABI:
             event_names = ["AddLiquidity", "RemoveLiquidity", "RemoveLiquidityOne", "RemoveLiquidityImbalance"]
@@ -278,7 +274,7 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
             logger.error(f"Unknown ABI for pool {pool['address']}")
             return []
 
-        token1, token2 = get_tokens_from_contract(pool)                
+        token1, token2 = get_tokens_from_contract(pool)
 
         for event_name in event_names:
             event_abi = get_event_abi(contract, event_name)
@@ -309,8 +305,12 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
                         decoded_event = decode_log(event_abi, log)
                         decoded_event['timestamp'] = event_timestamp
                         decoded_event['transactionHash'] = log['transactionHash'].hex()
-                        decoded_event['tokens'] = {"token1": token1, "token2": token2}
-                        all_events.append(decoded_event)
+                        if token1 and token2:
+                            decoded_event['tokens'] = {"token1": token1, "token2": token2}
+                        else:
+                            logger.warning(f"Unable to get token information for pool {pool['address']}")
+                            continue
+                        events.append(decoded_event)
                     time.sleep(0.1)
                 except Exception as e:
                     logger.error(f"Error processing event: {str(e)}")
@@ -318,49 +318,40 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
     except Exception as e:
         logger.error(f"Failed to fetch events for pool {pool['address']}: {str(e)}")
 
-    logger.info(f"Total events elegible for pool {pool['address']}: {len(all_events)}")
-    return all_events
+    logger.info(f"Total events elegible for rewards on pool {pool['address']}: {len(events)}")
+    return events
 
-def get_token_name_by_address(address, pool):
-    """
-    Retrieve the token name by its address from the pool configuration.
-
-    :param address: Token contract address.
-    :param pool: Pool configuration dictionary.
-    :return: Token name or None if not found.
-    """    
+def get_token_attr_by_address(address, pool):
     for token in pool['tokens']:
-        if isinstance(token, dict):
-            for name, addr in token.items():
-                if addr.lower() == address.lower():
-                    return name
+        token_info = next(iter(token.values()))
+        if token_info['address'].lower() == address.lower():
+            return token_info
     return None
 
 def get_tokens_from_contract(pool):
-    """
-    Get the names of the tokens associated with a pool contract.
-
-    :param pool: Pool configuration dictionary.
-    :return: Tuple containing the names of the two tokens.
-    """    
     contract = w3.eth.contract(address=pool["address"], abi=pool["abi"])
     try:
         if hasattr(contract.functions, 'token0') and hasattr(contract.functions, 'token1'):
             token0_address = contract.functions.token0().call()
             token1_address = contract.functions.token1().call()
-            token0_name = get_token_name_by_address(token0_address, pool)
-            token1_name = get_token_name_by_address(token1_address, pool)
-            return token0_name, token1_name
         elif hasattr(contract.functions, 'coins'):
-            coin0_address = contract.functions.coins(0).call()
-            coin1_address = contract.functions.coins(1).call()
-            coin0_name = get_token_name_by_address(coin0_address, pool)
-            coin1_name = get_token_name_by_address(coin1_address, pool)
-            return coin0_name, coin1_name
+            token0_address = contract.functions.coins(0).call()
+            token1_address = contract.functions.coins(1).call()
+        else:
+            logger.error(f"Unable to determine token addresses for pool {pool['address']}")
+            return None, None
+
+        token0_attr = get_token_attr_by_address(token0_address, pool)
+        token1_attr = get_token_attr_by_address(token1_address, pool)
+
+        if token0_attr and token1_attr:
+            return token0_attr, token1_attr
+        else:
+            logger.error(f"Unable to find token attributes for addresses {token0_address} and {token1_address}")
+            return None, None
     except Exception as e:
         logger.error(f"Error fetching token addresses from contract: {str(e)}")
         return None, None
-    return None, None
 
 def calculate_rewards(events):
     """
@@ -370,7 +361,10 @@ def calculate_rewards(events):
     :return: List of rewards for each liquidity provider.
     """    
     provider_liquidity = {}
-    end_timestamp = datetime.now()
+    start_timestamp = datetime.fromtimestamp(START_TIMESTAMP)
+    end_timestamp = datetime.fromtimestamp(END_TIMESTAMP)
+    now_timestamp = datetime.now()
+    total_duration = (end_timestamp - start_timestamp).total_seconds()
 
     sorted_events = sorted(events, key=lambda x: x['timestamp'])
     
@@ -381,9 +375,11 @@ def calculate_rewards(events):
                 logger.warning(f"No provider found for event: {event}")
                 continue
 
-            timestamp = datetime.fromtimestamp(event['timestamp'])
+            event_timestamp = datetime.fromtimestamp(event['timestamp'])
             event_type = event['event']
             tokens = event['tokens']
+            token1_info = tokens.get('token1', {})
+            token2_info = tokens.get('token2', {})
 
             if event_type in ["AddLiquidity", "Mint"]:
                 action = "add"
@@ -411,10 +407,12 @@ def calculate_rewards(events):
                 logger.warning(f"Invalid amounts for event: {event}")
                 continue
 
-            token1_price = fetch_token_price(tokens.get('token1'), timestamp)
-            token2_price = fetch_token_price(tokens.get('token2'), timestamp)
-
-            total_value = (float(amounts[0]) * token1_price) + (float(amounts[1]) * token2_price)
+            token1_price = fetch_token_price(token1_info.get('coingecko_id'), event_timestamp)
+            token2_price = fetch_token_price(token2_info.get('coingecko_id'), event_timestamp)
+            convert_amount0_to_number = amounts[0] / 10**token1_info.get('decimals', 0)
+            convert_amount1_to_number = amounts[1] / 10**token2_info.get('decimals', 0)
+            total_value = (convert_amount0_to_number * token1_price) + (convert_amount1_to_number * token2_price)
+            #logger.info(f"Processed {action} event for provider {normalize_address(provider)}: token1: {convert_amount0_to_number}, token2: {convert_amount1_to_number}, price1: {token1_price}, price2 {token2_price}, total_value {total_value}")
 
             if provider not in provider_liquidity:
                 provider_liquidity[provider] = []
@@ -425,14 +423,13 @@ def calculate_rewards(events):
                     new_amount = last_event[1] + total_value
                 else:
                     new_amount = total_value
-                provider_liquidity[provider].append((timestamp, new_amount))
+                provider_liquidity[provider].append((event_timestamp, new_amount))
             elif action == "remove":
                 if provider_liquidity[provider]:
                     last_event = provider_liquidity[provider][-1]
                     new_amount = max(0, last_event[1] - total_value)
-                    provider_liquidity[provider].append((timestamp, new_amount))
-            
-            # logger.info(f"Processed {action} event for provider {normalize_address(provider)}: {total_value}")
+                    provider_liquidity[provider].append((event_timestamp, new_amount))
+            #logger.info(f"New amount for provider {normalize_address(provider)}: new_amount: {new_amount}")
         except Exception as e:
             logger.error(f"Error processing event: {str(e)}", exc_info=True)
 
@@ -449,30 +446,31 @@ def calculate_rewards(events):
             if i < len(liquidity_events) - 1:
                 next_time = liquidity_events[i+1][0]
             else:
-                next_time = end_timestamp
+                next_time = now_timestamp
 
             duration = (next_time - current_time).total_seconds()
             total_liquidity_time += current_amount * duration
+            #logger.info(f"Processing liquidity event for provider {normalize_address(provider)}: current_amount: {current_amount}, duration: {duration}, total_liquidity_time: {total_liquidity_time}")
 
-        start_time = liquidity_events[0][0]
-        total_duration = (end_timestamp - start_time).total_seconds()
-        
-        if total_duration > 0:
-            weighted_avg_liquidity[provider] = total_liquidity_time / total_duration
-        else:
-            logger.warning(f"Zero duration for provider {provider}")
-            weighted_avg_liquidity[provider] = 0
+        weighted_avg_liquidity[provider] = total_liquidity_time / total_duration
+        #logger.info(f"Weighted average liquidity for provider {normalize_address(provider)}: total_liquidity_time {total_liquidity_time}, total_duration {total_duration}, weighted_avg_liquidity: {weighted_avg_liquidity[provider]}")
 
     total_weighted_liquidity = sum(weighted_avg_liquidity.values())
     rewards = []
     
     if total_weighted_liquidity > 0:
         for provider, avg_liquidity in weighted_avg_liquidity.items():
-            provider_reward = (avg_liquidity / total_weighted_liquidity) * TOTAL_REWARDS
+            provider_arb_reward_in_tokens = (avg_liquidity / total_weighted_liquidity) * TOTAL_REWARDS
+            provider_arb_reward_in_usd = provider_arb_reward_in_tokens * fetch_token_price("arbitrum", event_timestamp)
+            provider_reward_in_t_usd = provider_arb_reward_in_usd * 0.25
+            provider_reward_in_t_tokens = provider_reward_in_t_usd / fetch_token_price("threshold-network-token", event_timestamp)
             rewards.append({
                 "provider": provider.hex() if isinstance(provider, bytes) else provider,
                 "weighted_avg_liquidity": avg_liquidity,
-                "estimated_reward": provider_reward
+                "estimated_reward_in_arb_tokens": provider_arb_reward_in_tokens,
+                "estimated_reward_in_arb_usd": provider_arb_reward_in_usd,
+                "estimated_reward_in_t_usd": provider_reward_in_t_usd,
+                "estimated_reward_in_t_tokens": provider_reward_in_t_tokens
             })
     else:
         logger.warning("Total weighted liquidity is zero, no rewards to distribute")
@@ -510,24 +508,22 @@ def normalize_address(address):
     
     return to_checksum_address(address)
 
-def log_to_ipfs(w3, new_events, rewards):
+def log_to_ipfs(events, rewards):
     """
     Log events and rewards to IPFS using Pinata.
 
     :param w3: Web3 instance connected to the blockchain.
-    :param new_events: List of new events to log.
+    :param events: List of new events to log.
     :param rewards: List of calculated rewards to log.
     :return: Tuple containing the IPFS CIDs for the logged events and rewards.
     """    
     try:
-        logger.info(f"Logging {len(new_events)} new events to IPFS")
-
+        logger.info(f"Logging {len(events)} new events to IPFS")
         formatted_events = []
-        for event in new_events:
+
+        for event in events:
             event_type = event['event'].lower()
             provider = event['args'].get('provider') or event['args'].get('owner')
-            tokens = event['tokens']
-
             # Normalize and convert provider to checksum address
             try:
                 provider = normalize_address(provider)
@@ -538,42 +534,61 @@ def log_to_ipfs(w3, new_events, rewards):
             formatted_event = {
                 "event": "add" if event_type in ["addliquidity", "mint"] else "remove",
                 "provider": provider,
-                "providerType": "contract" if is_contract(w3, provider) else "wallet",
-                "tokens": {
-                    "token1": tokens.get('token1'),
-                    "token2": tokens.get('token2')
-                },
-                "token_amounts": {},
                 "timestamp": event['timestamp'],
                 "transactionHash": event['transactionHash']
             }
 
+            tokens = event['tokens']
+            token1_info = tokens.get('token1', {})
+            token2_info = tokens.get('token2', {})
+
+            # Handle token1
+            token1_amount = '0'
             if event_type in ["addliquidity", "removeliquidity", "removeliquidityimbalance"]:
                 amounts = event['args'].get('token_amounts', [])
-                formatted_event["token_amounts"]["token1"] = amounts[0] if len(amounts) > 0 else '0'
-                formatted_event["token_amounts"]["token2"] = amounts[1] if len(amounts) > 1 else '0'
+                token1_amount = amounts[0] if len(amounts) > 0 else '0'
             elif event_type == "removeliquidityone":
-                formatted_event["token_amounts"]["token1"] = event['args'].get('token_amount', 0)
-                formatted_event["token_amounts"]["token2"] = '0'
+                token1_amount = event['args'].get('token_amount', '0')
             elif event_type in ["mint", "burn"]:
-                # For UniswapV3, we need to match the token order with the pool's token order
-                formatted_event["token_amounts"]["token1"] = event['args'].get('amount0', 0)
-                formatted_event["token_amounts"]["token2"] = event['args'].get('amount1', 0)
+                token1_amount = event['args'].get('amount0', '0')
+
+            formatted_event["token1"] = {
+                "symbol": token1_info.get('symbol', ''),
+                "amount": format(Decimal(str(token1_amount)), 'f'),
+                "decimals": token1_info.get('decimals', 0)
+            }
+
+            # Handle token2
+            token2_amount = '0'
+            if event_type in ["addliquidity", "removeliquidity", "removeliquidityimbalance"]:
+                amounts = event['args'].get('token_amounts', [])
+                token2_amount = amounts[1] if len(amounts) > 1 else '0'
+            elif event_type in ["mint", "burn"]:
+                token2_amount = event['args'].get('amount1', '0')
+
+            formatted_event["token2"] = {
+                "symbol": token2_info.get('symbol', ''),
+                "amount": format(Decimal(str(token2_amount)), 'f'),
+                "decimals": token2_info.get('decimals', 0)
+            }
 
             formatted_events.append(formatted_event)
             time.sleep(0.1)
 
         events_json = {"events": formatted_events}
         
-        # Format rewards
         formatted_rewards = []
+
         for reward in rewards:
             provider = normalize_address(reward['provider'])
             
             formatted_rewards.append({
                 "provider": provider,
                 "weighted_avg_liquidity": format(Decimal(str(reward['weighted_avg_liquidity'])), 'f'),
-                "estimated_reward": format(Decimal(str(reward['estimated_reward'])), 'f')
+                "estimated_reward_in_arb_tokens": format(Decimal(str(reward['estimated_reward_in_arb_tokens'])), 'f'),
+                "estimated_reward_in_arb_usd": format(Decimal(str(reward['estimated_reward_in_arb_usd'])), 'f'),
+                "estimated_reward_in_t_usd": format(Decimal(str(reward['estimated_reward_in_t_usd'])), 'f'),
+                "estimated_reward_in_t_tokens": format(Decimal(str(reward['estimated_reward_in_t_tokens'])), 'f')
             })
         
         rewards_json = {
@@ -581,25 +596,21 @@ def log_to_ipfs(w3, new_events, rewards):
             "rewards": formatted_rewards
         }
 
-        # Convert all Decimal objects to strings
-        events_json = decimal_to_str(events_json)
-        rewards_json = decimal_to_str(rewards_json)
-
         # Pin JSON data to IPFS
         events_response = pinata.pin_json_to_ipfs(events_json)
         rewards_response = pinata.pin_json_to_ipfs(rewards_json)
         
         # Extract CIDs from response
-        new_events_cid = events_response.get('IpfsHash')
-        new_rewards_cid = rewards_response.get('IpfsHash')
+        events_cid = events_response.get('IpfsHash')
+        rewards_cid = rewards_response.get('IpfsHash')
 
-        if not new_events_cid or not new_rewards_cid:
+        if not events_cid or not rewards_cid:
             raise ValueError("Failed to extract IPFS hash from Pinata response")
 
-        logger.info(f"New events pinned to IPFS with CID: {new_events_cid}")
-        logger.info(f"New rewards pinned to IPFS with CID: {new_rewards_cid}")
+        logger.info(f"New events pinned to IPFS with CID: {events_cid}")
+        logger.info(f"New rewards pinned to IPFS with CID: {rewards_cid}")
         
-        return new_events_cid, new_rewards_cid
+        return events_cid, rewards_cid
     except Exception as e:
         logger.error(f"Error logging to IPFS: {str(e)}", exc_info=True)
         raise
@@ -647,16 +658,13 @@ def main():
                 events = fetch_events(w3, pool, START_BLOCK, current_block, START_TIMESTAMP, END_TIMESTAMP)
                 all_events.extend(events)
 
-            logger.info(f"Total events elegible: {len(all_events)}")
+            logger.info(f"Total events elegible: {len(events)}")
 
             if all_events:
                 rewards = calculate_rewards(all_events)
-                events_cid, rewards_cid = log_to_ipfs(w3, all_events, rewards)
+                events_cid, rewards_cid = log_to_ipfs(all_events, rewards)
                 
                 save_state(current_block, events_cid, rewards_cid)
-                
-                logger.info(f"Events logged to IPFS with CID: {events_cid}")
-                logger.info(f"Rewards logged to IPFS with CID: {rewards_cid}")
             else:
                 logger.info("No new events in the specified date range.")
         except Exception as e:
