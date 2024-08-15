@@ -94,22 +94,22 @@ POOLS = [
             {"token2": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
         ]
     },
-    # {
-    #     "address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"),
-    #     "abi": UNIV3_ABI,
-    #     "tokens": [
-    #         {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
-    #         {"token2": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
-    #     ]
-    # },
-    # {
-    #     "address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"),
-    #     "abi": UNIV3_ABI,
-    #     "tokens": [
-    #         {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
-    #         {"token2": {"address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "decimals": 18, "symbol": "ETH", "coingecko_id": "ethereum"}}
-    #     ]
-    # }
+    {
+        "address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"),
+        "abi": UNIV3_ABI,
+        "tokens": [
+            {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
+            {"token2": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
+        ]
+    },
+    {
+        "address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"),
+        "abi": UNIV3_ABI,
+        "tokens": [
+            {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
+            {"token2": {"address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "decimals": 18, "symbol": "ETH", "coingecko_id": "ethereum"}}
+        ]
+    }
 ]
 
 # Load historical prices once at the start of the script
@@ -671,8 +671,8 @@ def main():
             logger.error(f"An error occurred in the main loop: {str(e)}")
             time.sleep(86400)  # Wait for 24 hours before retrying
         
-        logger.info(f"Sleeping for 6 hours")
-        time.sleep(21600)  # Wait for 6 hours before the next iteration
+        logger.info(f"Sleeping for 12 hours")
+        time.sleep(43200)  # Wait for 12 hours before the next iteration
 
 if __name__ == "__main__":
     # Run the main loop in a separate thread
