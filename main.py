@@ -307,8 +307,6 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
             return []
 
         token0, token1 = get_tokens_from_contract(pool)
-        logger.info(f"Token0: {token0}")
-        logger.info(f"Token1: {token1}")
 
         for event_name in event_names:
             event_abi = get_event_abi(contract, event_name)
@@ -474,7 +472,7 @@ def calculate_rewards(events):
                 next_time = liquidity_events[i+1][0]
             else:
                 next_time = now_timestamp
-
+            
             duration = (next_time - current_time).total_seconds()
             total_liquidity_time += current_amount * duration
             #logger.info(f"Processing liquidity event for provider {normalize_address(provider)}: current_amount: {current_amount}, duration: {duration}, total_liquidity_time: {total_liquidity_time}")
@@ -535,6 +533,26 @@ def normalize_address(address):
     
     return to_checksum_address(address)
 
+def format_decimal(value, decimal_places=8):
+    """
+    Format a decimal value with a specified number of decimal places by truncating.
+    
+    :param value: The value to format.
+    :param decimal_places: The number of decimal places to keep after truncating.
+    :return: Formatted string representation of the value.
+    """
+    # Convert to Decimal and then to string with many decimal places
+    full_string = format(Decimal(str(value)), 'f')
+    
+    # Split into parts before and after decimal point
+    parts = full_string.split('.')
+    
+    # If there's a decimal part, truncate it
+    if len(parts) > 1:
+        return f"{parts[0]}.{parts[1][:decimal_places]}"
+    else:
+        return parts[0]
+
 def log_to_ipfs(events, rewards):
     """
     Log events and rewards to IPFS using Pinata.
@@ -580,13 +598,13 @@ def log_to_ipfs(events, rewards):
             # Handle token0
             formatted_event["token0"] = {
                 "symbol": token0.get('symbol', ''),
-                "amount": format(Decimal(str(amount0)), 'f'),
+                "amount": format_decimal(amount0),
                 "decimals": token0.get('decimals', 0)
             }
             # Handle token1
             formatted_event["token1"] = {
                 "symbol": token1.get('symbol', ''),
-                "amount": format(Decimal(str(amount1)), 'f'),
+                "amount": format_decimal(amount1),
                 "decimals": token1.get('decimals', 0)
             }
 
@@ -602,15 +620,15 @@ def log_to_ipfs(events, rewards):
             
             formatted_rewards.append({
                 "provider": provider,
-                "weighted_avg_liquidity": format(Decimal(str(reward['weighted_avg_liquidity'])), 'f'),
-                "estimated_reward_in_arb_tokens": format(Decimal(str(reward['estimated_reward_in_arb_tokens'])), 'f'),
-                "estimated_reward_in_arb_usd": format(Decimal(str(reward['estimated_reward_in_arb_usd'])), 'f'),
-                "estimated_reward_in_t_usd": format(Decimal(str(reward['estimated_reward_in_t_usd'])), 'f'),
-                "estimated_reward_in_t_tokens": format(Decimal(str(reward['estimated_reward_in_t_tokens'])), 'f')
+                "weighted_avg_liquidity": format_decimal(reward['weighted_avg_liquidity']),
+                "estimated_reward_in_arb_tokens": format_decimal(reward['estimated_reward_in_arb_tokens']),
+                "estimated_reward_in_arb_usd": format_decimal(reward['estimated_reward_in_arb_usd']),
+                "estimated_reward_in_t_usd": format_decimal(reward['estimated_reward_in_t_usd']),
+                "estimated_reward_in_t_tokens": format_decimal(reward['estimated_reward_in_t_tokens'])
             })
         
         rewards_json = {
-            "overall_weighted_avg_liquidity": format(Decimal(str(sum(Decimal(str(r["weighted_avg_liquidity"])) for r in rewards))), 'f'),
+            "overall_weighted_avg_liquidity": format_decimal(sum(Decimal(str(r["weighted_avg_liquidity"])) for r in rewards)),
             "rewards": formatted_rewards
         }
 
