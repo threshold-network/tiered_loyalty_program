@@ -50,10 +50,24 @@ START_BLOCK = int(os.getenv("START_BLOCK"))
 infura_url = f"https://arbitrum-mainnet.infura.io/v3/{INFURA_KEY}"
 w3 = Web3(Web3.HTTPProvider(infura_url))
 
-if w3.isConnected():
-    logger.info("Successfully connected to Arbitrum network")
-else:
-    logger.error("Failed to connect to Arbitrum network")
+MAX_RETRIES = 5
+RETRY_DELAY = 10  # seconds
+
+def connect_to_arbitrum():
+    for attempt in range(MAX_RETRIES):
+        if w3.isConnected():
+            logger.info("Successfully connected to Arbitrum network")
+            return True
+        else:
+            logger.warning(f"Failed to connect to Arbitrum network. Attempt {attempt + 1} of {MAX_RETRIES}")
+            if attempt < MAX_RETRIES - 1:
+                logger.info(f"Retrying in {RETRY_DELAY} seconds...")
+                time.sleep(RETRY_DELAY)
+    
+    logger.error(f"Failed to connect to Arbitrum network after {MAX_RETRIES} attempts")
+    return False
+
+if not connect_to_arbitrum():
     sys.exit(1)
 
 def load_abi(filename):
@@ -90,24 +104,24 @@ POOLS = [
         "address": to_checksum_address("0x186cf879186986a20aadfb7ead50e3c20cb26cec"),
         "abi": CURVE_ABI,
         "tokens": [
-            {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
-            {"token2": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
+            {"token0": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
+            {"token1": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
         ]
     },
     {
         "address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"),
         "abi": UNIV3_ABI,
         "tokens": [
-            {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
-            {"token2": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
+            {"token0": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
+            {"token1": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
         ]
     },
     {
         "address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"),
         "abi": UNIV3_ABI,
         "tokens": [
-            {"token1": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
-            {"token2": {"address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "decimals": 18, "symbol": "ETH", "coingecko_id": "ethereum"}}
+            {"token0": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
+            {"token1": {"address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "decimals": 18, "symbol": "ETH", "coingecko_id": "ethereum"}}
         ]
     }
 ]
@@ -250,6 +264,24 @@ def decode_log(abi, log):
     
     return event
 
+def get_ordered_token_amounts(event, token0_info, token1_info):
+    event_type = event['event']
+    if event_type in ["AddLiquidity", "RemoveLiquidity", "RemoveLiquidityImbalance"]:
+        amounts = list(event['args'].get('token_amounts', []))
+        return amounts + [0] * (2 - len(amounts))
+    elif event_type in ["Mint", "Burn"]:
+        return [event['args'].get('amount0', 0), event['args'].get('amount1', 0)]
+    elif event_type == "RemoveLiquidityOne":
+        token_id = event['args'].get('token_id', 0)
+        coin_amount = event['args'].get('coin_amount', 0)
+        if token_id == 0:
+            return [coin_amount, 0]
+        else:
+            return [0, coin_amount]
+    else:
+        logger.warning(f"Unknown event type: {event_type}")
+        return [0, 0]
+
 def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp):
     """
     Fetch and decode events from a blockchain pool within a specified block range and time period.
@@ -274,7 +306,9 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
             logger.error(f"Unknown ABI for pool {pool['address']}")
             return []
 
-        token1, token2 = get_tokens_from_contract(pool)
+        token0, token1 = get_tokens_from_contract(pool)
+        logger.info(f"Token0: {token0}")
+        logger.info(f"Token1: {token1}")
 
         for event_name in event_names:
             event_abi = get_event_abi(contract, event_name)
@@ -305,11 +339,24 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
                         decoded_event = decode_log(event_abi, log)
                         decoded_event['timestamp'] = event_timestamp
                         decoded_event['transactionHash'] = log['transactionHash'].hex()
-                        if token1 and token2:
-                            decoded_event['tokens'] = {"token1": token1, "token2": token2}
+                        decoded_event['pool_address'] = pool["address"]  # Add this line
+                        if token0 and token1:
+                            decoded_event['tokens'] = {"token0": token0, "token1": token1}
                         else:
                             logger.warning(f"Unable to get token information for pool {pool['address']}")
                             continue
+                        amounts = get_ordered_token_amounts(decoded_event, token0, token1)
+                        decoded_event['amounts'] = amounts
+                        event_type = decoded_event['event']
+                        if event_type in ["AddLiquidity", "Mint"]:
+                            decoded_event['action'] = "add"
+                        elif event_type in ["RemoveLiquidity", "RemoveLiquidityImbalance", "RemoveLiquidityOne", "Burn"]:
+                            decoded_event['action'] = "remove"
+                        else:
+                            decoded_event['action'] = "unknown"
+                            logger.warning(f"Unknown event type: {event_type}")
+                            continue
+
                         events.append(decoded_event)
                     time.sleep(0.1)
                 except Exception as e:
@@ -378,41 +425,21 @@ def calculate_rewards(events):
             event_timestamp = datetime.fromtimestamp(event['timestamp'])
             event_type = event['event']
             tokens = event['tokens']
+            token0_info = tokens.get('token0', {})
             token1_info = tokens.get('token1', {})
-            token2_info = tokens.get('token2', {})
-
-            if event_type in ["AddLiquidity", "Mint"]:
-                action = "add"
-                if event_type == "AddLiquidity":
-                    amounts = list(event['args'].get('token_amounts', []))
-                    # Ensure we have two values, add 0 if necessary
-                    amounts = amounts + [0] * (2 - len(amounts))
-                else:  # Mint event
-                    amounts = [event['args'].get('amount0', 0), event['args'].get('amount1', 0)]
-            elif event_type in ["RemoveLiquidity", "RemoveLiquidityOne", "RemoveLiquidityImbalance", "Burn"]:
-                action = "remove"
-                if event_type in ["RemoveLiquidity", "RemoveLiquidityImbalance"]:
-                    amounts = list(event['args'].get('token_amounts', []))
-                    # Ensure we have two values, add 0 if necessary
-                    amounts = amounts + [0] * (2 - len(amounts))
-                elif event_type == "RemoveLiquidityOne":
-                    amounts = [event['args'].get('token_amount', 0), 0]
-                else:  # Burn event
-                    amounts = [event['args'].get('amount0', 0), event['args'].get('amount1', 0)]
-            else:
-                logger.warning(f"Unknown event type: {event_type}")
-                continue
+            amounts = event['amounts']
+            action = event['action']
 
             if len(amounts) < 2:
                 logger.warning(f"Invalid amounts for event: {event}")
                 continue
 
+            token0_price = fetch_token_price(token0_info.get('coingecko_id'), event_timestamp)
             token1_price = fetch_token_price(token1_info.get('coingecko_id'), event_timestamp)
-            token2_price = fetch_token_price(token2_info.get('coingecko_id'), event_timestamp)
-            convert_amount0_to_number = amounts[0] / 10**token1_info.get('decimals', 0)
-            convert_amount1_to_number = amounts[1] / 10**token2_info.get('decimals', 0)
-            total_value = (convert_amount0_to_number * token1_price) + (convert_amount1_to_number * token2_price)
-            #logger.info(f"Processed {action} event for provider {normalize_address(provider)}: token1: {convert_amount0_to_number}, token2: {convert_amount1_to_number}, price1: {token1_price}, price2 {token2_price}, total_value {total_value}")
+            convert_amount0_to_number = amounts[0] / 10**token0_info.get('decimals', 0)
+            convert_amount1_to_number = amounts[1] / 10**token1_info.get('decimals', 0)
+            total_value = (convert_amount0_to_number * token0_price) + (convert_amount1_to_number * token1_price)
+            #logger.info(f"Processed {action} event for provider {normalize_address(provider)}: token0: {convert_amount0_to_number}, token1: {convert_amount1_to_number}, price1: {token0_price}, price2 {token1_price}, total_value {total_value}")
 
             if provider not in provider_liquidity:
                 provider_liquidity[provider] = []
@@ -522,8 +549,19 @@ def log_to_ipfs(events, rewards):
         formatted_events = []
 
         for event in events:
-            event_type = event['event'].lower()
+            event_type = event['event']
+            action = event['action']
             provider = event['args'].get('provider') or event['args'].get('owner')
+            transactionHash = event['transactionHash']
+            pool_address = event['pool_address']
+            timestamp = event['timestamp']
+            tokens = event['tokens']
+            token0 = tokens.get('token0', {})
+            token1 = tokens.get('token1', {})
+            amounts = event['amounts']
+            amount0 = amounts[0]
+            amount1 = amounts[1]
+
             # Normalize and convert provider to checksum address
             try:
                 provider = normalize_address(provider)
@@ -532,44 +570,24 @@ def log_to_ipfs(events, rewards):
                 continue
 
             formatted_event = {
-                "event": "add" if event_type in ["addliquidity", "mint"] else "remove",
+                "event": event_type,
+                "action": action,
+                "pool_address": pool_address,
                 "provider": provider,
-                "timestamp": event['timestamp'],
-                "transactionHash": event['transactionHash']
+                "timestamp": timestamp,
+                "transactionHash": transactionHash
             }
-
-            tokens = event['tokens']
-            token1_info = tokens.get('token1', {})
-            token2_info = tokens.get('token2', {})
-
+            # Handle token0
+            formatted_event["token0"] = {
+                "symbol": token0.get('symbol', ''),
+                "amount": format(Decimal(str(amount0)), 'f'),
+                "decimals": token0.get('decimals', 0)
+            }
             # Handle token1
-            token1_amount = '0'
-            if event_type in ["addliquidity", "removeliquidity", "removeliquidityimbalance"]:
-                amounts = event['args'].get('token_amounts', [])
-                token1_amount = amounts[0] if len(amounts) > 0 else '0'
-            elif event_type == "removeliquidityone":
-                token1_amount = event['args'].get('token_amount', '0')
-            elif event_type in ["mint", "burn"]:
-                token1_amount = event['args'].get('amount0', '0')
-
             formatted_event["token1"] = {
-                "symbol": token1_info.get('symbol', ''),
-                "amount": format(Decimal(str(token1_amount)), 'f'),
-                "decimals": token1_info.get('decimals', 0)
-            }
-
-            # Handle token2
-            token2_amount = '0'
-            if event_type in ["addliquidity", "removeliquidity", "removeliquidityimbalance"]:
-                amounts = event['args'].get('token_amounts', [])
-                token2_amount = amounts[1] if len(amounts) > 1 else '0'
-            elif event_type in ["mint", "burn"]:
-                token2_amount = event['args'].get('amount1', '0')
-
-            formatted_event["token2"] = {
-                "symbol": token2_info.get('symbol', ''),
-                "amount": format(Decimal(str(token2_amount)), 'f'),
-                "decimals": token2_info.get('decimals', 0)
+                "symbol": token1.get('symbol', ''),
+                "amount": format(Decimal(str(amount1)), 'f'),
+                "decimals": token1.get('decimals', 0)
             }
 
             formatted_events.append(formatted_event)
@@ -669,10 +687,10 @@ def main():
                 logger.info("No new events in the specified date range.")
         except Exception as e:
             logger.error(f"An error occurred in the main loop: {str(e)}")
-            time.sleep(86400)  # Wait for 24 hours before retrying
+            time.sleep(10800)  # Wait for 3 hours before retrying
         
-        logger.info(f"Sleeping for 12 hours")
-        time.sleep(43200)  # Wait for 12 hours before the next iteration
+        logger.info(f"Sleeping for 1 hour")
+        time.sleep(3600)  # Wait for 1 hour before the next iteration
 
 if __name__ == "__main__":
     # Run the main loop in a separate thread
