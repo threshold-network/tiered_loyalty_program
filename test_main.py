@@ -50,5 +50,6 @@ def test_calculate_rewards():
     # Assertions
     reward = rewards[0]
     assert reward['provider'] == '0x54b5569deC8A6A8AE61A36Fd34e5c8945810db8b'
+    # previously calculated on the spreadsheet
     assert 5 < reward['weighted_avg_liquidity'] <= 6
 
