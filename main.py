@@ -411,7 +411,7 @@ def calculate_rewards(events):
     now_timestamp = datetime.now()
     total_duration = (end_timestamp - start_timestamp).total_seconds()
 
-    sorted_events = sorted(events, key=lambda x: x['timestamp'])
+    sorted_events = sorted(events, key=lambda x: (x['timestamp'], 0 if x['action'] == 'add' else 1))    
     
     for event in sorted_events:
         try:
