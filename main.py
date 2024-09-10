@@ -44,7 +44,6 @@ PINATA_SECRET_API_KEY = os.getenv("PINATA_SECRET_API_KEY")
 TOTAL_REWARDS = float(os.getenv("TOTAL_REWARDS"))
 START_DATE = datetime.fromisoformat(os.getenv("START_DATE"))
 PROGRAM_DURATION_WEEKS = int(os.getenv("PROGRAM_DURATION_WEEKS"))
-START_BLOCK = int(os.getenv("START_BLOCK"))
 
 # Connect to Arbitrum using Alchemy
 infura_url = f"https://arbitrum-mainnet.infura.io/v3/{INFURA_KEY}"
@@ -103,6 +102,8 @@ POOLS = [
     {
         "address": to_checksum_address("0x186cf879186986a20aadfb7ead50e3c20cb26cec"),
         "abi": CURVE_ABI,
+        "deploy_date": datetime.fromisoformat("2024-06-19"),
+        "deploy_block": 223607825,
         "tokens": [
             {"token0": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
             {"token1": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
@@ -111,6 +112,8 @@ POOLS = [
     {
         "address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"),
         "abi": UNIV3_ABI,
+        "deploy_date": datetime.fromisoformat("2023-05-16"),
+        "deploy_block": 91124444,
         "tokens": [
             {"token0": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
             {"token1": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
@@ -119,6 +122,8 @@ POOLS = [
     {
         "address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"),
         "abi": UNIV3_ABI,
+        "deploy_date": datetime.fromisoformat("2023-05-16"),
+        "deploy_block": 91123770,
         "tokens": [
             {"token0": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
             {"token1": {"address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "decimals": 18, "symbol": "ETH", "coingecko_id": "ethereum"}}
@@ -132,7 +137,6 @@ with open('token_historical_prices.json', 'r') as f:
 
 # Program dates and block heights
 END_DATE = START_DATE + timedelta(weeks=PROGRAM_DURATION_WEEKS)
-logger.info(f"Program end date: {END_DATE}")
 
 # Convert dates to Unix timestamps
 START_TIMESTAMP = int(START_DATE.timestamp())
@@ -178,8 +182,8 @@ def load_state():
         logger.info(f"State loaded. Last processed block: {state['last_processed_block']}")
         return state
     except FileNotFoundError:
-        logger.info(f"No state file found. Starting from block {START_BLOCK}")
-        return {'last_processed_block': START_BLOCK, 'events_cid': None, 'rewards_cid': None}
+        logger.info(f"No state file found.")
+        return {'last_processed_block': None, 'events_cid': None, 'rewards_cid': None}
 
 def fetch_token_price(coingecko_id, date):
     """
@@ -264,7 +268,7 @@ def decode_log(abi, log):
     
     return event
 
-def get_ordered_token_amounts(event, token0_info, token1_info):
+def get_ordered_token_amounts(event):
     event_type = event['event']
     if event_type in ["AddLiquidity", "RemoveLiquidity", "RemoveLiquidityImbalance"]:
         amounts = list(event['args'].get('token_amounts', []))
@@ -282,7 +286,7 @@ def get_ordered_token_amounts(event, token0_info, token1_info):
         logger.warning(f"Unknown event type: {event_type}")
         return [0, 0]
 
-def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp):
+def fetch_events(w3, pool, to_block, end_timestamp):
     """
     Fetch and decode events from a blockchain pool within a specified block range and time period.
 
@@ -296,6 +300,8 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
     """    
     contract = w3.eth.contract(address=pool["address"], abi=pool["abi"])
     events = []
+
+    logger.info(f"Processing blocks from {pool['deploy_block']} to {to_block}")
 
     try:
         if pool["abi"] == CURVE_ABI:
@@ -320,20 +326,21 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
                 continue
 
             event_signature_hash = Web3.keccak(text=event_signature).hex()
+
             logs = w3.eth.get_logs({
-                'fromBlock': from_block,
+                'fromBlock': pool["deploy_block"],
                 'toBlock': to_block,
                 'address': pool["address"],
                 'topics': [event_signature_hash]
             })
-
+            
             logger.info(f"Fetched {len(logs)} {event_name} events for pool {pool['address']}")
             
             for log in logs:
                 try:
                     block = w3.eth.get_block(log['blockNumber'])
                     event_timestamp = block['timestamp']
-                    if start_timestamp <= event_timestamp <= end_timestamp:
+                    if int(pool["deploy_date"].timestamp()) <= event_timestamp <= end_timestamp:
                         decoded_event = decode_log(event_abi, log)
                         decoded_event['timestamp'] = event_timestamp
                         decoded_event['transactionHash'] = log['transactionHash'].hex()
@@ -343,7 +350,7 @@ def fetch_events(w3, pool, from_block, to_block, start_timestamp, end_timestamp)
                         else:
                             logger.warning(f"Unable to get token information for pool {pool['address']}")
                             continue
-                        amounts = get_ordered_token_amounts(decoded_event, token0, token1)
+                        amounts = get_ordered_token_amounts(decoded_event)
                         decoded_event['amounts'] = amounts
                         event_type = decoded_event['event']
                         if event_type in ["AddLiquidity", "Mint"]:
@@ -421,7 +428,6 @@ def calculate_rewards(events):
                 continue
 
             event_timestamp = datetime.fromtimestamp(event['timestamp'])
-            event_type = event['event']
             tokens = event['tokens']
             token0_info = tokens.get('token0', {})
             token1_info = tokens.get('token1', {})
@@ -467,7 +473,9 @@ def calculate_rewards(events):
         total_liquidity_time = 0
         for i in range(len(liquidity_events)):
             current_time, current_amount = liquidity_events[i]
-            
+            if start_timestamp <= current_time <= end_timestamp:
+                current_time = start_timestamp
+
             if i < len(liquidity_events) - 1:
                 next_time = liquidity_events[i+1][0]
             else:
@@ -609,7 +617,6 @@ def log_to_ipfs(events, rewards):
             }
 
             formatted_events.append(formatted_event)
-            time.sleep(0.1)
 
         events_json = {"events": formatted_events}
         
@@ -687,14 +694,13 @@ def main():
         try:
             asyncio.run(update_price_data())
             current_block = w3.eth.get_block('latest')['number']
-            logger.info(f"Processing blocks from {START_BLOCK} to {current_block}")
             
             all_events = []
             for pool in POOLS:
-                events = fetch_events(w3, pool, START_BLOCK, current_block, START_TIMESTAMP, END_TIMESTAMP)
+                events = fetch_events(w3, pool, current_block, END_TIMESTAMP)
                 all_events.extend(events)
 
-            logger.info(f"Total events elegible: {len(events)}")
+            logger.info(f"Total events elegible: {len(all_events)}")
 
             if all_events:
                 rewards = calculate_rewards(all_events)
@@ -707,8 +713,8 @@ def main():
             logger.error(f"An error occurred in the main loop: {str(e)}")
             time.sleep(10800)  # Wait for 3 hours before retrying
         
-        logger.info(f"Sleeping for 1 hour")
-        time.sleep(3600)  # Wait for 1 hour before the next iteration
+        logger.info(f"Sleeping for 24 hours")
+        time.sleep(86400)  # Wait for 24 hour before the next iteration
 
 if __name__ == "__main__":
     # Run the main loop in a separate thread

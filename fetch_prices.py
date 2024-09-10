@@ -14,6 +14,7 @@ load_dotenv()
 
 # CoinGecko API endpoint
 base_url = "https://api.coingecko.com/api/v3"
+#base_url = "https://pro-api.coingecko.com/api/v3"
 
 # API key from environment variable
 api_key = os.getenv("COINGECKO_API_KEY")
@@ -36,7 +37,8 @@ async def fetch_historical_data(token_id, start_timestamp, end_timestamp):
         "vs_currency": "usd",
         "from": start_timestamp,
         "to": end_timestamp,
-        "x_cg_demo_api_key": api_key
+        "x_cg_demo_api_key": api_key,
+        #"x_cg_pro_api_key": api_key
     }
     
     async with aiohttp.ClientSession() as session:
@@ -75,7 +77,7 @@ async def update_price_data():
             last_timestamp = max(int(data[0]/1000) for data in historical_data[token_name])
             start_timestamp = last_timestamp + 1
         else:
-            start_timestamp = int((datetime.now() - timedelta(days=365)).timestamp())
+            start_timestamp = int((datetime.now() - timedelta(days=730)).timestamp())
 
         if start_timestamp < end_timestamp:
             logger.info(f"Preparing to fetch new data for {token_name} from {datetime.fromtimestamp(start_timestamp)} to {datetime.fromtimestamp(end_timestamp)}")
