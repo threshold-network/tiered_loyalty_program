@@ -4,7 +4,7 @@ from web3 import Web3
 import logging
 from src.blockchain.web3_client import web3_client
 from src.config import END_TIMESTAMP
-from src.utils.helpers import get_event_abi, create_event_signature, decode_log, get_ordered_token_amounts, get_tokens_from_contract
+from src.utils.helpers import get_event_abi, create_event_signature, decode_log, get_ordered_token_amounts, get_tokens_from_contract, convert_to_serializable
 
 logger = logging.getLogger(__name__)
 
@@ -81,8 +81,8 @@ class EventFetcher:
                                 logger.warning(f"Unknown event type: {event_type}")
                                 continue
 
-                            # Convert any remaining hex-like objects to strings
-                            decoded_event = self._convert_to_serializable(decoded_event)
+                            # Use the helper function instead of the class method
+                            decoded_event = convert_to_serializable(decoded_event)
 
                             events.append(decoded_event)
                     except Exception as e:
@@ -93,16 +93,6 @@ class EventFetcher:
 
         logger.info(f"Total events eligible for rewards on pool {pool['address']}: {len(events)}")
         return events
-
-    def _convert_to_serializable(self, obj):
-        if isinstance(obj, dict):
-            return {k: self._convert_to_serializable(v) for k, v in obj.items()}
-        elif isinstance(obj, list):
-            return [self._convert_to_serializable(v) for v in obj]
-        elif hasattr(obj, 'hex'):
-            return obj.hex()
-        else:
-            return obj
 
     def save_events(self, new_events):
         file_path = os.path.join('data', 'pools_events.json')

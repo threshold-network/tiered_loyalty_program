@@ -1,7 +1,7 @@
 import aiohttp
 import logging
 import asyncio
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from src.config import COINGECKO_API_KEY, TOKENS, HISTORICAL_PRICES_FILE
 from src.utils.helpers import load_price_data, save_price_data
 
@@ -9,8 +9,8 @@ logger = logging.getLogger(__name__)
 
 async def coingecko_fetch(token_id, start_timestamp, end_timestamp):
     api_configs = [
-        ("https://api.coingecko.com/api/v3", "x_cg_demo_api_key"),
-        ("https://pro-api.coingecko.com/api/v3", "x_cg_pro_api_key")
+        ("https://pro-api.coingecko.com/api/v3", "x_cg_pro_api_key"),
+        ("https://api.coingecko.com/api/v3", "x_cg_demo_api_key")
     ]
     
     for base_url, api_key_param in api_configs:
@@ -39,7 +39,7 @@ async def coingecko_fetch(token_id, start_timestamp, end_timestamp):
 
 async def update_price_data():
     historical_data = load_price_data(HISTORICAL_PRICES_FILE)
-    end_timestamp = int(datetime.now().timestamp())
+    end_timestamp = int(datetime.now(timezone.utc).timestamp())
 
     tasks = []
     token_start_times = {}
@@ -49,7 +49,7 @@ async def update_price_data():
             last_timestamp = max(int(data[0]/1000) for data in historical_data[token_name])
             start_timestamp = last_timestamp + 1
         else:
-            start_timestamp = int((datetime.now() - timedelta(days=730)).timestamp())
+            start_timestamp = int((datetime.now(timezone.utc) - timedelta(days=730)).timestamp())
 
         if start_timestamp < end_timestamp:
             logger.info(f"Preparing to fetch new data for {token_name} from {datetime.fromtimestamp(start_timestamp)} to {datetime.fromtimestamp(end_timestamp)}")

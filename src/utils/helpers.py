@@ -210,3 +210,13 @@ def load_events():
         logger.warning(f"No events file found at {file_path}")
         return []
 
+def convert_to_serializable(obj):
+    if isinstance(obj, dict):
+        return {k: convert_to_serializable(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_to_serializable(v) for v in obj]
+    elif hasattr(obj, 'hex'):
+        return obj.hex()
+    else:
+        return obj
+

@@ -1,6 +1,6 @@
 import logging
 from logging.handlers import RotatingFileHandler
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from flask import Flask, jsonify
 import signal
 import sys
@@ -55,7 +55,7 @@ signal.signal(signal.SIGTERM, signal_handler)
 
 async def main():
     logger.info("Starting main async loop")
-    while datetime.now() <= END_DATE + timedelta(days=1):
+    while datetime.now(timezone.utc) <= END_DATE + timedelta(days=1):
         try:
             await update_price_data()
             current_block = web3_client.get_latest_block()
@@ -67,12 +67,14 @@ async def main():
             if last_processed_block is None:
                 last_processed_block = min(pool['deploy_block'] for pool in POOLS)
             
-            new_events = await event_fetcher.fetch_and_save_events(POOLS, last_processed_block, current_block)
-
-            logger.info(f"Total new events: {len(new_events)}")
+            new_events = []
+            if last_processed_block + 1 <= current_block:
+                new_events = await event_fetcher.fetch_and_save_events(POOLS, last_processed_block + 1, current_block)
+            else:
+                logger.info("No new blocks to process.")
             
             if not new_events:
-                logger.info("No new events in the specified date range.")
+                logger.info("No new events in the block range.")
 
             rewards = await calculate_rewards()
             ipfs_json_cid = await log_to_ipfs(rewards)
@@ -82,8 +84,8 @@ async def main():
             logger.error(f"An error occurred in the main loop: {str(e)}")
             await asyncio.sleep(10800)  # Wait for 3 hours before retrying
         
-        logger.info(f"Sleeping for 24 hours")
-        await asyncio.sleep(86400)
+        logger.info(f"Sleeping for 1 hour")
+        await asyncio.sleep(3600)
 
 if __name__ == "__main__":
     app = create_app()

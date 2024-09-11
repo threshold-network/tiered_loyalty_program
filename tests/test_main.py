@@ -1,5 +1,5 @@
 import pytest
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
 from src.rewards.calculator import calculate_rewards
 from src.config import START_TIMESTAMP, END_TIMESTAMP, HISTORICAL_PRICES_FILE
 import json
@@ -41,8 +41,8 @@ def test_calculate_rewards():
     # Call the function
     rewards = calculate_rewards(transformed_events)
 
-    start_timestamp = datetime.fromtimestamp(START_TIMESTAMP)
-    end_timestamp = datetime.fromtimestamp(END_TIMESTAMP)
+    start_timestamp = datetime.fromtimestamp(START_TIMESTAMP, tz=timezone.utc)
+    end_timestamp = datetime.fromtimestamp(END_TIMESTAMP, tz=timezone.utc)
     total_duration = (end_timestamp - start_timestamp).total_seconds()
     print(start_timestamp)
     print(end_timestamp)
