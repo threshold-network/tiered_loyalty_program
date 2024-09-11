@@ -1,17 +1,18 @@
 import pytest
 from datetime import datetime, timedelta
-from main import calculate_rewards, START_TIMESTAMP, END_TIMESTAMP
+from src.rewards.calculator import calculate_rewards
+from src.config import START_TIMESTAMP, END_TIMESTAMP, HISTORICAL_PRICES_FILE
 import json
 import os
 
 # Mock the fetch_token_price function
-def mock_fetch_token_price(coingecko_id, date):
+def mock_fetch_token_price(coingecko_id, date, path):
     return 1.0  # Return a fixed price for simplicity
 
 # Patch the fetch_token_price function
 @pytest.fixture(autouse=True)
 def patch_fetch_token_price(monkeypatch):
-    monkeypatch.setattr("main.fetch_token_price", mock_fetch_token_price)
+    monkeypatch.setattr("src.utils.helpers.get_token_price", mock_fetch_token_price, HISTORICAL_PRICES_FILE)
 
 def transform_event_format(event):
     return {
@@ -52,4 +53,3 @@ def test_calculate_rewards():
     assert reward['provider'] == '0x54b5569deC8A6A8AE61A36Fd34e5c8945810db8b'
     # previously calculated on the spreadsheet
     assert 5 < reward['weighted_avg_liquidity'] <= 6
-

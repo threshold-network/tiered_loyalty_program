@@ -1,4 +1,4 @@
-# Tiered Loyalty Program
+# Loyalty Program
 
 This project implements a tiered loyalty program for liquidity providers using Curve and Uniswap V3 pools on the Ethereum network. The system fetches and processes liquidity events, calculates rewards based on token prices, and logs the data to IPFS.
 
