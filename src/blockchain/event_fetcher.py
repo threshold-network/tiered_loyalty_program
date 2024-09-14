@@ -4,7 +4,11 @@ from web3 import Web3
 import logging
 from src.blockchain.web3_client import web3_client
 from src.config import END_TIMESTAMP
-from src.utils.helpers import get_event_abi, create_event_signature, decode_log, get_ordered_token_amounts, get_tokens_from_contract, convert_to_serializable
+from src.utils.helpers import (
+    get_event_abi, create_event_signature, decode_log, 
+    get_ordered_token_amounts, get_tokens_from_contract, 
+    convert_to_serializable
+)
 
 logger = logging.getLogger(__name__)
 
@@ -13,15 +17,15 @@ class EventFetcher:
         self.w3 = web3_client.w3
 
     async def fetch_and_save_events(self, pools, from_block, to_block):
-        all_new_events = []
+        new_events = []
         for pool in pools:
             events = await self.fetch_events(pool, from_block, to_block)
-            all_new_events.extend(events)
+            new_events.extend(events)
 
-        if all_new_events:
-            self.save_events(all_new_events)
+        if new_events:
+            self.save_events(new_events)
 
-        return all_new_events
+        return new_events
 
     async def fetch_events(self, pool, from_block, to_block):
         contract = self.w3.eth.contract(address=pool["address"], abi=pool["abi"])
@@ -61,8 +65,9 @@ class EventFetcher:
                         event_timestamp = block['timestamp']
                         if int(pool["deploy_date"].timestamp()) <= event_timestamp <= END_TIMESTAMP:
                             decoded_event = decode_log(event_abi, log)
+                            decoded_event['provider'] = decoded_event['args'].get('provider') or decoded_event['args'].get('owner')
                             decoded_event['timestamp'] = event_timestamp
-                            decoded_event['transactionHash'] = log['transactionHash'].hex()
+                            decoded_event['transactionHash'] = log['transactionHash']
                             decoded_event['pool_address'] = pool["address"]
                             if token0 and token1:
                                 decoded_event['tokens'] = {"token0": token0, "token1": token1}
@@ -81,13 +86,11 @@ class EventFetcher:
                                 logger.warning(f"Unknown event type: {event_type}")
                                 continue
 
-                            # Use the helper function instead of the class method
                             decoded_event = convert_to_serializable(decoded_event)
 
                             events.append(decoded_event)
                     except Exception as e:
                         logger.error(f"Error processing event: {str(e)}")
-
         except Exception as e:
             logger.error(f"Failed to fetch events for pool {pool['address']}: {str(e)}")
 

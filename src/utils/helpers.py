@@ -16,13 +16,11 @@ def normalize_address(address):
     :param address: Ethereum address to normalize.
     :return: Checksummed Ethereum address.
     """    
-    # Convert bytes to hex string if address is of bytes type
     if isinstance(address, bytes):
         address = address.hex()
     elif not isinstance(address, str):
         raise ValueError(f"Unsupported address format: {type(address)}")
 
-    # Common processing steps for both bytes and str types
     address = address.lower().removeprefix('0x').lstrip('0').zfill(40)
     address = '0x' + address
     
@@ -219,4 +217,11 @@ def convert_to_serializable(obj):
         return obj.hex()
     else:
         return obj
+
+def sort_events(event):
+    return (
+        event.get('provider'),
+        event.get('timestamp'), 
+        0 if event.get('action') == 'add' else 1
+    )
 

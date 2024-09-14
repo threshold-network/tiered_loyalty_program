@@ -1,19 +1,23 @@
 import logging
 from logging.handlers import RotatingFileHandler
 from datetime import datetime, timedelta, timezone
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_file
 import signal
 import sys
 from flask_cors import CORS
 import asyncio
+import os
+import json
+import traceback
 
 from src.config import END_DATE, POOLS
 from src.blockchain.web3_client import web3_client
 from src.blockchain.event_fetcher import event_fetcher
 from src.data.price_fetcher import update_price_data
 from src.rewards.calculator import calculate_rewards
-from src.data.ipfs_logger import log_to_ipfs
+from src.data.json_formatter import format_rewards_data
 from src.data.state_manager import save_state, load_state
+from src.data.json_logger import save_json_data
 
 # Set up logging
 log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -34,18 +38,23 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
 
-    @app.route('/api/latest-cids', methods=['GET'])
-    def get_latest_cids():
+    @app.route('/api/get_latest_rewards', methods=['GET'])
+    def get_latest_rewards():
         state = load_state()
-        logger.info(f"API request for latest CIDs. Returning: {state['events_cid']}, {state['rewards_cid']}")
-        return jsonify({
-            'events_cid': state['events_cid'],
-            'rewards_cid': state['rewards_cid']
-        }), 200
+        latest_rewards_file = state.get('latest_rewards_file')
+        if latest_rewards_file:
+            # Ensure the path starts from the project root
+            full_path = os.path.join(os.getcwd(), latest_rewards_file)
+            if os.path.exists(full_path):
+                return send_file(full_path, mimetype='application/json')
+            else:
+                logger.warning(f"Rewards file not found: {full_path}")
+        else:
+            logger.warning("No latest rewards file found in state")
+        return jsonify({"error": "No rewards data available"}), 404
 
     logger.info("Application created")
     return app
-
 def signal_handler(sig, frame):
     logger.info("Shutting down gracefully...")
     sys.exit(0)
@@ -66,26 +75,24 @@ async def main():
             
             if last_processed_block is None:
                 last_processed_block = min(pool['deploy_block'] for pool in POOLS)
-            
-            new_events = []
+
             if last_processed_block + 1 <= current_block:
-                new_events = await event_fetcher.fetch_and_save_events(POOLS, last_processed_block + 1, current_block)
+                await event_fetcher.fetch_and_save_events(POOLS, last_processed_block + 1, current_block)
             else:
                 logger.info("No new blocks to process.")
             
-            if not new_events:
-                logger.info("No new events in the block range.")
-
-            rewards = await calculate_rewards()
-            ipfs_json_cid = await log_to_ipfs(rewards)
-            save_state(current_block, ipfs_json_cid)
+            rewards_data = await calculate_rewards()
+            rewards_file = save_json_data(rewards_data, filename_prefix='rewards')
+            
+            save_state(current_block, rewards_file)
             logger.info(f"State saved. Last processed block: {current_block}")
         except Exception as e:
             logger.error(f"An error occurred in the main loop: {str(e)}")
-            await asyncio.sleep(10800)  # Wait for 3 hours before retrying
+            logger.error(traceback.format_exc())
+            await asyncio.sleep(10800)
         
-        logger.info(f"Sleeping for 1 hour")
-        await asyncio.sleep(3600)
+        logger.info(f"Sleeping for 12 hours")
+        await asyncio.sleep(43200)
 
 if __name__ == "__main__":
     app = create_app()

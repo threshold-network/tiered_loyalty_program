@@ -28,17 +28,14 @@ def transform_event_format(event):
     }
 
 def test_calculate_rewards():
-    # Load sample events from JSON file
     current_dir = os.path.dirname(os.path.abspath(__file__))
     json_file_path = os.path.join(current_dir, 'sample_events.json')
     
     with open(json_file_path, 'r') as file:
         sample_events = json.load(file)
 
-    # Transform events to the old format
     transformed_events = [transform_event_format(event) for event in sample_events]
 
-    # Call the function
     rewards = calculate_rewards(transformed_events)
 
     start_timestamp = datetime.fromtimestamp(START_TIMESTAMP, tz=timezone.utc)
@@ -48,8 +45,6 @@ def test_calculate_rewards():
     print(end_timestamp)
     print(total_duration)
 
-    # Assertions
     reward = rewards[0]
     assert reward['provider'] == '0x54b5569deC8A6A8AE61A36Fd34e5c8945810db8b'
-    # previously calculated on the spreadsheet
     assert 5 < reward['weighted_avg_liquidity'] <= 6

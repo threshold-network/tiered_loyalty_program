@@ -2,6 +2,7 @@ import os
 import asyncio
 import logging
 from src.app import create_app, main
+from threading import Thread
 
 async def run_main():
     await main()
@@ -19,12 +20,16 @@ if __name__ == "__main__":
 
     app = create_app()
     
-    # Get port from environment variable or use default
     port = int(os.environ.get("PORT", 5000))
+
+    def run_flask():
+        logger.info(f"Starting Flask app on port {port}")
+        app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)
+    
+    # Run the Flask app
+    flask_thread = Thread(target=run_flask)
+    flask_thread.daemon = True
+    flask_thread.start()  
     
     # Run the main loop in the background
     asyncio.run(run_main())
-    
-    logger.info(f"Starting Flask app on port {port}")
-    # Run the Flask app
-    app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)

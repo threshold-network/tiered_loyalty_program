@@ -4,11 +4,11 @@ from src.config import STATE_FILE
 
 logger = logging.getLogger(__name__)
 
-def save_state(last_block, ipfs_json_cid):
+def save_state(last_block, latest_rewards_file):
     with open(STATE_FILE, 'w') as f:
         json.dump({
             'last_processed_block': last_block,
-            'ipfs_json_cid': ipfs_json_cid,
+            'latest_rewards_file': latest_rewards_file,
         }, f)
 
 def load_state():
@@ -18,4 +18,4 @@ def load_state():
         return state
     except FileNotFoundError:
         logger.info(f"No state file found.")
-        return {'last_processed_block': None, 'events_cid': None, 'rewards_cid': None}
+        return {'last_processed_block': None, 'latest_rewards_file': None}
