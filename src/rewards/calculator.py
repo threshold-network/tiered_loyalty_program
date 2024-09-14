@@ -75,7 +75,7 @@ async def calculate_rewards():
                 
                 event_copy = event.copy()
                 event_copy['event_balance'] = balance_amount
-                event_copy['txhash_counter'] = 999
+                event_copy['txhash_counter'] = 9999
                 if provider_liquidity[provider]:
                     provider_liquidity[provider][0] = event_copy
                 else:
