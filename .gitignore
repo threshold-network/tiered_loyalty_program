@@ -159,5 +159,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-token_historical_prices.json
-program_state.json
+/data/rewards/
