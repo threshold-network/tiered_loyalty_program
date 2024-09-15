@@ -55,6 +55,7 @@ def create_app():
 
     logger.info("Application created")
     return app
+
 def signal_handler(sig, frame):
     logger.info("Shutting down gracefully...")
     sys.exit(0)

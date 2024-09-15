@@ -113,7 +113,7 @@ async def calculate_rewards():
             else:
                 logger.warning(f"No matching balance found for txhash {txhash} (provider {normalize_address(provider)})")
       
-    logger.info(f"Total number of events processed: {sum(len(events) for events in provider_liquidity.values())}")
+    logger.info(f"Total number of events (after start date): {sum(len(events) for events in provider_liquidity.values())}")
     
     for provider, liquidity_events in provider_liquidity.items():
         if not liquidity_events:
