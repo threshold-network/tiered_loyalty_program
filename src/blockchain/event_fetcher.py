@@ -64,10 +64,20 @@ class EventFetcher:
                         block = self.w3.eth.get_block(log['blockNumber'])
                         event_timestamp = block['timestamp']
                         if int(pool["deploy_date"].timestamp()) <= event_timestamp <= END_TIMESTAMP:
+                            tx = self.w3.eth.get_transaction(log['transactionHash'])
                             decoded_event = decode_log(event_abi, log)
-                            decoded_event['provider'] = decoded_event['args'].get('provider') or decoded_event['args'].get('owner')
+                            
+                            provider_from_args = decoded_event['args'].get('provider') or decoded_event['args'].get('owner')
+                            tx_from = tx['from']
+                            
+                            if provider_from_args and provider_from_args.lower() == tx_from.lower():
+                                decoded_event['provider'] = provider_from_args
+                            else:
+                                decoded_event['provider'] = tx_from
+
                             decoded_event['timestamp'] = event_timestamp
                             decoded_event['transactionHash'] = log['transactionHash']
+                            decoded_event['_from'] = tx_from
                             decoded_event['pool_address'] = pool["address"]
                             if token0 and token1:
                                 decoded_event['tokens'] = {"token0": token0, "token1": token1}

@@ -54,8 +54,9 @@ async def calculate_rewards():
                 logger.warning(f"Invalid amounts for event: {event}")
                 continue
 
-            token0_price = get_token_price(token0_info.get('coingecko_id'), event_date, HISTORICAL_PRICES_FILE)
-            token1_price = get_token_price(token1_info.get('coingecko_id'), event_date, HISTORICAL_PRICES_FILE)
+            token_price_date = start_date if event_date < start_date else event_date
+            token0_price = get_token_price(token0_info.get('coingecko_id'), token_price_date, HISTORICAL_PRICES_FILE)
+            token1_price = get_token_price(token1_info.get('coingecko_id'), token_price_date, HISTORICAL_PRICES_FILE)
 
             convert_amount0_to_number = amounts[0] / 10**token0_info.get('decimals', 0)
             convert_amount1_to_number = amounts[1] / 10**token1_info.get('decimals', 0)
