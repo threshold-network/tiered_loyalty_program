@@ -39,8 +39,8 @@ POOLS = [
         "address": to_checksum_address("0x186cf879186986a20aadfb7ead50e3c20cb26cec"),
         "abi": CURVE_ABI,
         "deploy_date": datetime.fromisoformat("2024-06-19"),
-        "deploy_block": 254000000, #test purposes comment this for PRODUCTION
-        #"deploy_block": 223607824, #set the block number -1
+        #"deploy_block": 254700000, #test purposes comment this for PRODUCTION
+        "deploy_block": 223607824, #set the block number -1
         "tokens": [
             {"token0": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
             {"token1": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
@@ -51,8 +51,8 @@ POOLS = [
         "address": to_checksum_address("0xe9e6b9aaafaf6816c3364345f6ef745ccfc8660a"),
         "abi": UNIV3_ABI,
         "deploy_date": datetime.fromisoformat("2023-05-16"),
-        "deploy_block": 254000000, #test purposes comment this for PRODUCTION
-        #"deploy_block": 91124443, #set the block number -1
+        #"deploy_block": 254700000, #test purposes comment this for PRODUCTION
+        "deploy_block": 91124443, #set the block number -1
         "tokens": [
             {"token0": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
             {"token1": {"address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f", "decimals": 8, "symbol": "WBTC", "coingecko_id": "wrapped-bitcoin"}}
@@ -63,8 +63,8 @@ POOLS = [
         "address": to_checksum_address("0xCb198a55e2a88841E855bE4EAcaad99422416b33"),
         "abi": UNIV3_ABI,
         "deploy_date": datetime.fromisoformat("2023-05-16"),
-        "deploy_block": 254000000, #test purposes comment this for PRODUCTION
-        #"deploy_block": 91123769, #set the block number -1
+        #"deploy_block": 254700000, #test purposes comment this for PRODUCTION
+        "deploy_block": 91123769, #set the block number -1
         "tokens": [
             {"token0": {"address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40", "decimals": 18, "symbol": "tBTC", "coingecko_id": "tbtc"}},
             {"token1": {"address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1", "decimals": 18, "symbol": "ETH", "coingecko_id": "ethereum"}}

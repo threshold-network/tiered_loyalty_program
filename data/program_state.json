@@ -1,1 +1,5 @@
-{"last_processed_block": 253603707, "latest_rewards_file": "data\\rewards\\rewards_20240914_220156.json"}
+{
+  "last_processed_block": 254973291,
+  "latest_rewards_file": "data\\rewards\\rewards_20240919_004705.json",
+  "last_balance_timestamp": null
+}

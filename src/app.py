@@ -7,7 +7,6 @@ import sys
 from flask_cors import CORS
 import asyncio
 import os
-import json
 import traceback
 
 from src.config import END_DATE, POOLS
@@ -15,9 +14,9 @@ from src.blockchain.web3_client import web3_client
 from src.blockchain.event_fetcher import event_fetcher
 from src.data.price_fetcher import update_price_data
 from src.rewards.calculator import calculate_rewards
-from src.data.json_formatter import format_rewards_data
 from src.data.state_manager import save_state, load_state
 from src.data.json_logger import save_json_data
+from src.rewards.balance_calculator import balance_calculator
 
 # Set up logging
 log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
@@ -67,26 +66,28 @@ async def main():
     logger.info("Starting main async loop")
     while datetime.now(timezone.utc) <= END_DATE + timedelta(days=1):
         try:
-            await update_price_data()
-            current_block = web3_client.get_latest_block()
+            # await update_price_data()
+            # current_block = web3_client.get_latest_block()
             
-            state = load_state()
-            logger.info(f"State loaded. Last processed block: {state['last_processed_block']}")
-            last_processed_block = state.get('last_processed_block')
+            # state = load_state()
+            # logger.info(f"State loaded. Last processed block: {state['last_processed_block']}")
+            # last_processed_block = state.get('last_processed_block')
             
-            if last_processed_block is None:
-                last_processed_block = min(pool['deploy_block'] for pool in POOLS)
+            # if last_processed_block is None:
+            #     last_processed_block = min(pool['deploy_block'] for pool in POOLS)
 
-            if last_processed_block + 1 <= current_block:
-                await event_fetcher.fetch_and_save_events(POOLS, last_processed_block + 1, current_block)
-            else:
-                logger.info("No new blocks to process.")
+            # if last_processed_block + 1 <= current_block:
+            #     await event_fetcher.fetch_and_save_events(POOLS, last_processed_block + 1, current_block)
+            # else:
+            #     logger.info("No new blocks to process.")
             
-            rewards_data = await calculate_rewards()
-            rewards_file = save_json_data(rewards_data, filename_prefix='rewards')
+            balance_calculator.calculate_balances()
             
-            save_state(current_block, rewards_file)
-            logger.info(f"State saved. Last processed block: {current_block}")
+            # rewards_data = await calculate_rewards()
+            # rewards_file = save_json_data(rewards_data, filename_prefix='rewards')
+            
+            # save_state(current_block, rewards_file, balance_calculator.last_processed_timestamp)
+            # logger.info(f"State saved. Last processed block: {current_block}, Last balance timestamp: {balance_calculator.last_processed_timestamp}")
         except Exception as e:
             logger.error(f"An error occurred in the main loop: {str(e)}")
             logger.error(traceback.format_exc())

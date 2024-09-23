@@ -1,5 +1,6 @@
 import logging
 from src.utils.helpers import normalize_address, format_decimal, sort_events
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -18,12 +19,12 @@ def format_rewards_data(data):
         for event in all_events_sorted:
             formatted_event = {
                 "event": event.get('event', ''),
-                "txhash_counter": event.get('txhash_counter', 0),
                 "action": event.get('action', ''),
-                "pool_address": event.get('pool_address', ''),
-                "provider": normalize_address(event.get('provider', '')),
-                "timestamp": event.get('timestamp', 0),
                 "transactionHash": event.get('transactionHash', ''),
+                "txhash_counter": event.get('txhash_counter', 0),
+                "timestamp": event.get('timestamp', 0),
+                "provider": normalize_address(event.get('provider', '')),
+                "pool_address": event.get('pool_address', ''),
                 "token0": {
                     "symbol": event.get('tokens', {}).get('token0', {}).get('symbol', ''),
                     "amount": format_decimal(event.get('amounts', [0, 0])[0]),
@@ -34,9 +35,8 @@ def format_rewards_data(data):
                     "amount": format_decimal(event.get('amounts', [0, 0])[1]),
                     "decimals": event.get('tokens', {}).get('token1', {}).get('decimals', 0)
                 },
-                "event_balance": format_decimal(event.get('event_balance', 0), 2),
-                "hash_balance_date": int(event['hash_balance_date'].timestamp()),
-                "hash_balance": format_decimal(event.get('hash_balance', 0), 2)
+                "event_balance": format_decimal(event.get('total_balance_usd', 0), 2),
+                "hash_balance_date": int(datetime.fromisoformat(event['balance_date']).timestamp()),
             }
             formatted_events.append(formatted_event)
 
