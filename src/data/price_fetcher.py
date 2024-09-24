@@ -19,6 +19,7 @@ async def coingecko_fetch(token_id, start_timestamp, end_timestamp):
             "vs_currency": "usd",
             "from": start_timestamp,
             "to": end_timestamp,
+            "interval": "daily",
             api_key_param: COINGECKO_API_KEY,
         }
         
@@ -49,7 +50,7 @@ async def update_price_data():
             last_timestamp = max(int(data[0]/1000) for data in historical_data[token_name])
             start_timestamp = last_timestamp + 1
         else:
-            start_timestamp = int((datetime.now(timezone.utc) - timedelta(days=730)).timestamp())
+            start_timestamp = int((datetime.now(timezone.utc) - timedelta(days=30)).timestamp())
 
         if start_timestamp < end_timestamp:
             logger.info(f"Preparing to fetch new data for {token_name} from {datetime.fromtimestamp(start_timestamp)} to {datetime.fromtimestamp(end_timestamp)}")

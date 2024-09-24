@@ -3,7 +3,7 @@ import logging
 from datetime import datetime, timezone
 from src.config import POOLS
 from src.utils.helpers import (
-    normalize_address, get_token_price, load_events,
+    normalize_address, load_events,
     sort_events
 )
 from src.data.state_manager import load_state
@@ -81,17 +81,17 @@ class BalanceCalculator:
                 'txhash_counter': len(self.provider_liquidity[provider]),
                 'tokens': event['tokens'],
                 'amounts': amounts,
-                'balance_date': datetime.fromtimestamp(event['timestamp'], tz=timezone.utc),
                 'pool_balances': {},
             }
+            
+            previous_pool_balances = self.provider_liquidity[provider][-1]['pool_balances'].copy() if self.provider_liquidity[provider] else {}
+            balance_entry['pool_balances'] = previous_pool_balances
 
-            if not self.provider_liquidity[provider] or pool_address not in self.provider_liquidity[provider][-1].get('pool_balances', {}):
-                balance_entry['pool_balances'][pool_address] = {'balance_tokens': [0, 0], 'balance_usd': 0}
-            else:
-                balance_entry['pool_balances'][pool_address] = self.provider_liquidity[provider][-1]['pool_balances'][pool_address].copy()
-
-            token0_balance = balance_entry['pool_balances'][pool_address]['balance_tokens'][0]
-            token1_balance = balance_entry['pool_balances'][pool_address]['balance_tokens'][1]
+            if pool_address not in balance_entry['pool_balances']:
+                balance_entry['pool_balances'][pool_address] = {'token_balance': {}}
+            
+            token0_balance = balance_entry['pool_balances'][pool_address]['token_balance'].get(token0['symbol'], 0)
+            token1_balance = balance_entry['pool_balances'][pool_address]['token_balance'].get(token1['symbol'], 0)
 
             if action == 'add':
                 token0_balance += amounts[0] / 10**token0['decimals']
@@ -100,17 +100,22 @@ class BalanceCalculator:
                 token0_balance -= amounts[0] / 10**token0['decimals']
                 token1_balance -= amounts[1] / 10**token1['decimals']
 
-            balance_entry['pool_balances'][pool_address]['balance_tokens'] = [
-                token0_balance,
-                token1_balance
-            ]
+            balance_entry['pool_balances'][pool_address]['token_balance'] = {
+                token0['symbol']: token0_balance,
+                token1['symbol']: token1_balance
+            }
 
-            token0_price = get_token_price(token0['coingecko_id'], balance_entry['balance_date'], './data/token_historical_prices.json')
-            token1_price = get_token_price(token1['coingecko_id'], balance_entry['balance_date'], './data/token_historical_prices.json')
-            
-            balance_entry['pool_balances'][pool_address]['balance_usd'] = max(0, token0_balance * token0_price + token1_balance * token1_price)
+            total_token_balance = {}
+            for pool_address, pool_data in balance_entry['pool_balances'].items():
+                if pool_address != 'total_token_balance':
+                    token_balance = pool_data.get('token_balance', {})
+                    for token_symbol, balance in token_balance.items():
+                        if token_symbol in total_token_balance:
+                            total_token_balance[token_symbol] += balance
+                        else:
+                            total_token_balance[token_symbol] = balance
 
-            balance_entry['total_balance_usd'] = max(0, sum(float(pool['balance_usd']) for pool in balance_entry['pool_balances'].values()))
+            balance_entry['pool_balances']['total_token_balance'] = total_token_balance
 
             self.provider_liquidity[provider].append(balance_entry)
 
