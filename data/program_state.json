@@ -1,1 +1,6 @@
-{"last_processed_block": 253603707, "latest_rewards_file": "data\\rewards\\rewards_20240914_220156.json"}
+{
+  "last_processed_block": 256800242,
+  "latest_rewards_file": "data\\rewards\\rewards_20240924_052810.json",
+  "last_balance_timestamp": 1727165271,
+  "last_daily_balance_date": "2024-09-24T00:00:00+00:00"
+}

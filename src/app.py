@@ -7,7 +7,6 @@ import sys
 from flask_cors import CORS
 import asyncio
 import os
-import json
 import traceback
 
 from src.config import END_DATE, POOLS
@@ -15,11 +14,11 @@ from src.blockchain.web3_client import web3_client
 from src.blockchain.event_fetcher import event_fetcher
 from src.data.price_fetcher import update_price_data
 from src.rewards.calculator import calculate_rewards
-from src.data.json_formatter import format_rewards_data
 from src.data.state_manager import save_state, load_state
 from src.data.json_logger import save_json_data
+from src.rewards.balance_calculator import balance_calculator
+from src.rewards.daily_balance_calculator import daily_balance_calculator
 
-# Set up logging
 log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
 console_handler = logging.StreamHandler()
@@ -43,7 +42,6 @@ def create_app():
         state = load_state()
         latest_rewards_file = state.get('latest_rewards_file')
         if latest_rewards_file:
-            # Ensure the path starts from the project root
             full_path = os.path.join(os.getcwd(), latest_rewards_file)
             if os.path.exists(full_path):
                 return send_file(full_path, mimetype='application/json')
@@ -82,18 +80,35 @@ async def main():
             else:
                 logger.info("No new blocks to process.")
             
-            rewards_data = await calculate_rewards()
-            rewards_file = save_json_data(rewards_data, filename_prefix='rewards')
+            balance_calculator.calculate_balances()
             
-            save_state(current_block, rewards_file)
-            logger.info(f"State saved. Last processed block: {current_block}")
+            new_daily_balances = daily_balance_calculator.calculate_daily_balances()
+            
+            rewards_data = calculate_rewards()
+            
+            combined_data = {
+                "total_weighted_liquidity": rewards_data["total_weighted_liquidity"],
+                "rewards": rewards_data["rewards"],
+                "provider_liquidity": balance_calculator.provider_liquidity,
+                "daily_balances": new_daily_balances
+            }
+            
+            rewards_file = save_json_data(combined_data)
+            
+            state['last_processed_block'] = current_block
+            state['latest_rewards_file'] = rewards_file
+            state['last_balance_timestamp'] = balance_calculator.last_processed_timestamp
+            state['last_daily_balance_date'] = daily_balance_calculator.last_calculated_date.isoformat() if daily_balance_calculator.last_calculated_date else None
+            save_state(state['last_processed_block'], state['latest_rewards_file'], state['last_balance_timestamp'], state['last_daily_balance_date'])
+            
+            logger.info(f"State saved. Last processed block: {current_block}, Last balance timestamp: {balance_calculator.last_processed_timestamp}, Last daily balance date: {state['last_daily_balance_date']}")
         except Exception as e:
             logger.error(f"An error occurred in the main loop: {str(e)}")
             logger.error(traceback.format_exc())
             await asyncio.sleep(10800)
         
-        logger.info(f"Sleeping for 12 hours")
-        await asyncio.sleep(43200)
+        logger.info(f"Sleeping for 1 hour")
+        await asyncio.sleep(3600)
 
 if __name__ == "__main__":
     app = create_app()

@@ -19,7 +19,7 @@ def normalize_address(address):
     if isinstance(address, bytes):
         address = address.hex()
     elif not isinstance(address, str):
-        raise ValueError(f"Unsupported address format: {type(address)}")
+        raise ValueError(f"Unsupported address format: {type(address)} for address {address}")
 
     address = address.lower().removeprefix('0x').lstrip('0').zfill(40)
     address = '0x' + address
