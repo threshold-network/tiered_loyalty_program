@@ -6,12 +6,12 @@ from src.data.json_formatter import format_rewards_data
 
 logger = logging.getLogger(__name__)
 
-def save_json_data(data, filename_prefix='data'):
+def save_json_data(data):
     formatted_rewards = format_rewards_data(data)
     rewards_dir = os.path.join(os.getcwd(), 'data', 'rewards')
     os.makedirs(rewards_dir, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    rewards_file = os.path.join('data', 'rewards', f'{filename_prefix}_{timestamp}.json')
+    rewards_file = os.path.join('data', 'rewards', f'rewards_{timestamp}.json')
     full_path = os.path.join(os.getcwd(), rewards_file)
     
     with open(full_path, 'w') as f:

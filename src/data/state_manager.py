@@ -4,11 +4,12 @@ from src.config import STATE_FILE
 
 logger = logging.getLogger(__name__)
 
-def save_state(last_block, latest_rewards_file, last_balance_timestamp=None):
+def save_state(last_block, latest_rewards_file, last_balance_timestamp, last_daily_balance_date):
     state = {
         'last_processed_block': last_block,
         'latest_rewards_file': latest_rewards_file,
-        'last_balance_timestamp': last_balance_timestamp
+        'last_balance_timestamp': last_balance_timestamp,
+        'last_daily_balance_date': last_daily_balance_date,
     }
     with open(STATE_FILE, 'w') as f:
         json.dump(state, f, indent=2)
@@ -20,4 +21,4 @@ def load_state():
         return state
     except FileNotFoundError:
         logger.info(f"No state file found.")
-        return {'last_processed_block': None, 'latest_rewards_file': None, 'last_balance_timestamp': None}
+        return {'last_processed_block': None, 'latest_rewards_file': None, 'last_daily_balance_date': None}
