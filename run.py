@@ -26,10 +26,8 @@ if __name__ == "__main__":
         logger.info(f"Starting Flask app on port {port}")
         app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)
     
-    # Run the Flask app
     flask_thread = Thread(target=run_flask)
     flask_thread.daemon = True
     flask_thread.start()  
     
-    # Run the main loop in the background
     asyncio.run(run_main())

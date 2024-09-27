@@ -13,11 +13,11 @@ from src.config import END_DATE, POOLS
 from src.blockchain.web3_client import web3_client
 from src.blockchain.event_fetcher import event_fetcher
 from src.data.price_fetcher import update_price_data
-from src.rewards.calculator import calculate_rewards
+from src.calculator.rewards import calculate_rewards
 from src.data.state_manager import save_state, load_state
 from src.data.json_logger import save_json_data
-from src.rewards.balance_calculator import balance_calculator
-from src.rewards.daily_balance_calculator import daily_balance_calculator
+from src.calculator.balances import balance_calculator
+from src.calculator.daily_balances import daily_balance_calculator
 
 log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
@@ -82,15 +82,15 @@ async def main():
             
             balance_calculator.calculate_balances()
             
-            new_daily_balances = daily_balance_calculator.calculate_daily_balances()
+            daily_balance_calculator.calculate_daily_balances()
             
             rewards_data = calculate_rewards()
             
             combined_data = {
-                "total_weighted_liquidity": rewards_data["total_weighted_liquidity"],
-                "rewards": rewards_data["rewards"],
+                "total_weighted_liquidity": rewards_data.get("total_weighted_liquidity"),
+                "rewards": rewards_data.get("rewards"),
                 "provider_liquidity": balance_calculator.provider_liquidity,
-                "daily_balances": new_daily_balances
+                "daily_balances": daily_balance_calculator.daily_balances
             }
             
             rewards_file = save_json_data(combined_data)

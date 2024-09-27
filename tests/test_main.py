@@ -1,6 +1,6 @@
 import pytest
 from datetime import datetime, timezone
-from src.rewards.calculator import calculate_rewards
+from calculator.rewards import calculate_rewards
 from src.config import START_TIMESTAMP, END_TIMESTAMP, HISTORICAL_PRICES_FILE
 import json
 import os
