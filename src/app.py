@@ -99,7 +99,12 @@ async def main():
             state['latest_rewards_file'] = rewards_file
             state['last_balance_timestamp'] = balance_calculator.last_processed_timestamp
             state['last_daily_balance_date'] = daily_balance_calculator.last_calculated_date.isoformat() if daily_balance_calculator.last_calculated_date else None
-            save_state(state['last_processed_block'], state['latest_rewards_file'], state['last_balance_timestamp'], state['last_daily_balance_date'])
+            save_state(
+                state['last_processed_block'],
+                state['latest_rewards_file'],
+                state['last_balance_timestamp'],
+                state['last_daily_balance_date']
+            )
             
             logger.info(f"State saved. Last processed block: {current_block}, Last balance timestamp: {balance_calculator.last_processed_timestamp}, Last daily balance date: {state['last_daily_balance_date']}")
         except Exception as e:

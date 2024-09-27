@@ -12,7 +12,18 @@ class DailyBalanceCalculator:
         self.provider_balances_file = provider_balances_file
         self.daily_balances_file = daily_balances_file
         self.token_prices_file = token_prices_file
-        self.last_calculated_date = None
+        
+        last_calculated_date = load_state().get('last_daily_balance_date', None)
+        
+        if last_calculated_date:
+            try:
+                self.last_calculated_date = datetime.fromisoformat(last_calculated_date)
+            except ValueError as e:
+                logger.error(f"Invalid date format for last_daily_balance_date: {last_calculated_date}. Setting to None.")
+                self.last_calculated_date = None
+        else:
+            self.last_calculated_date = None
+        
         self.daily_balances = {}
 
     def load_provider_balances(self):
