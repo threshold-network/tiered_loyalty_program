@@ -112,8 +112,8 @@ async def main():
             logger.error(traceback.format_exc())
             await asyncio.sleep(10800)
         
-        logger.info(f"Sleeping for 1 hour")
-        await asyncio.sleep(3600)
+        logger.info(f"Sleeping for 24 hours")
+        await asyncio.sleep(86400)
 
 if __name__ == "__main__":
     app = create_app()
