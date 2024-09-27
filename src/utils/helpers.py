@@ -102,13 +102,10 @@ def format_decimal(value, decimal_places=8):
     :param decimal_places: The number of decimal places to keep after truncating.
     :return: Formatted string representation of the value.
     """
-    # Convert to Decimal and then to string with many decimal places
     full_string = format(Decimal(str(value)), 'f')
     
-    # Split into parts before and after decimal point
     parts = full_string.split('.')
     
-    # If there's a decimal part, truncate it
     if len(parts) > 1:
         return f"{parts[0]}.{parts[1][:decimal_places]}"
     else:

@@ -1,12 +1,13 @@
 import json
 import logging
-from datetime import datetime, timezone
+from datetime import datetime
 from src.config import POOLS
 from src.utils.helpers import (
     normalize_address, load_events,
     sort_events
 )
 from src.data.state_manager import load_state
+import copy  # Add this import at the top of the file
 
 logger = logging.getLogger(__name__)
 
@@ -81,10 +82,12 @@ class BalanceCalculator:
                 'txhash_counter': len(self.provider_liquidity[provider]),
                 'tokens': event['tokens'],
                 'amounts': amounts,
+                'pool_address': pool_address,
                 'pool_balances': {},
+                'total_token_balance': {}
             }
             
-            previous_pool_balances = self.provider_liquidity[provider][-1]['pool_balances'].copy() if self.provider_liquidity[provider] else {}
+            previous_pool_balances = copy.deepcopy(self.provider_liquidity[provider][-1]['pool_balances']) if self.provider_liquidity[provider] else {}
             balance_entry['pool_balances'] = previous_pool_balances
 
             if pool_address not in balance_entry['pool_balances']:
@@ -107,15 +110,14 @@ class BalanceCalculator:
 
             total_token_balance = {}
             for pool_address, pool_data in balance_entry['pool_balances'].items():
-                if pool_address != 'total_token_balance':
-                    token_balance = pool_data.get('token_balance', {})
-                    for token_symbol, balance in token_balance.items():
-                        if token_symbol in total_token_balance:
-                            total_token_balance[token_symbol] += balance
-                        else:
-                            total_token_balance[token_symbol] = balance
+                token_balance = pool_data.get('token_balance', {})
+                for token_symbol, balance in token_balance.items():
+                    if token_symbol in total_token_balance:
+                        total_token_balance[token_symbol] += balance
+                    else:
+                        total_token_balance[token_symbol] = balance
 
-            balance_entry['pool_balances']['total_token_balance'] = total_token_balance
+            balance_entry['total_token_balance'] = total_token_balance
 
             self.provider_liquidity[provider].append(balance_entry)
 

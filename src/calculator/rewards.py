@@ -14,6 +14,7 @@ class RewardsCalculator:
         self.start_date = start_date
         self.end_date = end_date
         self.total_rewards = total_rewards
+        self.rewards_data = {}
 
     def load_daily_balances(self) -> Dict[str, Any]:
         try:
@@ -87,13 +88,15 @@ class RewardsCalculator:
             weighted_avg_liquidity = self.calculate_weighted_avg_liquidity(provider_liquidity)
             rewards = self.calculate_rewards(weighted_avg_liquidity)
 
-            return {
+            self.rewards_data = {
                 "total_weighted_liquidity": sum(weighted_avg_liquidity.values()),
                 "rewards": rewards,
             }
         except Exception as e:
             logger.error(f"Error calculating rewards: {str(e)}")
-            return {"error": str(e)}
+            self.rewards_data = {"error": str(e)}
+
+        return self.rewards_data
 
 def calculate_rewards() -> Dict[str, Any]:
     calculator = RewardsCalculator(

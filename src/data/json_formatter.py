@@ -1,6 +1,5 @@
 import logging
-from src.utils.helpers import normalize_address, format_decimal, sort_events
-from datetime import datetime
+from src.utils.helpers import normalize_address, format_decimal
 
 logger = logging.getLogger(__name__)
 
@@ -18,8 +17,8 @@ def format_rewards_data(data):
         formatted_json_data = {
             "total_weighted_liquidity": format_decimal(total_weighted_liquidity),
             "rewards": formatted_rewards,
-            "provider_liquidity": formatted_provider_liquidity,
-            "daily_balances": formatted_daily_balances
+            "events": formatted_provider_liquidity,
+            "balances": formatted_daily_balances
         }
 
         return formatted_json_data

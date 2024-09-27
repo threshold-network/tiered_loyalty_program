@@ -1,8 +1,8 @@
 import json
 import logging
 from datetime import datetime, timedelta, timezone
-from src.utils.helpers import get_token_price, format_decimal
-from src.data.state_manager import load_state, save_state
+from src.utils.helpers import get_token_price
+from src.data.state_manager import load_state
 from src.config import START_DATE
 
 logger = logging.getLogger(__name__)
@@ -13,6 +13,7 @@ class DailyBalanceCalculator:
         self.daily_balances_file = daily_balances_file
         self.token_prices_file = token_prices_file
         self.last_calculated_date = None
+        self.daily_balances = {}
 
     def load_provider_balances(self):
         try:
@@ -51,13 +52,14 @@ class DailyBalanceCalculator:
 
     def calculate_daily_balances(self):
         provider_balances = self.load_provider_balances()
-        daily_balances = self.load_daily_balances()
+        existing_daily_balances = self.load_daily_balances()
         start_date = self.get_start_date()
         current_date = datetime.now(timezone.utc)
 
         if start_date >= current_date:
             logger.info("No new daily balances to calculate.")
-            return daily_balances
+            self.daily_balances = existing_daily_balances
+            return
 
         new_balances = {}
         for provider, events in provider_balances.items():
@@ -72,7 +74,7 @@ class DailyBalanceCalculator:
                 token_usd_balance = {}
                 total_usd_balance = 0
 
-                for token, balance in last_event['pool_balances']['total_token_balance'].items():
+                for token, balance in last_event['total_token_balance'].items():
                     token_info = next((t for t in last_event['tokens'].values() if t['symbol'] == token), None)
                     if token_info:
                         try:
@@ -96,7 +98,8 @@ class DailyBalanceCalculator:
         self.save_daily_balances(new_balances)
         self.last_calculated_date = current_date.replace(hour=0, minute=0, second=0, microsecond=0)
 
-        return new_balances
+        existing_daily_balances.update(new_balances)
+        self.daily_balances = existing_daily_balances
 
 daily_balance_calculator = DailyBalanceCalculator(
     provider_balances_file='./data/balances/provider_balances.json',
