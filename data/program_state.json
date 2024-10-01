@@ -1,6 +1,6 @@
 {
-  "last_processed_block": 257804827,
-  "latest_rewards_file": "data\\rewards\\rewards_20240927_033117.json",
-  "last_balance_timestamp": 1727418331,
-  "last_daily_balance_date": "2024-09-27T00:00:00+00:00"
+  "last_processed_block": 259127044,
+  "latest_rewards_file": "data\\rewards\\rewards_20240930_235619.json",
+  "last_balance_timestamp": 1727748838,
+  "last_daily_balance_date": "2024-10-01T00:00:00+00:00"
 }

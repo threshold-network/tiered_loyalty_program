@@ -2,7 +2,7 @@ Flask==3.0.3
 Flask-Cors==3.0.10
 web3==5.31.0
 python-dotenv==0.19.2
-aiohttp==3.8.1
+aiohttp
 asyncio==3.4.3
 pinatapy-vourhey==0.1.6
 eth-abi==2.1.1

@@ -46,7 +46,11 @@ class DailyBalanceCalculator:
         try:
             with open(self.daily_balances_file, 'r+') as f:
                 existing_data = json.load(f)
-                existing_data.update(daily_balances)
+                for provider, data in daily_balances.items():
+                    if provider in existing_data:
+                        existing_data[provider]['balances'].extend(data['balances'])  # Append new balances
+                    else:
+                        existing_data[provider] = data  # Add new provider entry
                 f.seek(0)
                 json.dump(existing_data, f, indent=2)
                 f.truncate()
@@ -65,7 +69,7 @@ class DailyBalanceCalculator:
         provider_balances = self.load_provider_balances()
         existing_daily_balances = self.load_daily_balances()
         start_date = self.get_start_date()
-        current_date = datetime.now(timezone.utc)
+        current_date = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
 
         if start_date >= current_date:
             logger.info("No new daily balances to calculate.")
@@ -107,10 +111,9 @@ class DailyBalanceCalculator:
                 calculation_date += timedelta(days=1)
 
         self.save_daily_balances(new_balances)
-        self.last_calculated_date = current_date.replace(hour=0, minute=0, second=0, microsecond=0)
+        self.last_calculated_date = current_date
 
-        existing_daily_balances.update(new_balances)
-        self.daily_balances = existing_daily_balances
+        self.daily_balances = self.load_daily_balances()
 
 daily_balance_calculator = DailyBalanceCalculator(
     provider_balances_file='./data/balances/provider_balances.json',
