@@ -95,7 +95,7 @@ class DailyBalanceCalculator:
                             logger.warning(f"Token {token} not found in TOKENS configuration.")
                             continue
                         token_price = get_token_price(token_identifier, calculation_date)
-                        usd_balance = max(0, balance * token_price)
+                        usd_balance = balance * token_price if balance * token_price >= 0.01 else 0
                         token_usd_balance[token] = usd_balance
                         total_usd_balance += usd_balance
                     except Exception as e:
