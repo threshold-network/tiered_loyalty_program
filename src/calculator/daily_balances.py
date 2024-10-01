@@ -3,15 +3,14 @@ import logging
 from datetime import datetime, timedelta, timezone
 from src.utils.helpers import get_token_price
 from src.data.state_manager import load_state
-from src.config import START_DATE
+from src.config import START_DATE, TOKENS
 
 logger = logging.getLogger(__name__)
 
 class DailyBalanceCalculator:
-    def __init__(self, provider_balances_file, daily_balances_file, token_prices_file):
+    def __init__(self, provider_balances_file, daily_balances_file):
         self.provider_balances_file = provider_balances_file
         self.daily_balances_file = daily_balances_file
-        self.token_prices_file = token_prices_file
         
         last_calculated_date = load_state().get('last_daily_balance_date', None)
         
@@ -48,9 +47,9 @@ class DailyBalanceCalculator:
                 existing_data = json.load(f)
                 for provider, data in daily_balances.items():
                     if provider in existing_data:
-                        existing_data[provider]['balances'].extend(data['balances'])  # Append new balances
+                        existing_data[provider]['balances'].extend(data['balances'])
                     else:
-                        existing_data[provider] = data  # Add new provider entry
+                        existing_data[provider] = data
                 f.seek(0)
                 json.dump(existing_data, f, indent=2)
                 f.truncate()
@@ -90,15 +89,17 @@ class DailyBalanceCalculator:
                 total_usd_balance = 0
 
                 for token, balance in last_event['total_token_balance'].items():
-                    token_info = next((t for t in last_event['tokens'].values() if t['symbol'] == token), None)
-                    if token_info:
-                        try:
-                            token_price = get_token_price(token_info['coingecko_id'], calculation_date, self.token_prices_file)
-                            usd_balance = max(0, balance * token_price)
-                            token_usd_balance[token] = usd_balance
-                            total_usd_balance += usd_balance
-                        except Exception as e:
-                            logger.error(f"Error calculating USD balance for {token}: {str(e)}")
+                    try:
+                        token_identifier = TOKENS.get(token)
+                        if token_identifier is None:
+                            logger.warning(f"Token {token} not found in TOKENS configuration.")
+                            continue
+                        token_price = get_token_price(token_identifier, calculation_date)
+                        usd_balance = max(0, balance * token_price)
+                        token_usd_balance[token] = usd_balance
+                        total_usd_balance += usd_balance
+                    except Exception as e:
+                        logger.error(f"Error calculating USD balance for {token}: {str(e)}")
 
                 daily_balance = {
                     'balance_date': calculation_date.isoformat(),
@@ -118,5 +119,4 @@ class DailyBalanceCalculator:
 daily_balance_calculator = DailyBalanceCalculator(
     provider_balances_file='./data/balances/provider_balances.json',
     daily_balances_file='./data/balances/daily_balances.json',
-    token_prices_file='./data/token_historical_prices.json'
 )

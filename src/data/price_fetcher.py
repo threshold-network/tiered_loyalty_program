@@ -46,8 +46,8 @@ async def update_price_data():
     token_start_times = {}
 
     for token_name, token_id in TOKENS.items():
-        if token_name in historical_data and historical_data[token_name]:
-            last_timestamp = max(int(data[0]/1000) for data in historical_data[token_name])
+        if token_id in historical_data and historical_data[token_id]:
+            last_timestamp = max(int(data[0]/1000) for data in historical_data[token_id])
             start_timestamp = last_timestamp + 1
         else:
             start_timestamp = int((datetime.now(timezone.utc) - timedelta(days=30)).timestamp())
@@ -55,24 +55,24 @@ async def update_price_data():
         if start_timestamp < end_timestamp:
             logger.info(f"Preparing to fetch new data for {token_name} from {datetime.fromtimestamp(start_timestamp)} to {datetime.fromtimestamp(end_timestamp)}")
             tasks.append(coingecko_fetch(token_id, start_timestamp, end_timestamp))
-            token_start_times[token_name] = start_timestamp
+            token_start_times[token_id] = start_timestamp
         else:
             logger.info(f"Data for {token_name} is already up to date")
 
     results = await asyncio.gather(*tasks, return_exceptions=True)
 
-    for token_name, result in zip(token_start_times.keys(), results):
+    for token_id, result in zip(token_start_times.keys(), results):
         if isinstance(result, Exception):
             logger.error(f"An error occurred while updating {token_name}: {str(result)}")
         elif result:
-            if token_name in historical_data:
-                historical_data[token_name].extend(result)
-                historical_data[token_name] = sorted(list({tuple(item) for item in historical_data[token_name]}))
+            if token_id in historical_data:
+                historical_data[token_id].extend(result)
+                historical_data[token_id] = sorted(list({tuple(item) for item in historical_data[token_id]}))
             else:
-                historical_data[token_name] = result
+                historical_data[token_id] = result
             
-            logger.info(f"Updated data for {token_name}")
+            logger.info(f"Updated data for {token_id}")
         else:
-            logger.info(f"No new data available for {token_name}")
+            logger.info(f"No new data available for {token_id}")
 
     save_price_data(historical_data, HISTORICAL_PRICES_FILE)

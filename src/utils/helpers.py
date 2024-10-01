@@ -159,13 +159,13 @@ def get_token_attr_by_address(address, pool):
             return token_info
     return None
 
-def get_token_price(coingecko_id, date, path):
-    historical_data = load_price_data(path)
+def get_token_price(coingecko_id, date):
+    historical_data = load_price_data('data/token_historical_prices.json')
     if not coingecko_id or coingecko_id not in historical_data:
         logger.error(f"Unknown token or no price data: {coingecko_id}")
         return 0
 
-    target_timestamp = int(date.timestamp() * 1000)  # Convert to milliseconds
+    target_timestamp = int(date.timestamp() * 1000)
     price_data = historical_data[coingecko_id]
     
     timestamps = [entry[0] for entry in price_data]

@@ -74,9 +74,9 @@ POOLS = [
 ]
 
 TOKENS = {
-    "tbtc": "tbtc",
-    "wrapped-bitcoin": "wrapped-bitcoin",
-    "ethereum": "ethereum",
-    "arbitrum": "arbitrum",
-    "threshold-network-token": "threshold-network-token",
+    "tBTC": "tbtc",
+    "WBTC": "wrapped-bitcoin",
+    "ETH": "ethereum",
+    "ARB": "arbitrum",
+    "T": "threshold-network-token",
 }

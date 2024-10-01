@@ -3,7 +3,7 @@ import json
 from datetime import datetime, timezone
 from typing import Dict, List, Any
 
-from src.config import START_DATE, END_DATE, TOTAL_REWARDS, HISTORICAL_PRICES_FILE
+from src.config import START_DATE, END_DATE, TOTAL_REWARDS
 from src.utils.helpers import normalize_address, get_token_price
 
 logger = logging.getLogger(__name__)
@@ -77,7 +77,7 @@ class RewardsCalculator:
 
     def get_token_price(self, token: str, date: datetime) -> float:
         try:
-            return get_token_price(token, date, HISTORICAL_PRICES_FILE)
+            return get_token_price(token, date)
         except Exception as e:
             logger.error(f"Error getting token price for {token}: {str(e)}")
             return 0

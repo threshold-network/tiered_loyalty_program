@@ -1,7 +1,7 @@
 import pytest
 from datetime import datetime, timezone
 from calculator.rewards import calculate_rewards
-from src.config import START_TIMESTAMP, END_TIMESTAMP, HISTORICAL_PRICES_FILE
+from src.config import START_TIMESTAMP, END_TIMESTAMP
 import json
 import os
 
@@ -12,7 +12,7 @@ def mock_fetch_token_price(coingecko_id, date, path):
 # Patch the fetch_token_price function
 @pytest.fixture(autouse=True)
 def patch_fetch_token_price(monkeypatch):
-    monkeypatch.setattr("src.utils.helpers.get_token_price", mock_fetch_token_price, HISTORICAL_PRICES_FILE)
+    monkeypatch.setattr("src.utils.helpers.get_token_price", mock_fetch_token_price)
 
 def transform_event_format(event):
     return {
