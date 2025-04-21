@@ -12,6 +12,9 @@ from src.utils.helpers import (
 
 logger = logging.getLogger(__name__)
 
+# Define a reasonable chunk size for fetching logs
+LOG_FETCH_CHUNK_SIZE = 2000
+
 class EventFetcher:
     def __init__(self):
         self.w3 = web3_client.w3
@@ -50,22 +53,31 @@ class EventFetcher:
 
                 event_signature_hash = Web3.keccak(text=event_signature).hex()
 
-                # logs = self.w3.eth.get_logs({
-                logs = web3_client.call_with_retry(self.w3.eth.get_logs, {
-                    'fromBlock': from_block,
-                    'toBlock': to_block,
-                    'address': pool["address"],
-                    'topics': [event_signature_hash]
-                })
-                
-                # Handle case where retry mechanism returns None after max retries
-                if logs is None:
-                    logger.error(f"Failed to fetch logs for {event_name} on pool {pool['address']} after retries. Skipping...")
-                    continue # Skip processing logs for this event if fetching failed
+                all_logs = [] # List to aggregate logs from all chunks
+                for chunk_start_block in range(from_block, to_block + 1, LOG_FETCH_CHUNK_SIZE):
+                    chunk_end_block = min(chunk_start_block + LOG_FETCH_CHUNK_SIZE - 1, to_block)
+                    logger.debug(f"Fetching {event_name} logs for chunk: {chunk_start_block} - {chunk_end_block}")
+                    
+                    logs_chunk = web3_client.call_with_retry(self.w3.eth.get_logs, {
+                        'fromBlock': chunk_start_block,
+                        'toBlock': chunk_end_block,
+                        'address': pool["address"],
+                        'topics': [event_signature_hash]
+                    })
 
-                logger.info(f"Fetched {len(logs)} {event_name} events for pool {pool['address']}")
+                    # Handle case where retry mechanism returns None after max retries for a chunk
+                    if logs_chunk is None:
+                        logger.error(f"Failed to fetch logs chunk ({chunk_start_block}-{chunk_end_block}) for {event_name} on pool {pool['address']} after retries. Skipping chunk...")
+                        # Decide if you want to skip the entire pool or just this chunk
+                        # For now, we continue to the next chunk, potentially missing events
+                        continue 
+                    
+                    all_logs.extend(logs_chunk)
+
+                logger.info(f"Fetched {len(all_logs)} total {event_name} events for pool {pool['address']} across all chunks.")
                 
-                for log in logs:
+                # Process the aggregated logs
+                for log in all_logs: 
                     try:
                         # block = self.w3.eth.get_block(log['blockNumber'])
                         block = web3_client.call_with_retry(self.w3.eth.get_block, log['blockNumber'])
@@ -116,11 +128,13 @@ class EventFetcher:
 
                             events.append(decoded_event)
                     except Exception as e:
-                        logger.error(f"Error processing event: {str(e)}")
+                        # Log error for specific event processing but continue loop
+                        logger.error(f"Error processing individual event log {log.get('transactionHash', 'N/A').hex()}: {str(e)}") 
         except Exception as e:
-            logger.error(f"Failed to fetch events for pool {pool['address']}: {str(e)}")
+            # Log error for fetching process of a specific pool but continue to next pool
+            logger.error(f"Failed during overall event fetching process for pool {pool['address']}: {str(e)}") 
 
-        logger.info(f"Total events eligible for rewards on pool {pool['address']}: {len(events)}")
+        logger.info(f"Finished processing pool {pool['address']}. Found {len(events)} eligible events.")
         return events
 
     def save_events(self, new_events):

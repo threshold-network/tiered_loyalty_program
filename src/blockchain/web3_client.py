@@ -3,24 +3,37 @@ from web3.exceptions import ContractLogicError
 import time
 import logging
 import requests # Import requests to check for HTTP errors
-from src.config import INFURA_URL, MAX_RETRIES, RETRY_DELAY
+from src.config import RPC_URL, MAX_RETRIES, RETRY_DELAY
 
 logger = logging.getLogger(__name__)
 
 class Web3Client:
     def __init__(self):
-        self.w3 = Web3(Web3.HTTPProvider(INFURA_URL))
+        if not RPC_URL:
+            logger.critical("RPC_URL is not configured. Please set ALCHEMY_URL or INFURA_KEY environment variable.")
+            # Handle this case more gracefully, maybe raise an exception or exit
+            # For now, initializing with empty URL which will likely fail on connect()
+            self.w3 = Web3(Web3.HTTPProvider("")) 
+        else:
+             self.w3 = Web3(Web3.HTTPProvider(RPC_URL))
 
     def connect(self):
+        if not RPC_URL:
+             logger.error("Cannot connect: RPC_URL is not configured.")
+             return False
+             
         for attempt in range(MAX_RETRIES):
-            if self.w3.is_connected(): # Use is_connected() instead of deprecated isConnected()
-                logger.info("Successfully connected to Arbitrum network")
-                return True
-            else:
-                logger.warning(f"Failed to connect to Arbitrum network. Attempt {attempt + 1} of {MAX_RETRIES}")
-                if attempt < MAX_RETRIES - 1:
-                    logger.info(f"Retrying in {RETRY_DELAY} seconds...")
-                    time.sleep(RETRY_DELAY)
+            try:
+                if self.w3.is_connected(): # Use is_connected() instead of deprecated isConnected()
+                    logger.info("Successfully connected to Arbitrum network via RPC")
+                    return True
+            except Exception as e:
+                 logger.warning(f"Connection check failed: {e}")
+            
+            logger.warning(f"Failed to connect to Arbitrum network. Attempt {attempt + 1} of {MAX_RETRIES}")
+            if attempt < MAX_RETRIES - 1:
+                logger.info(f"Retrying in {RETRY_DELAY} seconds...")
+                time.sleep(RETRY_DELAY)
         
         logger.error(f"Failed to connect to Arbitrum network after {MAX_RETRIES} attempts")
         return False

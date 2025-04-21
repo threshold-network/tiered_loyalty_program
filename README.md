@@ -33,18 +33,19 @@ The tiered loyalty program rewards liquidity providers based on their weighted a
     ```
 
 4. **Configure environment variables:**
-   Create a `.env` file in the root directory and add the following variables. Get API keys from the respective services.
+   Create a `.env` file in the root directory and add the following variables. Get API keys and RPC URLs from the respective services.
    ```dotenv
    # Required
-   INFURA_KEY=your_arbitrum_infura_key
+   ALCHEMY_URL=your_arbitrum_alchemy_https_url # Recommended RPC endpoint
    PINATA_API_KEY=your_pinata_api_key
    PINATA_SECRET_API_KEY=your_pinata_secret_api_key
    TOTAL_REWARDS=1000                 # Total rewards to distribute (e.g., in USD)
    START_DATE=2024-01-01T00:00:00     # Program start date in ISO format (UTC)
    PROGRAM_DURATION_WEEKS=12          # Duration of the program in weeks
    
-   # Optional - Uncomment and set if needed
-   # COINGECKO_API_KEY=your_coingecko_api_key # Required by fetch_prices.py if run independently
+   # Optional
+   # INFURA_KEY=your_arbitrum_infura_key      # Fallback RPC if ALCHEMY_URL is not set
+   # COINGECKO_API_KEY=your_coingecko_api_key # Optional Demo key for CoinGecko Public API
    # PORT=5001                            # Port for the Flask API (defaults to 5000)
    ```
 
