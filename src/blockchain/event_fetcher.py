@@ -50,21 +50,37 @@ class EventFetcher:
 
                 event_signature_hash = Web3.keccak(text=event_signature).hex()
 
-                logs = self.w3.eth.get_logs({
+                # logs = self.w3.eth.get_logs({
+                logs = web3_client.call_with_retry(self.w3.eth.get_logs, {
                     'fromBlock': from_block,
                     'toBlock': to_block,
                     'address': pool["address"],
                     'topics': [event_signature_hash]
                 })
                 
+                # Handle case where retry mechanism returns None after max retries
+                if logs is None:
+                    logger.error(f"Failed to fetch logs for {event_name} on pool {pool['address']} after retries. Skipping...")
+                    continue # Skip processing logs for this event if fetching failed
+
                 logger.info(f"Fetched {len(logs)} {event_name} events for pool {pool['address']}")
                 
                 for log in logs:
                     try:
-                        block = self.w3.eth.get_block(log['blockNumber'])
+                        # block = self.w3.eth.get_block(log['blockNumber'])
+                        block = web3_client.call_with_retry(self.w3.eth.get_block, log['blockNumber'])
+                        if block is None:
+                            logger.error(f"Failed to get block {log['blockNumber']} after retries. Skipping event log.")
+                            continue # Skip this specific log if block fetching failed
+                            
                         event_timestamp = block['timestamp']
                         if int(pool["deploy_date"].timestamp()) <= event_timestamp <= END_TIMESTAMP:
-                            tx = self.w3.eth.get_transaction(log['transactionHash'])
+                            # tx = self.w3.eth.get_transaction(log['transactionHash'])
+                            tx = web3_client.call_with_retry(self.w3.eth.get_transaction, log['transactionHash'])
+                            if tx is None:
+                                logger.error(f"Failed to get transaction {log['transactionHash'].hex()} after retries. Skipping event log.")
+                                continue # Skip this specific log if transaction fetching failed
+                                
                             decoded_event = decode_log(event_abi, log)
                             
                             provider_from_args = decoded_event['args'].get('provider') or decoded_event['args'].get('owner')

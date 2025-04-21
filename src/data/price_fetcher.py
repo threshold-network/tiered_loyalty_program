@@ -8,33 +8,40 @@ from src.utils.helpers import load_price_data, save_price_data
 logger = logging.getLogger(__name__)
 
 async def coingecko_fetch(token_id, start_timestamp, end_timestamp):
-    api_configs = [
-        ("https://pro-api.coingecko.com/api/v3", "x_cg_pro_api_key"),
-        ("https://api.coingecko.com/api/v3", "x_cg_demo_api_key")
-    ]
+    # Use only the Public API, but include demo key if available
+    endpoint_public = f"https://api.coingecko.com/api/v3/coins/{token_id}/market_chart/range"
+    params_public = {
+        "vs_currency": "usd",
+        "from": start_timestamp,
+        "to": end_timestamp,
+        # Remove interval, let CoinGecko decide based on range
+        # "interval": "daily", 
+    }
     
-    for base_url, api_key_param in api_configs:
-        endpoint = f"{base_url}/coins/{token_id}/market_chart/range"
-        params = {
-            "vs_currency": "usd",
-            "from": start_timestamp,
-            "to": end_timestamp,
-            "interval": "daily",
-            api_key_param: COINGECKO_API_KEY,
-        }
-        
-        try:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(endpoint, params=params) as response:
-                    if response.status == 200:
-                        data = await response.json()
-                        return data["prices"]
-                    else:
-                        logger.warning(f"Error fetching data for {token_id} from {base_url}: {response.status}")
-                        logger.warning(f"Response: {await response.text()}")
-        except Exception as e:
-            logger.warning(f"Exception occurred while fetching data for {token_id} from {base_url}: {str(e)}")
-    
+    # Add the demo API key to parameters if it's set
+    if COINGECKO_API_KEY:
+        params_public["x_cg_demo_api_key"] = COINGECKO_API_KEY
+        logger.debug("Using CoinGecko Demo API Key")
+    else:
+        logger.debug("No CoinGecko API Key found, using anonymous public access")
+
+    try:
+        async with aiohttp.ClientSession() as session:
+            logger.debug(f"Attempting Public API fetch for {token_id}")
+            async with session.get(endpoint_public, params=params_public) as response:
+                if response.status == 200:
+                    data = await response.json()
+                    logger.info(f"Successfully fetched data for {token_id} from Public API")
+                    return data.get("prices") # Use .get for safety
+                elif response.status == 429: # Handle rate limiting specifically
+                     logger.warning(f"Rate limited fetching data for {token_id} from Public API: {response.status}. Retrying may be necessary.")
+                     # Consider adding retry logic here if needed
+                else:
+                    logger.warning(f"Error fetching data for {token_id} from Public API: {response.status}")
+                    logger.warning(f"Response: {await response.text()}")
+    except Exception as e:
+        logger.warning(f"Exception occurred while fetching data for {token_id} from Public API: {str(e)}")
+
     logger.error(f"Failed to fetch data for {token_id} after all attempts")
     return None
 

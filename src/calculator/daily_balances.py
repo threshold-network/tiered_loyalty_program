@@ -40,14 +40,36 @@ class DailyBalanceCalculator:
         except FileNotFoundError:
             logger.info(f"Daily balances file not found. Starting with empty balances: {self.daily_balances_file}")
             return {}
+        except json.JSONDecodeError as e:
+            logger.error(f"Error decoding JSON from {self.daily_balances_file}: {e}")
+            logger.error("File content might be corrupted. Starting with empty balances.")
+            # Optional: Backup corrupted file?
+            # Consider backing up the corrupted file here if needed
+            # import shutil
+            # backup_path = self.daily_balances_file + ".corrupted"
+            # try:
+            #     shutil.copy2(self.daily_balances_file, backup_path)
+            #     logger.info(f"Backed up corrupted file to {backup_path}")
+            # except Exception as backup_e:
+            #     logger.error(f"Failed to backup corrupted file: {backup_e}")
+            return {}
 
     def save_daily_balances(self, daily_balances):
         try:
             with open(self.daily_balances_file, 'r+') as f:
-                existing_data = json.load(f)
+                try:
+                    existing_data = json.load(f)
+                except json.JSONDecodeError as e:
+                     logger.error(f"Error decoding existing JSON in {self.daily_balances_file} during save: {e}")
+                     logger.error("Overwriting corrupted file with new data.")
+                     existing_data = {}
+
                 for provider, data in daily_balances.items():
                     if provider in existing_data:
-                        existing_data[provider]['balances'].extend(data['balances'])
+                        # Avoid duplicate entries if recalculating
+                        existing_dates = {entry['balance_date'] for entry in existing_data[provider]['balances']}
+                        new_entries = [entry for entry in data['balances'] if entry['balance_date'] not in existing_dates]
+                        existing_data[provider]['balances'].extend(new_entries)
                     else:
                         existing_data[provider] = data
                 f.seek(0)
