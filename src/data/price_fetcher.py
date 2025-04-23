@@ -56,7 +56,7 @@ async def update_price_data():
         if token_id in historical_data and historical_data[token_id]:
             # Token data exists, find the last timestamp and start from the next second
             last_timestamp = max(int(data[0]/1000) for data in historical_data[token_id])
-            start_timestamp = last_timestamp + 1 
+            start_timestamp = last_timestamp + 1
             logger.info(f"Found existing data for {token_name}. Fetching from {datetime.fromtimestamp(start_timestamp, tz=timezone.utc)}")
         else:
             # No data for this token, start from the program's START_DATE
@@ -76,7 +76,7 @@ async def update_price_data():
     if not tasks:
         logger.info("No price updates needed for any tokens.")
         return
-        
+
     results = await asyncio.gather(*tasks, return_exceptions=True)
 
     for token_id, result in zip(token_start_times.keys(), results):

@@ -63,7 +63,7 @@ signal.signal(signal.SIGTERM, signal_handler)
 
 async def main():
     logger.info("Starting main async loop")
-    while datetime.now(timezone.utc) <= END_DATE + timedelta(days=15):
+    while datetime.now(timezone.utc) <= END_DATE + timedelta(days=20):
         try:
             await update_price_data()
             current_block = web3_client.get_latest_block()

@@ -43,6 +43,7 @@ START_TIMESTAMP = int(START_DATE.timestamp())
 END_TIMESTAMP = int(END_DATE.timestamp())
 
 # --- Web3 configuration ---
+# Determine RPC URL based on available keys, prioritizing Alchemy
 if ALCHEMY_URL:
     RPC_URL = ALCHEMY_URL
     logger.info("Using Alchemy RPC URL")
@@ -55,6 +56,7 @@ else:
 
 MAX_RETRIES = 5
 RETRY_DELAY = 10
+# PROCESS_BLOCK_RANGE_SIZE = 1_000_000 # Keep this commented out as user rejected it
 
 # --- ABIs ---
 CURVE_ABI = load_abi("curve_abi.json")

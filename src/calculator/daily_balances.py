@@ -3,7 +3,7 @@ import logging
 from datetime import datetime, timedelta, timezone
 from src.utils.helpers import get_token_price
 from src.data.state_manager import load_state
-from src.config import START_DATE, TOKENS
+from src.config import START_DATE, TOKENS, END_DATE
 
 logger = logging.getLogger(__name__)
 
@@ -90,9 +90,9 @@ class DailyBalanceCalculator:
         provider_balances = self.load_provider_balances()
         existing_daily_balances = self.load_daily_balances()
         start_date = self.get_start_date()
-        current_date = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+        current_date = min(datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0), END_DATE)
 
-        if start_date >= current_date:
+        if start_date > current_date:
             logger.info("No new daily balances to calculate.")
             self.daily_balances = existing_daily_balances
             return
@@ -106,7 +106,7 @@ class DailyBalanceCalculator:
             last_event = events[-1]
 
             calculation_date = start_date
-            while calculation_date < current_date:
+            while calculation_date <= current_date:
                 token_usd_balance = {}
                 total_usd_balance = 0
 

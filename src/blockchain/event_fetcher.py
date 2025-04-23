@@ -13,7 +13,7 @@ from src.utils.helpers import (
 logger = logging.getLogger(__name__)
 
 # Define a reasonable chunk size for fetching logs
-LOG_FETCH_CHUNK_SIZE = 2000
+LOG_FETCH_CHUNK_SIZE = 1_000_000 # Use the requested chunk size
 
 class EventFetcher:
     def __init__(self):
@@ -33,8 +33,9 @@ class EventFetcher:
     async def fetch_events(self, pool, from_block, to_block):
         contract = self.w3.eth.contract(address=pool["address"], abi=pool["abi"])
         events = []
+        total_range = to_block - from_block
 
-        logger.info(f"Processing blocks from {from_block} to {to_block} for pool {pool['address']}")
+        logger.info(f"Processing blocks from {from_block} to {to_block} (Range: {total_range}) for pool {pool['address']}")
 
         try:
             event_names = pool.get("events", [])
@@ -52,32 +53,38 @@ class EventFetcher:
                     continue
 
                 event_signature_hash = Web3.keccak(text=event_signature).hex()
+                
+                all_logs_for_event = [] # Store logs for the current event across chunks
 
-                all_logs = [] # List to aggregate logs from all chunks
-                for chunk_start_block in range(from_block, to_block + 1, LOG_FETCH_CHUNK_SIZE):
-                    chunk_end_block = min(chunk_start_block + LOG_FETCH_CHUNK_SIZE - 1, to_block)
-                    logger.debug(f"Fetching {event_name} logs for chunk: {chunk_start_block} - {chunk_end_block}")
-                    
-                    logs_chunk = web3_client.call_with_retry(self.w3.eth.get_logs, {
-                        'fromBlock': chunk_start_block,
-                        'toBlock': chunk_end_block,
+                # --- Chunking Logic ---
+                current_from = from_block
+                while current_from <= to_block:
+                    current_to = min(current_from + LOG_FETCH_CHUNK_SIZE - 1, to_block)
+                    logger.info(f"Fetching {event_name} logs for chunk: {current_from} - {current_to} for pool {pool['address']}")
+
+                    chunk_logs = web3_client.call_with_retry(self.w3.eth.get_logs, {
+                        'fromBlock': current_from,
+                        'toBlock': current_to,
                         'address': pool["address"],
                         'topics': [event_signature_hash]
                     })
 
-                    # Handle case where retry mechanism returns None after max retries for a chunk
-                    if logs_chunk is None:
-                        logger.error(f"Failed to fetch logs chunk ({chunk_start_block}-{chunk_end_block}) for {event_name} on pool {pool['address']} after retries. Skipping chunk...")
-                        # Decide if you want to skip the entire pool or just this chunk
-                        # For now, we continue to the next chunk, potentially missing events
-                        continue 
-                    
-                    all_logs.extend(logs_chunk)
+                    # Handle case where retry mechanism returns None after max retries
+                    if chunk_logs is None:
+                        logger.error(f"Failed to fetch logs for chunk {current_from}-{current_to} for {event_name} on pool {pool['address']} after retries. Skipping this chunk.")
+                        # Decide if we should stop processing this event entirely or just skip the chunk
+                        # For now, we'll skip the chunk and continue to the next one
+                    else:
+                         all_logs_for_event.extend(chunk_logs)
+                         logger.info(f"Fetched {len(chunk_logs)} logs in chunk {current_from}-{current_to}")
 
-                logger.info(f"Fetched {len(all_logs)} total {event_name} events for pool {pool['address']} across all chunks.")
+                    current_from = current_to + 1
+                # --- End Chunking Logic ---
+
+                logger.info(f"Fetched a total of {len(all_logs_for_event)} {event_name} events for pool {pool['address']} across all chunks.")
                 
-                # Process the aggregated logs
-                for log in all_logs: 
+                # Process the fetched logs (accumulated from all chunks)
+                for log in all_logs_for_event:
                     try:
                         # block = self.w3.eth.get_block(log['blockNumber'])
                         block = web3_client.call_with_retry(self.w3.eth.get_block, log['blockNumber'])

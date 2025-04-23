@@ -26,15 +26,18 @@ class Web3Client:
             try:
                 if self.w3.is_connected(): # Use is_connected() instead of deprecated isConnected()
                     logger.info("Successfully connected to Arbitrum network via RPC")
-                    return True
+                    return True # Successful connection, exit the loop and method
             except Exception as e:
-                 logger.warning(f"Connection check failed: {e}")
+                 logger.warning(f"Connection check failed on attempt {attempt + 1}: {e}")
             
+            # If connection check failed or raised an exception, log warning and potentially retry
             logger.warning(f"Failed to connect to Arbitrum network. Attempt {attempt + 1} of {MAX_RETRIES}")
             if attempt < MAX_RETRIES - 1:
                 logger.info(f"Retrying in {RETRY_DELAY} seconds...")
                 time.sleep(RETRY_DELAY)
+            # No else needed here, loop will continue or exit after last attempt
         
+        # If loop finishes without returning True, connection failed
         logger.error(f"Failed to connect to Arbitrum network after {MAX_RETRIES} attempts")
         return False
 
