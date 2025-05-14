@@ -1,0 +1,11 @@
+{
+  "results": {
+    "python_environment": true,
+    "dependencies": true,
+    "web3_connection": true,
+    "coingecko_api": true,
+    "basic_calculation": true,
+    "overall_status": true
+  },
+  "timestamp": "2025-05-14T12:32:25.476660"
+}
