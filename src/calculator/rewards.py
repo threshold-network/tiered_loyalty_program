@@ -52,15 +52,16 @@ class RewardsCalculator:
 
     def calculate_rewards(self, weighted_avg_liquidity: Dict[str, float]) -> List[Dict[str, Any]]:
         now_date = datetime.now(timezone.utc)
+        reward_date = min(now_date, self.end_date)
         total_weighted_liquidity = sum(weighted_avg_liquidity.values())
         rewards = []
 
         if total_weighted_liquidity > 0:
             for provider, avg_liquidity in weighted_avg_liquidity.items():
                 provider_arb_reward_in_tokens = (avg_liquidity / total_weighted_liquidity) * self.total_rewards
-                provider_arb_reward_in_usd = provider_arb_reward_in_tokens * self.get_token_price("arbitrum", now_date)
+                provider_arb_reward_in_usd = provider_arb_reward_in_tokens * self.get_token_price("arbitrum", reward_date)
                 provider_reward_in_t_usd = provider_arb_reward_in_usd * 0.25
-                provider_reward_in_t_tokens = provider_reward_in_t_usd / self.get_token_price("threshold-network-token", now_date)
+                provider_reward_in_t_tokens = provider_reward_in_t_usd / self.get_token_price("threshold-network-token", reward_date)
                 
                 rewards.append({
                     "provider": normalize_address(provider),
