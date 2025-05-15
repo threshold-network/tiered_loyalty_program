@@ -14,6 +14,7 @@ This project has been successfully completed and archived. All core features hav
 - [Key Features](#key-features)
 - [Contributing](#contributing)
 - [License](#license)
+- [MERKL Airdrop Processing](#merkl-airdrop-processing)
 
 ## Overview
 The tiered loyalty program rewards liquidity providers based on their time-weighted average liquidity. The system fetches events from Curve and Uniswap V3 pools, calculates the total value of tokens involved, and distributes rewards proportionally. Rewards calculation respects the program's start and end dates for consistency. The backend runs an asynchronous loop for data processing and serves results via a Flask API.
@@ -102,3 +103,29 @@ This project is complete, but contributions for maintenance or enhancements are 
 
 ## License
 (Placeholder for license information)
+
+## MERKL Airdrop Processing
+
+This project includes tools for processing reward data for MERKL airdrops. These tools allow you to:
+
+1. Validate reward calculations
+2. Convert rewards to MERKL format for both ARB and T tokens
+3. Validate MERKL format files before submission
+
+### Processing Workflow
+
+```bash
+# Step 1: Validate the rewards file
+python src/utils/rewards_validator.py data/rewards/rewards_20250514_165141.json
+
+# Step 2: Convert rewards to MERKL format
+python src/utils/merkl_converter.py data/rewards/rewards_20250514_165141.json --output-dir data/merkl
+
+# Step 3: Validate the MERKL format files
+python src/utils/merkl_validator.py --pair data/merkl/rewards_20250514_165141_merkl_arb.json data/merkl/rewards_20250514_165141_merkl_t.json
+
+# Alternative: Process everything at once
+python src/utils/merkl_processor.py data/rewards/rewards_20250514_165141.json --output-dir data/merkl
+```
+
+For more details on the MERKL processing tools, see [MERKL Tools Documentation](src/utils/README.md).
