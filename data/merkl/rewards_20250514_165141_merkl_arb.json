@@ -1,0 +1,3761 @@
+{
+  "rewardToken": "0xb50721bcf8d664c30412cfbc6cf7a15145234ad1",
+  "rewards": {
+    "0x000006eee6e39015cB523AeBDD4d0B1855aBa682": {
+      "TLP reward in ARB tokens": "77781753000000000000"
+    },
+    "0x002e9EB604052194DC118b2209ACAc293492c4fA": {
+      "TLP reward in ARB tokens": "7896072230000000000"
+    },
+    "0x005ad01fD882b94D6FA5E836AaaDbC500cf7A1C7": {
+      "TLP reward in ARB tokens": "3959765230000000000"
+    },
+    "0x00C0CFF4358565982ee5e63bEaE4670F3dA71B24": {
+      "TLP reward in ARB tokens": "218849970000000000"
+    },
+    "0x00a36bF34C91e0f240b287fA1fb510a0B0479fF9": {
+      "TLP reward in ARB tokens": "15256176220000000000"
+    },
+    "0x00c644E774D7B1A3a95154113f86b9e25350a111": {
+      "TLP reward in ARB tokens": "3068502300000000000"
+    },
+    "0x014Bd0E6A9353fE5b7904e39c82C0cD46dFf9f74": {
+      "TLP reward in ARB tokens": "3299282800000000000"
+    },
+    "0x019950dbA7C1a9a291C450281882b28D03eD7299": {
+      "TLP reward in ARB tokens": "3744320000000000"
+    },
+    "0x01F99e527454D8BC2835aA662CCf52CEa2C9Be3d": {
+      "TLP reward in ARB tokens": "389946685030000000000"
+    },
+    "0x01d40Ac3B0f2c13b34d0746354DcD98327B8E377": {
+      "TLP reward in ARB tokens": "28769060000000000"
+    },
+    "0x0218602cB8434C34F45dF464A57b1f4C59901883": {
+      "TLP reward in ARB tokens": "12767559340000000000"
+    },
+    "0x0224fA7f0Dff7da90591006a631b11f4D06553e5": {
+      "TLP reward in ARB tokens": "243353430000000000"
+    },
+    "0x025E5034179fF44591087851BeD2BFf22d08BA10": {
+      "TLP reward in ARB tokens": "1754761540000000000"
+    },
+    "0x026B4047Ee651e69E800C384a4e60ce113e4ea7F": {
+      "TLP reward in ARB tokens": "1299964770000000000"
+    },
+    "0x02E7b714fae84e4BA80f3CDa5508553e7CF5042A": {
+      "TLP reward in ARB tokens": "2586626770000000000"
+    },
+    "0x0331E435148481A32877c500DC1c0Edb9153488C": {
+      "TLP reward in ARB tokens": "4428162050000000000"
+    },
+    "0x034d6Ce667956091d6a809687FAE51D6959D0499": {
+      "TLP reward in ARB tokens": "1194232080000000000"
+    },
+    "0x03b4f03EcE25CEeDD112111e2a4Fe6d761b8178F": {
+      "TLP reward in ARB tokens": "9170000000000"
+    },
+    "0x03bd52f8c34bFA86dc861a22C5Fc81E96D336058": {
+      "TLP reward in ARB tokens": "18048740000000000"
+    },
+    "0x041f0cDAd21CB5512BaD95FF9618712AF28479f5": {
+      "TLP reward in ARB tokens": "103807071080000000000"
+    },
+    "0x04261F3A4f4E244B80ED7e3d8b7fF28Abd6c4Dc9": {
+      "TLP reward in ARB tokens": "1376313428260000000000"
+    },
+    "0x0482B2Aa10783e226bAda033ed4084d60Bfd1D94": {
+      "TLP reward in ARB tokens": "2799206510000000000"
+    },
+    "0x04c6228463f7a0F535A3eeE03c5e1DaF01f68344": {
+      "TLP reward in ARB tokens": "398291880000000000"
+    },
+    "0x051a3190C9342211Eb311723B23B8c7cBD7b5a5D": {
+      "TLP reward in ARB tokens": "90650360000000000"
+    },
+    "0x052F692e9a07E4f00A3c36B63bb231C9432CFF7f": {
+      "TLP reward in ARB tokens": "2235040000000000"
+    },
+    "0x055Cc85E9864f755E1E15F5fFd8D6C501F7Ffc84": {
+      "TLP reward in ARB tokens": "119346370000000000"
+    },
+    "0x0566D52171036546dE97D797dA1EE35088eA182E": {
+      "TLP reward in ARB tokens": "230056140000000000"
+    },
+    "0x05B7522dcc579C9a2A9b02AB1AD8399fCBd5b37c": {
+      "TLP reward in ARB tokens": "1007279050000000000"
+    },
+    "0x05C83D10a40ED8495Ba0D088D2FC3292a7611381": {
+      "TLP reward in ARB tokens": "460667830000000000"
+    },
+    "0x05CfF01f409f5a1410e050bDAA515e8e2ABccEB1": {
+      "TLP reward in ARB tokens": "10888500000000000"
+    },
+    "0x05d1D0E0a090bAC05e7959C0AB647B15E3A20484": {
+      "TLP reward in ARB tokens": "192636260000000000"
+    },
+    "0x072B553EFC22aE7DC9A1E4370dAbD65b96c6F08e": {
+      "TLP reward in ARB tokens": "682200000000000"
+    },
+    "0x074cD473998881318FFB49F46bfA15252a9c1244": {
+      "TLP reward in ARB tokens": "841717060000000000"
+    },
+    "0x07DbaEb4B8ee9E272774138FC076c539AD402F5b": {
+      "TLP reward in ARB tokens": "6414590000000000"
+    },
+    "0x07e8421ee2241D49e373100647b9e917820559B3": {
+      "TLP reward in ARB tokens": "38939310000000000"
+    },
+    "0x087702C64D7Cf9A9B610CFb01F282b2EB08430a8": {
+      "TLP reward in ARB tokens": "285213960000000000"
+    },
+    "0x08A09253cF9a74e6E798Ee454E08E3896BB430E2": {
+      "TLP reward in ARB tokens": "35434795600000000000"
+    },
+    "0x08c68A0EAb163A88DBA3C33a65e95A6329405008": {
+      "TLP reward in ARB tokens": "2479767690000000000"
+    },
+    "0x08f3A7D386af88033aDF3C5B45C92C0a6689E322": {
+      "TLP reward in ARB tokens": "924118080000000000"
+    },
+    "0x09245C916191E86eA7D2229c97c639120c08531C": {
+      "TLP reward in ARB tokens": "114622700000000000"
+    },
+    "0x09324304561fDFA0450eBCF78115530a9EfcBF5B": {
+      "TLP reward in ARB tokens": "609957330000000000"
+    },
+    "0x099473C43c936BEF919Bd0c3962Da21299e0d298": {
+      "TLP reward in ARB tokens": "3052000210000000000"
+    },
+    "0x09D89ef70Fd04Fef39B9521764f7246aDf97E86E": {
+      "TLP reward in ARB tokens": "5648590680000000000"
+    },
+    "0x09Fa38EBa245bb68354B8950FA2fe71f02863393": {
+      "TLP reward in ARB tokens": "158017890000000000"
+    },
+    "0x09c46a907BA6167C50423ca130ad123DC6eC9862": {
+      "TLP reward in ARB tokens": "83232160000000000"
+    },
+    "0x0A0AE914771Ec0a5851049864cCC27B1bAa8CD43": {
+      "TLP reward in ARB tokens": "3715346080000000000"
+    },
+    "0x0A9eA1adeeD852cc2dc59038503878F5b13EC0f4": {
+      "TLP reward in ARB tokens": "5635948400000000000"
+    },
+    "0x0B3687CfA042e63024E2c39ed988A679507FAa39": {
+      "TLP reward in ARB tokens": "3956235490000000000"
+    },
+    "0x0B45357cBf7ee46843C4E1AcA292F9b5fA05875C": {
+      "TLP reward in ARB tokens": "2787052660000000000"
+    },
+    "0x0B56dDe5Fef5108d1d167DF7B02d4EE4C4Ef650f": {
+      "TLP reward in ARB tokens": "41721840000000000"
+    },
+    "0x0B58857708a6f84e7EE04BEAEF069a7E6D1D4A0b": {
+      "TLP reward in ARB tokens": "35006600000000000"
+    },
+    "0x0B9669C16681cB77807c5a55A6aBacCd98432Ac6": {
+      "TLP reward in ARB tokens": "1162501570000000000"
+    },
+    "0x0BFF7dC1E080CAD0491dEEB4Af30df129e30Af21": {
+      "TLP reward in ARB tokens": "23116574720000000000"
+    },
+    "0x0BcaB08abA1c82e7074B5Bc197649f471f73FB83": {
+      "TLP reward in ARB tokens": "9354322790000000000"
+    },
+    "0x0D481B1446e9Cccc87Ac12aD52fc34aD22E5498C": {
+      "TLP reward in ARB tokens": "180427990000000000"
+    },
+    "0x0DB6aDbcD08E60c03ae3904D63f620f5725653A6": {
+      "TLP reward in ARB tokens": "5432942480000000000"
+    },
+    "0x0c06E0737e81666023bA2a4A10693e93277Cbbf1": {
+      "TLP reward in ARB tokens": "7475024500000000000"
+    },
+    "0x0c1B1143d6A2c729A11C14F26d493C6159cE76f5": {
+      "TLP reward in ARB tokens": "8669655760000000000"
+    },
+    "0x0c1cFD35d86Ae760134f307667b6cAfB6C7Fc7e8": {
+      "TLP reward in ARB tokens": "479719750000000000"
+    },
+    "0x0c9C3Ba64072eb566b0E9A4B6Bb0D7B204d68469": {
+      "TLP reward in ARB tokens": "99621300000000000"
+    },
+    "0x0cFaEc112c30A5A392eb633daAe5231Aa3d7623F": {
+      "TLP reward in ARB tokens": "1797908690000000000"
+    },
+    "0x0ca3b0af724A4Cd2D5C1B7b641B4519E5Fa0F781": {
+      "TLP reward in ARB tokens": "41074142770000000000"
+    },
+    "0x0dF320528706AAF47F7eA057CE05189c4168E9c0": {
+      "TLP reward in ARB tokens": "6508150000000000"
+    },
+    "0x0dd16C537cDb346826203F3aB762030E7f20C78a": {
+      "TLP reward in ARB tokens": "490659848230000000000"
+    },
+    "0x0e41c9B548cf0545377AEEb693A6006172F1af81": {
+      "TLP reward in ARB tokens": "94028358470000000000"
+    },
+    "0x0e8878813a944d5c5C6dA5A7A7D049fE70C104F7": {
+      "TLP reward in ARB tokens": "2288846180000000000"
+    },
+    "0x0ef8B69e70cF5F774bA7CFA21Bef7C210bE2D27B": {
+      "TLP reward in ARB tokens": "366321950000000000"
+    },
+    "0x0f2AB63D443fd83aFCe2D76F4eee1Fc14B10EB0c": {
+      "TLP reward in ARB tokens": "678821970000000000"
+    },
+    "0x0f68a4a86aDE6E10D0b7d2D2e7c94DB44D0C1564": {
+      "TLP reward in ARB tokens": "125186930000000000"
+    },
+    "0x0faE5A033767cC22Cbd8d2Bc706d4b368CdC569E": {
+      "TLP reward in ARB tokens": "69397630000000000"
+    },
+    "0x1094375d05D7feDfc772dAEB383fe954bf246414": {
+      "TLP reward in ARB tokens": "4850503510000000000"
+    },
+    "0x11326D6340559463a587Ec3536161D1378Bd767F": {
+      "TLP reward in ARB tokens": "272750360000000000"
+    },
+    "0x113FCDF39FC2036648131E47395e80762d2493e7": {
+      "TLP reward in ARB tokens": "91696896290000000000"
+    },
+    "0x113c115cF1fF1139b9637c8c01e1751803aC2342": {
+      "TLP reward in ARB tokens": "43362446450000000000"
+    },
+    "0x1140408299F7D9B0a02Df138bb95746d5bd4F82e": {
+      "TLP reward in ARB tokens": "400118480000000000"
+    },
+    "0x114b2F6Cfff22D1Ab14b94de3DC869816Af2617b": {
+      "TLP reward in ARB tokens": "2513811010000000000"
+    },
+    "0x11c30a5634396bbB667eACdAf492687aA24db317": {
+      "TLP reward in ARB tokens": "180023324830000000000"
+    },
+    "0x1257042a9DCC60e63Caac768ecf29217f8E69805": {
+      "TLP reward in ARB tokens": "15973800000000000"
+    },
+    "0x1258F1624d1AEdAE3cE5df02d1C135Cf20da6e4c": {
+      "TLP reward in ARB tokens": "7895494910000000000"
+    },
+    "0x1288CBCbB387515879BAc4B3E6792DC20A6e4A5e": {
+      "TLP reward in ARB tokens": "3175119460000000000"
+    },
+    "0x12dA3380b31ac2610Aa9d3a9e6245E9B7A7F911e": {
+      "TLP reward in ARB tokens": "16203190000000000"
+    },
+    "0x12fC7b91026AE28E916517B2e496fcb5313994fa": {
+      "TLP reward in ARB tokens": "20784394270000000000"
+    },
+    "0x130506108F78FD1088a03Fb07e19B5E2D6221CF3": {
+      "TLP reward in ARB tokens": "346638660000000000"
+    },
+    "0x13107C6473A55f40fcB8add0b5aC280a58A33Ca6": {
+      "TLP reward in ARB tokens": "460872420000000000"
+    },
+    "0x1320cB2ea30174173Da1332Cbde5CEEfC5c68EC2": {
+      "TLP reward in ARB tokens": "127849880000000000"
+    },
+    "0x13395198aA7031D2cC5c96b8627AA7d160b1144d": {
+      "TLP reward in ARB tokens": "22035777820000000000"
+    },
+    "0x1342855C89D770712bd103026aE48538578183FF": {
+      "TLP reward in ARB tokens": "304503910000000000"
+    },
+    "0x135415625b06791424560220E881587F04935a5c": {
+      "TLP reward in ARB tokens": "52705370000000000"
+    },
+    "0x13922AC7c250CD735db81bF547E412cE58e0Aaa2": {
+      "TLP reward in ARB tokens": "381081560000000000"
+    },
+    "0x1395DE9DaeC52Ad405e945603eA0a9346d00d01C": {
+      "TLP reward in ARB tokens": "10852573360000000000"
+    },
+    "0x144d3fACDad43af85FE0950274db14a1f6a2E7ff": {
+      "TLP reward in ARB tokens": "80905180000000000"
+    },
+    "0x145c584F2F022997a9d0e5FcB4346042229525E1": {
+      "TLP reward in ARB tokens": "378166830000000000"
+    },
+    "0x14975679e5f87c25fa2c54958e735a79B5B93043": {
+      "TLP reward in ARB tokens": "195176423130000000000"
+    },
+    "0x14cB4962477759059C08aC2b0ddEA8F257DeE610": {
+      "TLP reward in ARB tokens": "402744400000000000"
+    },
+    "0x1502D0c05DC3CF0162Fac946E0FFd6ED5C4A1e23": {
+      "TLP reward in ARB tokens": "10403710000000000"
+    },
+    "0x1506b212360FcA66dA59537519AA183510B13709": {
+      "TLP reward in ARB tokens": "97983977370000000000"
+    },
+    "0x151dF4cF65B57a50f84a05356D823a5AD70505Ca": {
+      "TLP reward in ARB tokens": "23995370000000000"
+    },
+    "0x1532Ae55D8Ca89363c22C8a1dBB7685fa4759e69": {
+      "TLP reward in ARB tokens": "1038033340000000000"
+    },
+    "0x154B4661a08EAffc746bdF7451a17ee50ee904CF": {
+      "TLP reward in ARB tokens": "45240000000000"
+    },
+    "0x15C2D6083040130b17c97d4f26F8E0CaDa7d50C3": {
+      "TLP reward in ARB tokens": "13352990000000000"
+    },
+    "0x15Eed81d54FD38D27cF3026506b2b853B6DF64B1": {
+      "TLP reward in ARB tokens": "1878511530000000000"
+    },
+    "0x15ea23Caa5a7285651929251c3C711F456e209E1": {
+      "TLP reward in ARB tokens": "41492350000000000"
+    },
+    "0x160e856B1847Ea0826F54c6D9c0a0b0082366B7f": {
+      "TLP reward in ARB tokens": "945825840000000000"
+    },
+    "0x161D61e30284A33Ab1ed227beDcac6014877B3DE": {
+      "TLP reward in ARB tokens": "20009470000000000"
+    },
+    "0x161E6cf3C20b979c2cE6AB8555b0ba258aCBe3A9": {
+      "TLP reward in ARB tokens": "12405967410000000000"
+    },
+    "0x169487ddD34D040436F904beC89C5eEdAC887FA0": {
+      "TLP reward in ARB tokens": "314559180000000000"
+    },
+    "0x16Bf8A4b039b67b7717748D4446829E919755FEf": {
+      "TLP reward in ARB tokens": "844308760000000000"
+    },
+    "0x16F562fB6587a19E19761654aDb195F8bc879b5d": {
+      "TLP reward in ARB tokens": "21214268220000000000"
+    },
+    "0x16a4eC779ec71F9019fF79CbdD082a078C9eA06A": {
+      "TLP reward in ARB tokens": "9613178100000000000"
+    },
+    "0x16aFF608554Ef16526eabC46E83DeFEcaCFf19a8": {
+      "TLP reward in ARB tokens": "5948380000000000"
+    },
+    "0x1705d9c661AC0B1E8B72e3D01376F3329261A5Bd": {
+      "TLP reward in ARB tokens": "8519990000000000"
+    },
+    "0x173F00f072DEdebaA25e0e6555A46ac300c9999F": {
+      "TLP reward in ARB tokens": "4006380000000000"
+    },
+    "0x173ea57F0501B055ebf5480C6d58a8676c29b607": {
+      "TLP reward in ARB tokens": "478980000000000000"
+    },
+    "0x17453a3531444E1977FCbEdaD07bE7D6c5B93C44": {
+      "TLP reward in ARB tokens": "64410705770000000000"
+    },
+    "0x1786f64c21B1b9Dd6F824CAaf090b8f152fFb2bc": {
+      "TLP reward in ARB tokens": "462502410000000000"
+    },
+    "0x17C8C1d50A6067cFCE47A6ac6E0372f0Af6fF166": {
+      "TLP reward in ARB tokens": "4087996900000000000"
+    },
+    "0x17d518736Ee9341dcDc0A2498e013D33CFCDD080": {
+      "TLP reward in ARB tokens": "2038760000000000"
+    },
+    "0x18528dE7A2b94e13a6E2F2C4FE5Da6a86E331F10": {
+      "TLP reward in ARB tokens": "5058902550000000000"
+    },
+    "0x186829518201A85d0D48D01cD53870C9B8b5CA15": {
+      "TLP reward in ARB tokens": "824590630000000000"
+    },
+    "0x186b12Ceaf08FDE22E32647fcc800e45876F5Bd0": {
+      "TLP reward in ARB tokens": "286591610000000000"
+    },
+    "0x187EF0d6824c167AE9eD63e7aAc02D3D648fbb98": {
+      "TLP reward in ARB tokens": "81486160000000000"
+    },
+    "0x18e9D74F8a2CA8efF3cE49f42A2CF7e7293c67a2": {
+      "TLP reward in ARB tokens": "5967113810000000000"
+    },
+    "0x193Db18A5EF9a0320b7374C1fE8Af976235f3211": {
+      "TLP reward in ARB tokens": "106000796800000000000"
+    },
+    "0x198392a5923110DD6254811e2C5371c728aEaA48": {
+      "TLP reward in ARB tokens": "108045500000000000"
+    },
+    "0x19c552Af10116552358d8C278400a7022629fB6D": {
+      "TLP reward in ARB tokens": "56136610000000000"
+    },
+    "0x1A7Eb3e51e29c59295544A41Ab36156F9fA6a5D5": {
+      "TLP reward in ARB tokens": "39777094120000000000"
+    },
+    "0x1Ac01D639991044C32EFeB1ce678f334756445a5": {
+      "TLP reward in ARB tokens": "8022459220000000000"
+    },
+    "0x1Ae8e82a14E2320Fcd1F85f6e571C651a6633FD2": {
+      "TLP reward in ARB tokens": "1680482250000000000"
+    },
+    "0x1B4896395B7c6918b70a792fF316D56fa2D95a51": {
+      "TLP reward in ARB tokens": "17905240000000000"
+    },
+    "0x1BD2532843Cc60168cc657cE296C9F2144c62FCe": {
+      "TLP reward in ARB tokens": "100370000000000"
+    },
+    "0x1C3a068430F8fE592703D07B9fd063d47BDe8ABa": {
+      "TLP reward in ARB tokens": "51900502200000000000"
+    },
+    "0x1D936ca236f720E0785cD1cdfF083DA5D29964c2": {
+      "TLP reward in ARB tokens": "2407296220000000000"
+    },
+    "0x1E1a4e777e08c368e2b21B34999c8d0187EBa2F7": {
+      "TLP reward in ARB tokens": "1106924220000000000"
+    },
+    "0x1E5ea395c638C31C945d9EF03715ED7c02c2c5cd": {
+      "TLP reward in ARB tokens": "7214506200000000000"
+    },
+    "0x1F15d055965267Df9Cc1985b648f78848d3470DC": {
+      "TLP reward in ARB tokens": "2353741210000000000"
+    },
+    "0x1F37A93730cd9EfcB1BFE2964cFFD96d0499a576": {
+      "TLP reward in ARB tokens": "1143842140000000000"
+    },
+    "0x1F452f2beeA8C1105cd5363b18A0995367a87D97": {
+      "TLP reward in ARB tokens": "100097360000000000"
+    },
+    "0x1F45caC66F5da32A99fe87180F94cc6dec69418c": {
+      "TLP reward in ARB tokens": "15173260000000000"
+    },
+    "0x1F76ee6e9Fc73FddEcd2A6f1C4a5109de02D4A59": {
+      "TLP reward in ARB tokens": "56627281920000000000"
+    },
+    "0x1a7c7F0C3deFe3818A0a8d90b41573546717f145": {
+      "TLP reward in ARB tokens": "36456185750000000000"
+    },
+    "0x1aF987716159529e4B877B2FCff20EdE364e6341": {
+      "TLP reward in ARB tokens": "5725143560000000000"
+    },
+    "0x1aa4a66Ef0cfA99cA9D39FdAD2B05489744C972a": {
+      "TLP reward in ARB tokens": "3934489830000000000"
+    },
+    "0x1b0B29aD39aeCa5351D99D0b7db55b2E1B5f78CC": {
+      "TLP reward in ARB tokens": "20579840390000000000"
+    },
+    "0x1b639b8427C533c765B73C15b54C806B89Fd48Cd": {
+      "TLP reward in ARB tokens": "134967800000000000"
+    },
+    "0x1c124f422593a6DC9c6bF6dF4F674F6ec4538614": {
+      "TLP reward in ARB tokens": "165256060000000000"
+    },
+    "0x1c64AeBbB6fF5fA892F92f8B6491E389d9ACC860": {
+      "TLP reward in ARB tokens": "583459730000000000"
+    },
+    "0x1d440Ae3b98F6F78b8F7FDB2b7EAB0b92b7f9c8b": {
+      "TLP reward in ARB tokens": "327247760000000000"
+    },
+    "0x1e059c2cc43Ac48C8547d8D330774B6EE723ff95": {
+      "TLP reward in ARB tokens": "41809709390000000000"
+    },
+    "0x1f15DC9658Df6a97EEbEEFa2dAA995bFDDdA9e9c": {
+      "TLP reward in ARB tokens": "319904810000000000"
+    },
+    "0x1f781Dd233d34f664EB464c2f02F4575ad5A0ED3": {
+      "TLP reward in ARB tokens": "634944490000000000"
+    },
+    "0x1fFA05F616F51C0c1de1ea344d78285D56A618d4": {
+      "TLP reward in ARB tokens": "61105160000000000"
+    },
+    "0x2043232c9C01cAe8aFFDe6ed7Cb43d5b7D767Ff3": {
+      "TLP reward in ARB tokens": "43659556950000000000"
+    },
+    "0x20CddB7Daa036b8C2c0Cc6F8dB65cb34531a9C11": {
+      "TLP reward in ARB tokens": "8494770000000000"
+    },
+    "0x210fAb29357DfCD22F45f22B21d96ae521c76B73": {
+      "TLP reward in ARB tokens": "22805069160000000000"
+    },
+    "0x21Ec461D1eB8656Ef98d266b04322CB39aA7c2a9": {
+      "TLP reward in ARB tokens": "9022580000000000"
+    },
+    "0x222879F80a506590d6357B14bf32d10759D772e9": {
+      "TLP reward in ARB tokens": "17122924040000000000"
+    },
+    "0x22303abE9b6FC37444967F4DC3607eB667DF08a1": {
+      "TLP reward in ARB tokens": "1573155600000000000"
+    },
+    "0x225170393fCD06F3295aDa2bF33002C8ec94b8E4": {
+      "TLP reward in ARB tokens": "2096270800000000000"
+    },
+    "0x22771aB6cff233409d253f2Aad0B4976427A4436": {
+      "TLP reward in ARB tokens": "2089806880000000000"
+    },
+    "0x228cB6447B4e8bb79B90828e302f00f5310Cf038": {
+      "TLP reward in ARB tokens": "544288610000000000"
+    },
+    "0x2297322c3540Bfa7C011a45F1B8A7E73b9c80c88": {
+      "TLP reward in ARB tokens": "670823550000000000"
+    },
+    "0x230c1f68aBE6033Cba3Fe0D2C0D7097e9923C3bC": {
+      "TLP reward in ARB tokens": "29461080000000000"
+    },
+    "0x2330eB2d92167c3b6B22690c03b508E0CA532980": {
+      "TLP reward in ARB tokens": "188343260000000000"
+    },
+    "0x233a7314333248741134FFC390f9CF4D3F0d3d4D": {
+      "TLP reward in ARB tokens": "21241200000000000"
+    },
+    "0x233bfcc0Cdb625baaFc5d66e3606F394dE21dC91": {
+      "TLP reward in ARB tokens": "348709031340000000000"
+    },
+    "0x234A6130290F708722887c9a75858ae03F7B2138": {
+      "TLP reward in ARB tokens": "464895280000000000"
+    },
+    "0x23731fEDCC54C4Ea72db0ea918fEFFfF9bD91cbB": {
+      "TLP reward in ARB tokens": "521923090000000000"
+    },
+    "0x23c0E7F5a051Bef6Dc31611C2911B2BB6cc36f6f": {
+      "TLP reward in ARB tokens": "21256160000000000"
+    },
+    "0x247e3AD60ce4f62CaE4a8A8270A88416E525b331": {
+      "TLP reward in ARB tokens": "18306474750000000000"
+    },
+    "0x252dC8969Bd5615014B4937ca8312E2abB9449B3": {
+      "TLP reward in ARB tokens": "608100040000000000"
+    },
+    "0x256EfAfEd786D24163BedF15D583Ea5DBdb4757c": {
+      "TLP reward in ARB tokens": "99281360000000000"
+    },
+    "0x25817174e3Bc0AbE3Ab09358905558881B722F96": {
+      "TLP reward in ARB tokens": "79227360000000000"
+    },
+    "0x25F9e6E23ae6Ebf1f95C97C32eA3b5A4ab5fEFbf": {
+      "TLP reward in ARB tokens": "28240432320000000000"
+    },
+    "0x25cE162063Cb8f7aB068d5Dae666Db6130b710Ee": {
+      "TLP reward in ARB tokens": "266773710000000000"
+    },
+    "0x26Cb1DBAd7349B57af814A22718D04d0fCdfbeB1": {
+      "TLP reward in ARB tokens": "5110559930000000000"
+    },
+    "0x26Db5c3F473Eb437f2a3D391e1294C74F46e3715": {
+      "TLP reward in ARB tokens": "413627950000000000"
+    },
+    "0x26b472981Ed1A942B5C9dE8d40979Ee5010F928E": {
+      "TLP reward in ARB tokens": "23657334790000000000"
+    },
+    "0x2715C4F9e762B46C44aE93012eBBd7Fb3666E202": {
+      "TLP reward in ARB tokens": "16807364830000000000"
+    },
+    "0x2754178a3CA7987EDDf56E7b98e8084986748b00": {
+      "TLP reward in ARB tokens": "3786965600000000000"
+    },
+    "0x2761589921A2a4C46028904D0442cC4D4c3a365b": {
+      "TLP reward in ARB tokens": "77766830000000000"
+    },
+    "0x27898Fa4103d77cC4c582da7AE5462b9aa8BAb91": {
+      "TLP reward in ARB tokens": "98434990000000000"
+    },
+    "0x282fa2F87Be3B9eabE67F3E3366618883e3BECbC": {
+      "TLP reward in ARB tokens": "103271967580000000000"
+    },
+    "0x285e6E07Ce1bcd84CC9b6F2eF661de222899eB23": {
+      "TLP reward in ARB tokens": "324698380000000000"
+    },
+    "0x286f3b5E5A25768229f31A5a36cA110Ed8c6471d": {
+      "TLP reward in ARB tokens": "1899897000000000000"
+    },
+    "0x28DFe3609A2Ef5d875e78382A6c6BAB0ac1F7E09": {
+      "TLP reward in ARB tokens": "742030040000000000"
+    },
+    "0x28E63ED511A31F75395bF1122dCbc788c1FE6Ef6": {
+      "TLP reward in ARB tokens": "1125004000000000000"
+    },
+    "0x28de4113921BD79388B0ef80A259f871977442E9": {
+      "TLP reward in ARB tokens": "788500000000000"
+    },
+    "0x28f17BD6BA2dfA8308f7fD03BA3fb656Ae57d540": {
+      "TLP reward in ARB tokens": "66640820000000000"
+    },
+    "0x294Fd17C700331AAD5cc480400050e1005D2c531": {
+      "TLP reward in ARB tokens": "64612675590000000000"
+    },
+    "0x29De230b13Ba319AD6726120757a9B251CB79eeB": {
+      "TLP reward in ARB tokens": "135067280000000000"
+    },
+    "0x29aa47d52A42EFf2A7972dE74EB6FdfF8640ac9D": {
+      "TLP reward in ARB tokens": "43708170000000000"
+    },
+    "0x2A09d41C4CecEbE772fB8133CC2a4Dca1CBEBa32": {
+      "TLP reward in ARB tokens": "3396029590000000000"
+    },
+    "0x2A14D3aa475EA5f0b09BE082Ae0200AD143e9a82": {
+      "TLP reward in ARB tokens": "1816369520000000000"
+    },
+    "0x2A4ac14dD3f393a3094609B1d3C0BF44B277D2B6": {
+      "TLP reward in ARB tokens": "108322880000000000"
+    },
+    "0x2A8f0BDc37A7fF86dfdc758301c2106383A46DeA": {
+      "TLP reward in ARB tokens": "156197864480000000000"
+    },
+    "0x2A9f63d7ae95a5447Eb26dF7162E527b6980E68e": {
+      "TLP reward in ARB tokens": "74564240000000000"
+    },
+    "0x2AE30078C45aD203327a1BEc8f56d979B4C5aFF8": {
+      "TLP reward in ARB tokens": "696075790000000000"
+    },
+    "0x2AE57eCC52240FF0dF36C979799BB2bCf957fb15": {
+      "TLP reward in ARB tokens": "127550000000000"
+    },
+    "0x2B33aC37759f6D4b9A118fA0C309e3Ac616c86e4": {
+      "TLP reward in ARB tokens": "82091820000000000"
+    },
+    "0x2B83aC024B0a4Ba3f93776Cacb61D98310614aFE": {
+      "TLP reward in ARB tokens": "28011050000000000"
+    },
+    "0x2B8fE2f0D123B71AF0eb42956cec7a6Cef1aE06D": {
+      "TLP reward in ARB tokens": "3873029380000000000"
+    },
+    "0x2BD9F6004d664870D77051ffc7341C47aaE686e9": {
+      "TLP reward in ARB tokens": "49754540000000000"
+    },
+    "0x2CAd75e380Ddb12329231DF6793A0343917BE8B3": {
+      "TLP reward in ARB tokens": "6750154510000000000"
+    },
+    "0x2DC0d18a8e3E59A62363B20164cfc5EeE6383C91": {
+      "TLP reward in ARB tokens": "118634650000000000"
+    },
+    "0x2Dd12eAD08E7fd024E6793f05Bb6D43D0339540f": {
+      "TLP reward in ARB tokens": "756718190000000000"
+    },
+    "0x2E0Ecb052C921120466fF0EFd3d794dc4E1c8de1": {
+      "TLP reward in ARB tokens": "2500717160000000000"
+    },
+    "0x2E8d0cC9AB070d1336188c907b565565f9c03bb5": {
+      "TLP reward in ARB tokens": "3145810770000000000"
+    },
+    "0x2E8fBA7125cFad75B8Bc750832B06aCae9729B16": {
+      "TLP reward in ARB tokens": "166373810000000000"
+    },
+    "0x2Ec703a921754D9947284a9672426D6a78170E5d": {
+      "TLP reward in ARB tokens": "27681750000000000"
+    },
+    "0x2F0f95bB6e57b4E7BF16026b4E63D1785082D6C1": {
+      "TLP reward in ARB tokens": "218692110000000000"
+    },
+    "0x2a153d891e040387Ab13F91A46e4136ea7a643FC": {
+      "TLP reward in ARB tokens": "20698573500000000000"
+    },
+    "0x2a16fD76e8c4eaE7106b146f07761E45a10bc62c": {
+      "TLP reward in ARB tokens": "249493180000000000"
+    },
+    "0x2b0C32228bf135d98C26Cc5C2E97386fF0e6e0cC": {
+      "TLP reward in ARB tokens": "64153920000000000"
+    },
+    "0x2c640AC98E293Daa246F98D2828E328A06FA6936": {
+      "TLP reward in ARB tokens": "160256060000000000"
+    },
+    "0x2cEa059F0e6B84A99B14f8D6dE0493780d51Ca3b": {
+      "TLP reward in ARB tokens": "1749562130000000000"
+    },
+    "0x2cFb075E8FC0D99837653629B0A3d527f0769a1A": {
+      "TLP reward in ARB tokens": "1802151660000000000"
+    },
+    "0x2dbbdd32dC55b81C767F30Bb87543B4033116BAC": {
+      "TLP reward in ARB tokens": "60902040000000000"
+    },
+    "0x2df7E870AB8F7301898c2Aed5238E83BF2F4013c": {
+      "TLP reward in ARB tokens": "27000000000000"
+    },
+    "0x2e040d6d39fd49575208bA68244561b573543Ea7": {
+      "TLP reward in ARB tokens": "1379338070000000000"
+    },
+    "0x2e6305201FCEC4D4958B468085a65A0f7eAd3202": {
+      "TLP reward in ARB tokens": "325809910000000000"
+    },
+    "0x2e8687E5349f38e833F9111b25761B903902AdC0": {
+      "TLP reward in ARB tokens": "6967109970000000000"
+    },
+    "0x2ed4805c9443a603d873E88F462923BBcB61DE3f": {
+      "TLP reward in ARB tokens": "465135350000000000"
+    },
+    "0x2f09c9C8421a87098035cd05b830349d82d47d4C": {
+      "TLP reward in ARB tokens": "70483750000000000"
+    },
+    "0x2f32AA801EE598321157B1f9c51b753933662252": {
+      "TLP reward in ARB tokens": "420422260000000000"
+    },
+    "0x2f3CFD9E2e31C1087AAf8366C170BA7F0275c352": {
+      "TLP reward in ARB tokens": "7899589270000000000"
+    },
+    "0x2fb78F62485c20230Dd4a2B5BA5a7b742f033bfe": {
+      "TLP reward in ARB tokens": "4674398530000000000"
+    },
+    "0x301dd3fEF1F124e9b11367BC3f7259b99B9A8373": {
+      "TLP reward in ARB tokens": "1131551930000000000"
+    },
+    "0x305650a964f9a0DCb00F6f879194B4A3C62A62dE": {
+      "TLP reward in ARB tokens": "2495570000000000"
+    },
+    "0x30857aF978EB79159C94268f442C727A6211AB06": {
+      "TLP reward in ARB tokens": "3266669500000000000"
+    },
+    "0x30d18BC825229BE06303C91b4Ab2D4a2C952e8af": {
+      "TLP reward in ARB tokens": "1146369240000000000"
+    },
+    "0x3126dbF94B49b197d2FF9a01df7Fb1D73cf09f83": {
+      "TLP reward in ARB tokens": "1296840000000000"
+    },
+    "0x3144080A8D140EC09fa459dC25748998DE3Df245": {
+      "TLP reward in ARB tokens": "2781172920000000000"
+    },
+    "0x3150BdCdA1b41E0F2A550955839F6b2C723aD0B7": {
+      "TLP reward in ARB tokens": "794676660000000000"
+    },
+    "0x31A923DB6904E36dae0468fe1aBF46D7E545aEee": {
+      "TLP reward in ARB tokens": "779036710000000000"
+    },
+    "0x3210D98C7f63c09c975A3285292DDfC14638628E": {
+      "TLP reward in ARB tokens": "70408590000000000"
+    },
+    "0x3227c593cd11f1f18e48C9e3A1368417B76b4d2a": {
+      "TLP reward in ARB tokens": "30912490000000000"
+    },
+    "0x32D338aa13C5ea751f701D7864dbDDf862A97A8D": {
+      "TLP reward in ARB tokens": "51300991620000000000"
+    },
+    "0x33356320BE8c9f7D128D1ef1EdBed451f6f3D357": {
+      "TLP reward in ARB tokens": "15586800000000000"
+    },
+    "0x336118a109907390333C315bFe25a8767052d26e": {
+      "TLP reward in ARB tokens": "1740940000000000"
+    },
+    "0x343f5EA4cD99f508Bc72cF17D8E1388d5d889668": {
+      "TLP reward in ARB tokens": "20995629960000000000"
+    },
+    "0x348d183F0AC7AD30B03A907084afc3f3F4FA3b12": {
+      "TLP reward in ARB tokens": "201748320000000000"
+    },
+    "0x348d92537379d8Ad2F28B10bc97146582D75bE34": {
+      "TLP reward in ARB tokens": "6880712780000000000"
+    },
+    "0x34C27832E2452d185B4A050598EAC7565048Dcd3": {
+      "TLP reward in ARB tokens": "5947586330000000000"
+    },
+    "0x34d7BD47d5f2a5dD0435B507f4E37a90F0FD69EA": {
+      "TLP reward in ARB tokens": "229767300000000000"
+    },
+    "0x34fA4D5C153704409f2E4254AEAFfF090bb6365f": {
+      "TLP reward in ARB tokens": "584201970000000000"
+    },
+    "0x351811d9D003938374451b6050118d43B2Eda295": {
+      "TLP reward in ARB tokens": "2592352740000000000"
+    },
+    "0x351Da630c4918ad2DCDd8E6408641e14e22Aa6db": {
+      "TLP reward in ARB tokens": "83130000000000"
+    },
+    "0x354a7d54e1BA84ef711dE4aA6084bf8974180366": {
+      "TLP reward in ARB tokens": "5015819020000000000"
+    },
+    "0x35b174Db4F8cd36b2b5868B478d84a04f09d072C": {
+      "TLP reward in ARB tokens": "282351990000000000"
+    },
+    "0x35ddE8802599e1482dCf4D55ADff013CeaB74968": {
+      "TLP reward in ARB tokens": "111858290000000000"
+    },
+    "0x3642BDceCCa19421A1C93452D45bb3A595D1Bdd8": {
+      "TLP reward in ARB tokens": "736601680000000000"
+    },
+    "0x368556dA19D126219856Ae380eDb3281860789bd": {
+      "TLP reward in ARB tokens": "470813210000000000"
+    },
+    "0x36Dec93D8Edd9462aE8e46683039F0ad519f9a8C": {
+      "TLP reward in ARB tokens": "155054390000000000"
+    },
+    "0x36f5e448c9cF0032551E58919cF4EAbeFCD742c1": {
+      "TLP reward in ARB tokens": "681430190000000000"
+    },
+    "0x371F44E6782053f618c433EBdAB17704F9a74793": {
+      "TLP reward in ARB tokens": "4284026730000000000"
+    },
+    "0x3750a58F96cc192CE18117C15dB7ACAeF36a0D7B": {
+      "TLP reward in ARB tokens": "2790336380000000000"
+    },
+    "0x380f3609F29713621BeCD22C5a53d4377204BDA8": {
+      "TLP reward in ARB tokens": "132665430000000000"
+    },
+    "0x38179e1230DE151c387cC49f59E750F77B4b67aA": {
+      "TLP reward in ARB tokens": "1731233200000000000"
+    },
+    "0x383AdF04bF3ECef7293F8F272A8cd5b9f12F283F": {
+      "TLP reward in ARB tokens": "2020468280000000000"
+    },
+    "0x386e96E10447095A99B919DefC955C6D4835C279": {
+      "TLP reward in ARB tokens": "208483670000000000"
+    },
+    "0x389e7877F2E63575b11b46bed14AAB6a824F8557": {
+      "TLP reward in ARB tokens": "2485940000000000"
+    },
+    "0x38c104275141eaaE188dE0017eFf125FEb87F218": {
+      "TLP reward in ARB tokens": "29053431350000000000"
+    },
+    "0x38d2035Cd116Ed1c9d9dEd8c04d76a762a7Af90b": {
+      "TLP reward in ARB tokens": "8900000000000"
+    },
+    "0x3934AEE47F26EEFe7Bfff8C89b4515dff050389e": {
+      "TLP reward in ARB tokens": "16497005260000000000"
+    },
+    "0x3A662F787168E8d856e801C75449876F4DA9208a": {
+      "TLP reward in ARB tokens": "20479862330000000000"
+    },
+    "0x3A8315E25378CE9fC0d3279B26ec0576de52C0Ff": {
+      "TLP reward in ARB tokens": "48483114230000000000"
+    },
+    "0x3A9ac5883542F36dC65c46052dBa6c3F9716d3F2": {
+      "TLP reward in ARB tokens": "47615090000000000"
+    },
+    "0x3Aa86dEEbAd262C4B94F90C05Fc6B69a609C56B3": {
+      "TLP reward in ARB tokens": "3864510840000000000"
+    },
+    "0x3B63BbF52aa94016B61eE8d6809253F915d61411": {
+      "TLP reward in ARB tokens": "1555515380000000000"
+    },
+    "0x3Be0d421c69D0FB10E48B48b5e2846b9a05E0B31": {
+      "TLP reward in ARB tokens": "1864404070000000000"
+    },
+    "0x3C2d6d7144241F1F1203c29C124585e55B58975E": {
+      "TLP reward in ARB tokens": "22712990000000000"
+    },
+    "0x3C8E02d7C9B76D1F07bF0f90DEAdACDA92AB76C5": {
+      "TLP reward in ARB tokens": "416274390000000000"
+    },
+    "0x3D37C6c225C92476F7CC7882e705A24674639311": {
+      "TLP reward in ARB tokens": "14529615660000000000"
+    },
+    "0x3D529c760F3EC4c89Bdd6549DDabE9097C1da6e9": {
+      "TLP reward in ARB tokens": "4649926470000000000"
+    },
+    "0x3E3e03f3ee0E1A7f4Af89Be3822c8C7538E432c3": {
+      "TLP reward in ARB tokens": "1457398920000000000"
+    },
+    "0x3E5C224051880C5a846ab78c41872a6716f3C99e": {
+      "TLP reward in ARB tokens": "13861563270000000000"
+    },
+    "0x3E7d81B7B1FAe155201D1A2a6F73b66c97dEde76": {
+      "TLP reward in ARB tokens": "976840200000000000"
+    },
+    "0x3F2D2726B4981456119C50DFC6329AcA1962D089": {
+      "TLP reward in ARB tokens": "8272371350000000000"
+    },
+    "0x3Fdf0Fc485399965eA47288E12cABA57BDED8a5D": {
+      "TLP reward in ARB tokens": "2070960200000000000"
+    },
+    "0x3aA6B43DC5e1fAAeAae6347ad01d0713Cf64A929": {
+      "TLP reward in ARB tokens": "895232080000000000"
+    },
+    "0x3ab435D08b7278ef729eb26A4e8cCff15Cd02c90": {
+      "TLP reward in ARB tokens": "278564464340000000000"
+    },
+    "0x3adAC7B035612e05D58153DD8897C4fBEBcb2500": {
+      "TLP reward in ARB tokens": "456586590000000000"
+    },
+    "0x3c093547C64aEe832B4233b6005A24e599cDcD5c": {
+      "TLP reward in ARB tokens": "38624600000000000"
+    },
+    "0x3c4e589a9921A48bF5861c440C40a4D7A5C828eB": {
+      "TLP reward in ARB tokens": "96495240000000000"
+    },
+    "0x3d7a41d628BC80a0Fc3C98d444a45BcF391D1032": {
+      "TLP reward in ARB tokens": "42372806990000000000"
+    },
+    "0x3e833cA5A8988b393B454B7d8edb23e51Fa09086": {
+      "TLP reward in ARB tokens": "551839600000000000"
+    },
+    "0x3eb267D03f8a95C684Da8663E9D8B427341f53e1": {
+      "TLP reward in ARB tokens": "169201740000000000"
+    },
+    "0x3f0824791F21E9611E066eF1303d9464226d04Bd": {
+      "TLP reward in ARB tokens": "2828920000000000"
+    },
+    "0x3f99c674e0D76c77D4a90a520c9055ca81C39D1d": {
+      "TLP reward in ARB tokens": "49704060000000000"
+    },
+    "0x3f9d524451BE9467B8FD0A7D4816296985c2e4eE": {
+      "TLP reward in ARB tokens": "63897220000000000"
+    },
+    "0x3fB00C301dF06D2F01392bf925A322099b157558": {
+      "TLP reward in ARB tokens": "269813385860000000000"
+    },
+    "0x4012e2eb09DdB8253620afae67c5b39526Ef2E3a": {
+      "TLP reward in ARB tokens": "1911336740000000000"
+    },
+    "0x402904E954aebEE2E78b7B09595393cf05571333": {
+      "TLP reward in ARB tokens": "399737481100000000000"
+    },
+    "0x402FC615b80A4048c12B3f6369FA74A36E71C285": {
+      "TLP reward in ARB tokens": "9909387140000000000"
+    },
+    "0x405FE0e3303Abcfe3Fb1750f80cE87BaFE297236": {
+      "TLP reward in ARB tokens": "69198740000000000"
+    },
+    "0x40725D97f5352dfBf749de29ed328Ac6189e51A9": {
+      "TLP reward in ARB tokens": "11220988890000000000"
+    },
+    "0x411C55899EEB5776E07dd352B5bEE0E915d1ecd2": {
+      "TLP reward in ARB tokens": "66801550000000000"
+    },
+    "0x411C90920a4bE2427d949c76096B43b76DEb0EbC": {
+      "TLP reward in ARB tokens": "215640000000000"
+    },
+    "0x417B4Adc279743FC49F047C323FC668db9E600D8": {
+      "TLP reward in ARB tokens": "1281081210760000000000"
+    },
+    "0x419Af08D5De5De5eD9EdcA29E345FEA58931520b": {
+      "TLP reward in ARB tokens": "27222535210000000000"
+    },
+    "0x41B5E94afE65DA9B842f35386f5BbA776652Ce96": {
+      "TLP reward in ARB tokens": "186691310000000000"
+    },
+    "0x41E9CF04fB134d9F44d634d2d5543106a921718B": {
+      "TLP reward in ARB tokens": "100777850000000000"
+    },
+    "0x42181f98A4c0bc89B6B2D9dF86AA8a9DeBc7FFcc": {
+      "TLP reward in ARB tokens": "676109540000000000"
+    },
+    "0x4251890EB713de6CC954b10C134453a6cF470FE8": {
+      "TLP reward in ARB tokens": "669031900000000000"
+    },
+    "0x427402cCfcDB7e735E73b685a455df3CB1faDf56": {
+      "TLP reward in ARB tokens": "47327934100000000000"
+    },
+    "0x42D48065CD4fBb5616edC10e027c3A2A92d3e5b1": {
+      "TLP reward in ARB tokens": "471529290000000000"
+    },
+    "0x42D4f8cF15106A5F6D082b2Fa97f5DbbD30f16f8": {
+      "TLP reward in ARB tokens": "125313850000000000"
+    },
+    "0x4302E26Af8Ce40bee561ACf4f3F7Bb5eb24A750e": {
+      "TLP reward in ARB tokens": "4670440000000000"
+    },
+    "0x43053CF7e61aAAacdF322ca1cBAaCDE6125C1CB1": {
+      "TLP reward in ARB tokens": "8220390000000000"
+    },
+    "0x4334703B0B74E2045926f82F4158A103fCE1Df4f": {
+      "TLP reward in ARB tokens": "79302906500000000000"
+    },
+    "0x4337002C5702CE424Cb62A56CA038e31e1D4A93d": {
+      "TLP reward in ARB tokens": "2551540000000000"
+    },
+    "0x4337003fcD2F56DE3977cCb806383E9161628D0E": {
+      "TLP reward in ARB tokens": "752390000000000"
+    },
+    "0x43799E28b96D18548b496558Bc816A3F88C8038B": {
+      "TLP reward in ARB tokens": "83133117460000000000"
+    },
+    "0x4422EFE0F0b0ac61b4510f22Fb2C2b6cB1D81afB": {
+      "TLP reward in ARB tokens": "2272295790000000000"
+    },
+    "0x44425236b9554E31031C8Da7e358b37a62dF4F25": {
+      "TLP reward in ARB tokens": "1699350000000000"
+    },
+    "0x447c9E8836db79D7aB65eE1B2c4eF6693Bfeb497": {
+      "TLP reward in ARB tokens": "406560500000000000"
+    },
+    "0x44D143b320908080e0996D6fA3F81a41745D546E": {
+      "TLP reward in ARB tokens": "21068339060000000000"
+    },
+    "0x44D4DBf028182fE8FD584De44D708BCD7745733E": {
+      "TLP reward in ARB tokens": "126084300000000000"
+    },
+    "0x44D6B319c256C03c0914EB399ACCa4C1E6788289": {
+      "TLP reward in ARB tokens": "4741588680000000000"
+    },
+    "0x44E4B6Ce53265395dBA6aDEdB180f6435BEa18a1": {
+      "TLP reward in ARB tokens": "10464416110000000000"
+    },
+    "0x452A9b8cDE503a041DE5586d64247843dAC5cA57": {
+      "TLP reward in ARB tokens": "15118341170000000000"
+    },
+    "0x456d593Bf8F73D79C92Ca26a4E685E360b754Ee8": {
+      "TLP reward in ARB tokens": "29567111690000000000"
+    },
+    "0x4593eAFD26adF5599A94615900AbC3DdD7CF746a": {
+      "TLP reward in ARB tokens": "11301672330000000000"
+    },
+    "0x465eBdCcA602a15559c861edc48c836Ca76B2e0B": {
+      "TLP reward in ARB tokens": "1425980940000000000"
+    },
+    "0x467F5Ecf005293b92f59fDe6DD9aD16132471825": {
+      "TLP reward in ARB tokens": "4604121190000000000"
+    },
+    "0x46aA83a9b758b0C77eF67788a6a370f98E5767e4": {
+      "TLP reward in ARB tokens": "643392670000000000"
+    },
+    "0x471B37Da5415abD545dadb772a0884A3c3c85896": {
+      "TLP reward in ARB tokens": "1375975180000000000"
+    },
+    "0x475E80062da060826A54B3e29776eA55FF4d32E0": {
+      "TLP reward in ARB tokens": "14904009070000000000"
+    },
+    "0x477f7e8c1627C6c46056fADa16d98ce8b999C016": {
+      "TLP reward in ARB tokens": "477896630000000000"
+    },
+    "0x47922a516DF96a41B661E6712e6Cb53d4ad01496": {
+      "TLP reward in ARB tokens": "894596970000000000"
+    },
+    "0x480374254662d1BC1EC742E088982dd73cdb12ba": {
+      "TLP reward in ARB tokens": "29630000000000"
+    },
+    "0x4877d15b4Db325Ea99174e4f848Dc5a58cA025F2": {
+      "TLP reward in ARB tokens": "28136060000000000"
+    },
+    "0x4888cAb23781fed8e28A6728029AF1392DB17183": {
+      "TLP reward in ARB tokens": "56742200000000000"
+    },
+    "0x488b67161F20fC66607E3C1B0110c2eaF55A2406": {
+      "TLP reward in ARB tokens": "44782050000000000"
+    },
+    "0x48CCE57C4D2Dbb31EAF79575AbF482bBb8Dc071D": {
+      "TLP reward in ARB tokens": "1118734160250000000000"
+    },
+    "0x48e5923eF8517bab6e1Bcacb560e2215Bd53D545": {
+      "TLP reward in ARB tokens": "108060340000000000"
+    },
+    "0x48f3E839Ee4f52fEF9B433F2429C5819028d56D8": {
+      "TLP reward in ARB tokens": "6450438640000000000"
+    },
+    "0x4917921303e71CdbAf4aEeA6E6E249d39478822C": {
+      "TLP reward in ARB tokens": "15763790000000000"
+    },
+    "0x49379fF19f8A4F7cddA0155257b7c770ce840EeE": {
+      "TLP reward in ARB tokens": "52631330000000000"
+    },
+    "0x496B51caD032c935F2583984d5DC63D8bA134624": {
+      "TLP reward in ARB tokens": "4740930000000000"
+    },
+    "0x49F5b5827F834A8A5aa8ABbf7d4b63cAfA25245b": {
+      "TLP reward in ARB tokens": "7788206640000000000"
+    },
+    "0x49f47e38DCf2C87DF5F65a072B1DF5cF4EDf928D": {
+      "TLP reward in ARB tokens": "304687280000000000"
+    },
+    "0x4A3756F119762c34D02D0f9178928B2b7F16c092": {
+      "TLP reward in ARB tokens": "2082352520000000000"
+    },
+    "0x4AaeE20543e118a5f86d626eD5b98e37B9835eBf": {
+      "TLP reward in ARB tokens": "143029732970000000000"
+    },
+    "0x4AdFCDb13a9F3A7f3f2FFDF300441e42358b58c9": {
+      "TLP reward in ARB tokens": "206227040000000000"
+    },
+    "0x4B670646AeE81273780Be150CCD03e7436a36aB1": {
+      "TLP reward in ARB tokens": "206990230000000000"
+    },
+    "0x4B92A93B406f9f0F77C6BEC59a58366e69a9b30C": {
+      "TLP reward in ARB tokens": "199292800000000000"
+    },
+    "0x4C83DDe5A8cA556E46ebF63A8C6AA63941df6390": {
+      "TLP reward in ARB tokens": "973836790000000000"
+    },
+    "0x4CD6bdCC4aBd55a546c8f416234e1ec6495a6478": {
+      "TLP reward in ARB tokens": "453386850000000000"
+    },
+    "0x4D6e030855D5E787a671aC69c2b3e19BC2447bD5": {
+      "TLP reward in ARB tokens": "15665400000000000"
+    },
+    "0x4DD1e0d38A25B550e8bBd4fe38D74099CF9648E1": {
+      "TLP reward in ARB tokens": "26030430000000000"
+    },
+    "0x4E5ed30E3b4eB39ABCE3c150f31E180A3ae5806E": {
+      "TLP reward in ARB tokens": "84973236460000000000"
+    },
+    "0x4F3a1F3f09EEd58372cF9397f16870727F0efce5": {
+      "TLP reward in ARB tokens": "10897175320000000000"
+    },
+    "0x4F58D8112a0BcacDAAB5531319Aca88B61305C20": {
+      "TLP reward in ARB tokens": "1158766050000000000"
+    },
+    "0x4FA8C17b06F8eeB6C3B9E6C420750014aA49047c": {
+      "TLP reward in ARB tokens": "44059800000000000"
+    },
+    "0x4FAFEFCd5055FFb1f9414b514237500C31D6f44e": {
+      "TLP reward in ARB tokens": "71415200000000000"
+    },
+    "0x4FfD0A59a26cB2Aa76D403215e4cC2845C053994": {
+      "TLP reward in ARB tokens": "39020760000000000"
+    },
+    "0x4a24955a066D837D76A569534236D579891CAF85": {
+      "TLP reward in ARB tokens": "1638943430000000000"
+    },
+    "0x4a2B09f4F10f1A873F9FCA6541b89628EAb07c1F": {
+      "TLP reward in ARB tokens": "75720000000000"
+    },
+    "0x4a4Bd2217354aff4ffe001D65BdF024Ae51C1438": {
+      "TLP reward in ARB tokens": "1616693150000000000"
+    },
+    "0x4aa60959B1571e62F9b353937C3E45978fD07713": {
+      "TLP reward in ARB tokens": "2570490000000000"
+    },
+    "0x4cAcc5BFC398ce5AD614DA850C6473dA310DFd6b": {
+      "TLP reward in ARB tokens": "45400000000000"
+    },
+    "0x4cDcC0506E855aC4d78D2Cd31859c1967323B0Bd": {
+      "TLP reward in ARB tokens": "93102550000000000"
+    },
+    "0x4d02fCcD9d719e7845B48A1d4CFB54BeC060E095": {
+      "TLP reward in ARB tokens": "19968040220000000000"
+    },
+    "0x4d60287A1531eb330fA4e06E86E85d4f6D3531a1": {
+      "TLP reward in ARB tokens": "97724920000000000"
+    },
+    "0x4d95d6e6FA44947765113AFD61aB1edfFd533D74": {
+      "TLP reward in ARB tokens": "1442964330000000000"
+    },
+    "0x4dE13567b247D1B16902B2070e2aA30955A7AB1D": {
+      "TLP reward in ARB tokens": "10649810000000000"
+    },
+    "0x4e55E7177d9A002348b0262f221afa8bBa0912B6": {
+      "TLP reward in ARB tokens": "68901540000000000"
+    },
+    "0x4e9BE0f6bCAc0AF60e0C090778571D78d52B2e88": {
+      "TLP reward in ARB tokens": "671571160000000000"
+    },
+    "0x4eE976b121de67Fcc77140cc36045E18Bd3b7AF5": {
+      "TLP reward in ARB tokens": "101902850000000000"
+    },
+    "0x4eaFf3033E85A373a5DD92c04197447535bBb154": {
+      "TLP reward in ARB tokens": "2134117310000000000"
+    },
+    "0x4f13fB0DD3d43a4511c1c6Ef49569287ee968aE5": {
+      "TLP reward in ARB tokens": "2556489070000000000"
+    },
+    "0x4f86017a693def08651Ef3E8E12E090ABefA5B15": {
+      "TLP reward in ARB tokens": "28592920000000000"
+    },
+    "0x4fED5491693007f0CD49f4614FFC38Ab6A04B619": {
+      "TLP reward in ARB tokens": "2646575344370000000000"
+    },
+    "0x500B73650f6f3D3e16d425D0Cb8455Fc77B7942c": {
+      "TLP reward in ARB tokens": "343315320000000000"
+    },
+    "0x501348CeccC3bF490C04a64C79010Da3C9BC208c": {
+      "TLP reward in ARB tokens": "11690254000000000000"
+    },
+    "0x50650A5960bf98FB7fDaF9BFf98132c1aaa492Ca": {
+      "TLP reward in ARB tokens": "457425840000000000"
+    },
+    "0x507E2135DA72698044a8E6FF042324a18D73597B": {
+      "TLP reward in ARB tokens": "2552779630000000000"
+    },
+    "0x508172d285591fe723366bf03AD3611982949368": {
+      "TLP reward in ARB tokens": "9391942330000000000"
+    },
+    "0x5084a2FadFfd9aBEe360e5e98AB6A28C8ee8C06a": {
+      "TLP reward in ARB tokens": "81659460000000000"
+    },
+    "0x50A852203b68861968786fA057b0716860775b3a": {
+      "TLP reward in ARB tokens": "3977932680000000000"
+    },
+    "0x50F6FAbc25ec86c49E7152d622B41C9729B81722": {
+      "TLP reward in ARB tokens": "29606990000000000"
+    },
+    "0x50c9f760885C3c44316B631Ff92e7C2CbbECb19d": {
+      "TLP reward in ARB tokens": "90182043030000000000"
+    },
+    "0x51044aA740347626f52F5815Bf211df69287957d": {
+      "TLP reward in ARB tokens": "150238150000000000"
+    },
+    "0x5170B87F1CFc271BCFbd10Ff2d1872dfE8ad7155": {
+      "TLP reward in ARB tokens": "32442460000000000"
+    },
+    "0x51948857C24E7333aF98D9FBbb99f9925C8Bb631": {
+      "TLP reward in ARB tokens": "227069750000000000"
+    },
+    "0x519Cc9eedCf4544a62F716126f2196Ed1694Dd9d": {
+      "TLP reward in ARB tokens": "227723510000000000"
+    },
+    "0x51ff3c219812B6a534Cb5D2CC7a6297Ce7066446": {
+      "TLP reward in ARB tokens": "723295740000000000"
+    },
+    "0x5214680EA8DBa34b863C5fB8953f8c437e0F2079": {
+      "TLP reward in ARB tokens": "782327800000000000"
+    },
+    "0x52226Fc7A4b931b962427dA1be5734ED3A40Cc1f": {
+      "TLP reward in ARB tokens": "2960610000000000"
+    },
+    "0x5266d4BF9B79B282Acf99a83B4fA85D48EcD231A": {
+      "TLP reward in ARB tokens": "2122452970000000000"
+    },
+    "0x5275817b74021E97c980E95EdE6bbAc0D0d6f3a2": {
+      "TLP reward in ARB tokens": "91876978770000000000"
+    },
+    "0x52fE2188c7e4AcC77E814aD97988777bf4cbeAD7": {
+      "TLP reward in ARB tokens": "539160580000000000"
+    },
+    "0x5308B7F199552f56e5cF5B1B4d3c8f9a57Ab0c75": {
+      "TLP reward in ARB tokens": "72980710000000000"
+    },
+    "0x53856c7e3D31416366D30D65e80640590fd789C6": {
+      "TLP reward in ARB tokens": "20854074460000000000"
+    },
+    "0x53f023a7E170bc8DE1054f181B3457A501185A17": {
+      "TLP reward in ARB tokens": "3807901660000000000"
+    },
+    "0x54C8D951c105b3E5C84fEBd7059cca67618eE520": {
+      "TLP reward in ARB tokens": "634498000000000000"
+    },
+    "0x556f4eD7eca1801895990d26F37d749F5551d543": {
+      "TLP reward in ARB tokens": "1371205070000000000"
+    },
+    "0x5580bA66f8d6Dc71adB0CA1d1c6B3D142Ff7aACa": {
+      "TLP reward in ARB tokens": "2770467240000000000"
+    },
+    "0x5594F8950bf6155B2B03a6e83C15A26d85B4BaC7": {
+      "TLP reward in ARB tokens": "58841870000000000"
+    },
+    "0x56376d75943EEB7405285E0ba37C26897dc17037": {
+      "TLP reward in ARB tokens": "2621001960000000000"
+    },
+    "0x565899Cda823eD8A3B6352Aef90883e35ceb5D4D": {
+      "TLP reward in ARB tokens": "689819640000000000"
+    },
+    "0x569EeFA84F40a91C90EcD8D619a20c66CfbbDbAA": {
+      "TLP reward in ARB tokens": "247505454550000000000"
+    },
+    "0x56c1D2227Ad3f391E5b77E41d00ac64916913288": {
+      "TLP reward in ARB tokens": "14991980950000000000"
+    },
+    "0x575012c557803F61B537D0EDbaCef23ad9558d2a": {
+      "TLP reward in ARB tokens": "830374100000000000"
+    },
+    "0x57aeb1C3bC806C0A53998ab5215a7a1022faf551": {
+      "TLP reward in ARB tokens": "14822226350000000000"
+    },
+    "0x5803bC61b0b0d984F1F5DD8F3bdAB36F791a66Ff": {
+      "TLP reward in ARB tokens": "605505050000000000"
+    },
+    "0x580cf96008598D6203be06CE926aef038E19E473": {
+      "TLP reward in ARB tokens": "4586383250000000000"
+    },
+    "0x582C759650b4CA132fb8bEdf7aFA6C3A941138F8": {
+      "TLP reward in ARB tokens": "2953782000000000000"
+    },
+    "0x582a4e7db3944bACf5b82e709F5E3c68B71E6383": {
+      "TLP reward in ARB tokens": "1759413310000000000"
+    },
+    "0x583fd6D3006Cb29031B728C7737eEfd7d1CDe2e9": {
+      "TLP reward in ARB tokens": "352337230000000000"
+    },
+    "0x589b2ce3d7979306d3D12b0D7B10398E3066515A": {
+      "TLP reward in ARB tokens": "526125740000000000"
+    },
+    "0x58A725DE2039b3B1991c3A8b4AFba77B5bDB10aE": {
+      "TLP reward in ARB tokens": "141470736210000000000"
+    },
+    "0x58B40f3aa522c35eB1770a5485a51Ef4b9c72C0c": {
+      "TLP reward in ARB tokens": "768312470000000000"
+    },
+    "0x58F88b8cb1f659606Ae6cD5e94c561fD7c681F8F": {
+      "TLP reward in ARB tokens": "109297320000000000"
+    },
+    "0x58db6ec8a1bE90c640c23755A87dC37AE560a3C0": {
+      "TLP reward in ARB tokens": "8694288770000000000"
+    },
+    "0x590c76e38359399dcD2E0a72461c5232b6ED8e6b": {
+      "TLP reward in ARB tokens": "15404479450000000000"
+    },
+    "0x5921Dfb99CA3519F9172B8A061915BB11F4A87C5": {
+      "TLP reward in ARB tokens": "1410717010000000000"
+    },
+    "0x5937dBC6155894C7Eef2F4A6Aa0a84C90ea4aA8D": {
+      "TLP reward in ARB tokens": "564498470000000000"
+    },
+    "0x59C0D35C292dAdAc747D9132C474225b2B9026B1": {
+      "TLP reward in ARB tokens": "1133209470000000000"
+    },
+    "0x59D28a2326597858e558D3D81f13cAa1A3Aa7F53": {
+      "TLP reward in ARB tokens": "18797950000000000"
+    },
+    "0x59eD948390F079F2534C052acc3419d34975E026": {
+      "TLP reward in ARB tokens": "4244476800000000000"
+    },
+    "0x59fb16C10c52cE120E513F232AF141901ad18d9b": {
+      "TLP reward in ARB tokens": "223904660000000000"
+    },
+    "0x5A9934C2ad24947bBD1DF8c3c60bA01eD0E7a455": {
+      "TLP reward in ARB tokens": "461644120000000000"
+    },
+    "0x5ADEFa6B4c1e343C82C9f2C683918101873FBA78": {
+      "TLP reward in ARB tokens": "27470512390000000000"
+    },
+    "0x5AbDF1bDf263963601D3cC57D14723465D9FC505": {
+      "TLP reward in ARB tokens": "54537170000000000"
+    },
+    "0x5AfdD71EC312eDa36663f72032f269BD9C950cB4": {
+      "TLP reward in ARB tokens": "65753260000000000"
+    },
+    "0x5B0eE716E16EE2773fADC4eb0C1B0A3A28D3Fa7b": {
+      "TLP reward in ARB tokens": "8319731280000000000"
+    },
+    "0x5B28E8c446c3051A728259dd1EcC0A781F38b73B": {
+      "TLP reward in ARB tokens": "142851020000000000"
+    },
+    "0x5BD97307A40DfBFDBAEf4B3d997ADB816F2dadCC": {
+      "TLP reward in ARB tokens": "44924617170000000000"
+    },
+    "0x5CDd35D5d41983D571F07e50749727A99b7654Ca": {
+      "TLP reward in ARB tokens": "384234320000000000"
+    },
+    "0x5Ce5C394A0f8A4Be282C8659E405524A089a9843": {
+      "TLP reward in ARB tokens": "72973620000000000"
+    },
+    "0x5EAF2a35f3bbA9828Eaaa8EA1D8E4b6eFED42488": {
+      "TLP reward in ARB tokens": "1372967140000000000"
+    },
+    "0x5EDB9f5aCdF87a05A166449342782a3638717F6F": {
+      "TLP reward in ARB tokens": "8755877550000000000"
+    },
+    "0x5EDF53b47d3e20a8798D43E13bBA5cDC0De2415d": {
+      "TLP reward in ARB tokens": "3611355220000000000"
+    },
+    "0x5Ebe7111B4855881DA56C1091c17319ab4965919": {
+      "TLP reward in ARB tokens": "167762310000000000"
+    },
+    "0x5F5CB3E3a71c3398dCFC0B76c2b62E5cb6AafcF5": {
+      "TLP reward in ARB tokens": "1521892870000000000"
+    },
+    "0x5a25A74Daab67E079901E0843E97498ADbCA2485": {
+      "TLP reward in ARB tokens": "2084401160000000000"
+    },
+    "0x5a800a9BD9DbF063F0477b3c2b946541E7A11769": {
+      "TLP reward in ARB tokens": "82693178860000000000"
+    },
+    "0x5b987bcc14d5B0219fACf5e9d54Ecb97145208D9": {
+      "TLP reward in ARB tokens": "215879380000000000"
+    },
+    "0x5bC6a64275391dD2D79CF0431DbDD888E5Ef35F1": {
+      "TLP reward in ARB tokens": "8543581650000000000"
+    },
+    "0x5bF35B1AFCb8c7a2d01AB924c709206196C8ad3C": {
+      "TLP reward in ARB tokens": "124317529340000000000"
+    },
+    "0x5beD699eaCB5F208b1Df7c0615f54EFCE5999cc2": {
+      "TLP reward in ARB tokens": "128304478670000000000"
+    },
+    "0x5c570E5c60CAf6ED6DFa2426021913DEc0bdF205": {
+      "TLP reward in ARB tokens": "5032877790000000000"
+    },
+    "0x5c62abC26dFe4fEbbD48035B89AA78977348Dfde": {
+      "TLP reward in ARB tokens": "9053862940000000000"
+    },
+    "0x5c7A279423157dc876726Cfc94E55312081220Cf": {
+      "TLP reward in ARB tokens": "1696110960000000000"
+    },
+    "0x5d1dBdC352aCB3e9cbf385CCb64b3c30Bb261aC7": {
+      "TLP reward in ARB tokens": "7107222320000000000"
+    },
+    "0x5d1fe030eCa5046915e3b684E4581071C4e309C4": {
+      "TLP reward in ARB tokens": "48076340000000000"
+    },
+    "0x5d20f971447b9DfC55Ec161a2d8914d20f24c86A": {
+      "TLP reward in ARB tokens": "3232094460000000000"
+    },
+    "0x5dCFE1fb21Fb50fA793de3bA8519e6F9Be6C0617": {
+      "TLP reward in ARB tokens": "130891690000000000"
+    },
+    "0x5e043F7677BF99750632d60cEd5426eF52a57305": {
+      "TLP reward in ARB tokens": "166511260000000000"
+    },
+    "0x5f7BDEaee2Ccb4c2422ACAda027931BdFe4abEa7": {
+      "TLP reward in ARB tokens": "8662472830000000000"
+    },
+    "0x5fb26bC79a361Ef36a7b4eae36FEe62cFa52f64e": {
+      "TLP reward in ARB tokens": "265158830000000000"
+    },
+    "0x600C9250DD0D41BF658Ead8B0BCfD8e7B9484B2C": {
+      "TLP reward in ARB tokens": "304761250000000000"
+    },
+    "0x6065B7eDBa56D47D2D1140C7B1D4A69463a65E71": {
+      "TLP reward in ARB tokens": "391321940000000000"
+    },
+    "0x60ce3f6D6CBc483DffaD1514A9D305cc81FD3019": {
+      "TLP reward in ARB tokens": "3484790000000000"
+    },
+    "0x61300DE79422a18B69Fd3aFe4238EC5aA1df0635": {
+      "TLP reward in ARB tokens": "1965777190000000000"
+    },
+    "0x613e9639fDc73A18c8896541Ec05FB5765c00230": {
+      "TLP reward in ARB tokens": "689018760000000000"
+    },
+    "0x619B15157fafae09994e800C6f08EB91B881e6DF": {
+      "TLP reward in ARB tokens": "112589070000000000"
+    },
+    "0x61DB9AE37238e7C090708aA67e808CDc61a0634B": {
+      "TLP reward in ARB tokens": "1782201880000000000"
+    },
+    "0x61Db79955ABf3870Cc5a7BBe4A1c1BC89917F312": {
+      "TLP reward in ARB tokens": "22306652980000000000"
+    },
+    "0x620d7E459cfFcdC56a874536dC19147De801a4A1": {
+      "TLP reward in ARB tokens": "2411495967820000000000"
+    },
+    "0x6217F0dfcC28CD37C980DB63ed5B41780A402A90": {
+      "TLP reward in ARB tokens": "16060720000000000"
+    },
+    "0x621b2547148324155da58655d15785d01feD5B29": {
+      "TLP reward in ARB tokens": "203311380000000000"
+    },
+    "0x623FC23ba66F3C70C7753151138C1Ff88cF11115": {
+      "TLP reward in ARB tokens": "426856300000000000"
+    },
+    "0x62418771C0Ff187D46661b9896adfEbed3f7475f": {
+      "TLP reward in ARB tokens": "4327108600000000000"
+    },
+    "0x62c0c8A0456a977aA007326bb9d8cC1e9D3CC082": {
+      "TLP reward in ARB tokens": "265214970000000000"
+    },
+    "0x62f77b9F23adfC0C755cD8D7C9062782D0ebbbad": {
+      "TLP reward in ARB tokens": "24743685590000000000"
+    },
+    "0x6320145a1fB3e0e4696CE96f9773e6144Aa1925f": {
+      "TLP reward in ARB tokens": "484192070000000000"
+    },
+    "0x6371024C5fFDaefEf716aDCe3cac52AC6181cD9D": {
+      "TLP reward in ARB tokens": "472888082650000000000"
+    },
+    "0x63c7a38f32401F88F7b352A556FE65E2304cFCcd": {
+      "TLP reward in ARB tokens": "1180414900000000000"
+    },
+    "0x63d3234F6E37F71b37b46A70a2a105Da8CEfF126": {
+      "TLP reward in ARB tokens": "172031241710000000000"
+    },
+    "0x6415A12867Ff9C118Dd8c4A7FDf41FF0aC879C20": {
+      "TLP reward in ARB tokens": "9654613080000000000"
+    },
+    "0x645873584380A2c2c0F02b8E222d8F972039c7D2": {
+      "TLP reward in ARB tokens": "385691260000000000"
+    },
+    "0x646Ea661a5243caf0C5C6f0DDD1195faf4c7580b": {
+      "TLP reward in ARB tokens": "5750590000000000"
+    },
+    "0x64A881a2A769985143fed019016Cc83B49ba6bdc": {
+      "TLP reward in ARB tokens": "10484379160000000000"
+    },
+    "0x64d9CE12DDEAA76384782fd6917aD2d2E019E7Be": {
+      "TLP reward in ARB tokens": "1708027270000000000"
+    },
+    "0x64eCc4f8fF76E58d7C2245f34d32B039ebF42bDf": {
+      "TLP reward in ARB tokens": "1833538930000000000"
+    },
+    "0x65387326f9b8C3B6a83C1B3dFB43061F3ff3E508": {
+      "TLP reward in ARB tokens": "174127520000000000"
+    },
+    "0x655301eB3992fA35fF6fec91567240310a9756A6": {
+      "TLP reward in ARB tokens": "6399701620000000000"
+    },
+    "0x658E0F8A4644719944655b59201bc0C77af9c002": {
+      "TLP reward in ARB tokens": "24090744860000000000"
+    },
+    "0x65D093F10cE1525d4E41094cD1a71E2aDC654a09": {
+      "TLP reward in ARB tokens": "106746040000000000"
+    },
+    "0x6632ae4Ca31e94F59911AB2C33FA41e12509Ae46": {
+      "TLP reward in ARB tokens": "1539150000000000"
+    },
+    "0x66B0d6cD3A7704baEeB42A78122311949ac3B743": {
+      "TLP reward in ARB tokens": "123730739550000000000"
+    },
+    "0x66C0d9152209B51977047b9DC3b0B5bf2339b67C": {
+      "TLP reward in ARB tokens": "8830964110000000000"
+    },
+    "0x6702716e4F582A29efEB95b78112f879c4c2CBB1": {
+      "TLP reward in ARB tokens": "4305388380000000000"
+    },
+    "0x670fbD72155b2aE2e5336C82dC62C8b22eD4BA09": {
+      "TLP reward in ARB tokens": "850937970000000000"
+    },
+    "0x6760Ff558c1db2231EB2Cf1D16de05B01231193E": {
+      "TLP reward in ARB tokens": "45254911660000000000"
+    },
+    "0x677448A68ec516E8cc2E1C59F1c44dE526cb6918": {
+      "TLP reward in ARB tokens": "924236330000000000"
+    },
+    "0x6789d8B05AA37c11c73cCdb351266E6e8cc744A9": {
+      "TLP reward in ARB tokens": "5084637990000000000"
+    },
+    "0x67C08c335Da5044371Cf754CFE3463f6D8Dc2164": {
+      "TLP reward in ARB tokens": "751022450000000000"
+    },
+    "0x68348a7fDabF789590BBDA9e3c12357e08e5B116": {
+      "TLP reward in ARB tokens": "24218660000000000"
+    },
+    "0x6893C1c9eF94ae1C3470df7Ef20608Efe0b16e04": {
+      "TLP reward in ARB tokens": "1555415690000000000"
+    },
+    "0x689C1Bc02669CdA4cad35e7C8580c3d71bFaD84E": {
+      "TLP reward in ARB tokens": "3796118860000000000"
+    },
+    "0x68B59C30402d1Fd56745b457F794B9990dd67fb0": {
+      "TLP reward in ARB tokens": "682258460000000000"
+    },
+    "0x68C06b16d85004641225C0FFB7f03a7270E9aF51": {
+      "TLP reward in ARB tokens": "414912443770000000000"
+    },
+    "0x68a3117904B8D76D2ac6573c14268918ff30E7e2": {
+      "TLP reward in ARB tokens": "5988754390000000000"
+    },
+    "0x68c1d009045236593534f0C8AF6cCAb8e54831A0": {
+      "TLP reward in ARB tokens": "1507590000000000"
+    },
+    "0x696e1F76A9cac59EcbCe12dd5fC955B3d174325B": {
+      "TLP reward in ARB tokens": "300607620000000000"
+    },
+    "0x69E9e52b9cb80a3112ad45A46a01d410541b6E18": {
+      "TLP reward in ARB tokens": "833712200000000000"
+    },
+    "0x69fF9D43Ee33290ead2F5D65d77a4da43CA50DE4": {
+      "TLP reward in ARB tokens": "3722501080000000000"
+    },
+    "0x6A7Aac0d8c85111edEf97d0975631261c3121281": {
+      "TLP reward in ARB tokens": "2757221420000000000"
+    },
+    "0x6AB880AFd1E0C7786cc5D05F4FD9b17761768da8": {
+      "TLP reward in ARB tokens": "5090304800000000000"
+    },
+    "0x6B1c1c1D797DE692EBF89ff1B5Fb22FA0684D5f4": {
+      "TLP reward in ARB tokens": "11445560000000000"
+    },
+    "0x6BD6041f952c69007c4Ed598e2ccffF1105178EA": {
+      "TLP reward in ARB tokens": "409418546210000000000"
+    },
+    "0x6BF1a6cf154Ee661423EaC04c8D377b0187E21Ae": {
+      "TLP reward in ARB tokens": "57299420000000000"
+    },
+    "0x6C4e530428d225e94DFA59CCaC1767295fef3F1c": {
+      "TLP reward in ARB tokens": "3739174250000000000"
+    },
+    "0x6C7c3806B3CaE601b1D99c017E4592753ba8D41e": {
+      "TLP reward in ARB tokens": "4081798590000000000"
+    },
+    "0x6D3B90747dbf5883bF88fF7Eb5fCC86f408b5409": {
+      "TLP reward in ARB tokens": "2130591240000000000"
+    },
+    "0x6D4Cc2e3BFC5156c1e22102492aa5b453af20116": {
+      "TLP reward in ARB tokens": "61994160150000000000"
+    },
+    "0x6D7Ac63Aaa7bA8925dcB3E44BE6355261dCF688f": {
+      "TLP reward in ARB tokens": "33715880210000000000"
+    },
+    "0x6D7a48dd19d85a3075068c2F57602d28D0a610b9": {
+      "TLP reward in ARB tokens": "16108101580000000000"
+    },
+    "0x6De8F550f420Fc63b88B960E71C9Baba56D00ab4": {
+      "TLP reward in ARB tokens": "2730901120000000000"
+    },
+    "0x6E7D0A4300C2313618EEf2aA147cade624F852C5": {
+      "TLP reward in ARB tokens": "16671102150000000000"
+    },
+    "0x6EA70C9805a8b4C7A782caD2641D35f238Ef3513": {
+      "TLP reward in ARB tokens": "111002241450000000000"
+    },
+    "0x6F41e4c00d3A2279B50e59CFB6aC7ff309F1eAD9": {
+      "TLP reward in ARB tokens": "265834930000000000"
+    },
+    "0x6F85307e7aED6F74c9cE5F66b03a5dD44B86C948": {
+      "TLP reward in ARB tokens": "346450000000000"
+    },
+    "0x6FbE6EaB3053fEF0DA871807346B0B40E989840f": {
+      "TLP reward in ARB tokens": "453609829570000000000"
+    },
+    "0x6a74649aCFD7822ae8Fb78463a9f2192752E5Aa2": {
+      "TLP reward in ARB tokens": "5830680000000000"
+    },
+    "0x6b732aD3898aF56055024F2F920147b85be04176": {
+      "TLP reward in ARB tokens": "1757774560000000000"
+    },
+    "0x6c110100A8E9cd8C11eD84de4dBbdFe44bcf111E": {
+      "TLP reward in ARB tokens": "737604220000000000"
+    },
+    "0x6cCDAeB34b2990acB6162218F658e226E57113ab": {
+      "TLP reward in ARB tokens": "2203703650000000000"
+    },
+    "0x6caeD13AB8DB0fcc218b9d9149b4CeCAfF3ADEF8": {
+      "TLP reward in ARB tokens": "274768270000000000"
+    },
+    "0x6e043E68F0d67b2fDcBaF50b14bA50c94A83578C": {
+      "TLP reward in ARB tokens": "527885360000000000"
+    },
+    "0x6e4aeB2Af9CE3b67116d8B19E6f1CA6b318Fc629": {
+      "TLP reward in ARB tokens": "112767940690000000000"
+    },
+    "0x6e868846b2182235C16FD122FCD44739E55A58e4": {
+      "TLP reward in ARB tokens": "236262340000000000"
+    },
+    "0x6f33AEc9C0A23067d12c6D04ff2E187a13C12e9D": {
+      "TLP reward in ARB tokens": "205151940000000000"
+    },
+    "0x70044e640D79c022020849811AeCd7c8a878eAB8": {
+      "TLP reward in ARB tokens": "57613902080000000000"
+    },
+    "0x70115B724f7E187aA73504D96125d1B84720E1ec": {
+      "TLP reward in ARB tokens": "365550530000000000"
+    },
+    "0x7050fb7889CA5495FDf32095DAD4b581D2C42602": {
+      "TLP reward in ARB tokens": "511511770000000000"
+    },
+    "0x7064f3464DeDFbC848d5C3e6A8CaDFfE7f96f9aE": {
+      "TLP reward in ARB tokens": "124416233860000000000"
+    },
+    "0x707A141c5c19c25E2e6D50b214e39A4293B63234": {
+      "TLP reward in ARB tokens": "133133083210000000000"
+    },
+    "0x70bF9bF4798880A1b97d3b8520FB31f940872898": {
+      "TLP reward in ARB tokens": "1815092100000000000"
+    },
+    "0x7193342f776ebc03D819dce344a4cb8218613f2E": {
+      "TLP reward in ARB tokens": "295435770000000000"
+    },
+    "0x71A91C9202C8091c62c630cA2de44b333DdCD0d7": {
+      "TLP reward in ARB tokens": "53701722910000000000"
+    },
+    "0x71Cad39209911C162EF58bC0413a92eD64868BbF": {
+      "TLP reward in ARB tokens": "608217110000000000"
+    },
+    "0x71E7D05bE74fF748c45402c06A941c822d756dc5": {
+      "TLP reward in ARB tokens": "3183050000000000"
+    },
+    "0x71F12a5b0E60d2Ff8A87FD34E7dcff3c10c914b0": {
+      "TLP reward in ARB tokens": "37306546780000000000"
+    },
+    "0x71cF9C6016ff2Cf4615aD8c00E0168A8f7B4Bb02": {
+      "TLP reward in ARB tokens": "1085327350000000000"
+    },
+    "0x72315955B082695c18dbBEc62A4F941dA1f474f8": {
+      "TLP reward in ARB tokens": "4190029480000000000"
+    },
+    "0x726021edC3999253dc3fd2B71E4e4d2EDE7F4f94": {
+      "TLP reward in ARB tokens": "21510441660000000000"
+    },
+    "0x7280a43eEEf068f450A96202b615a5a791128f70": {
+      "TLP reward in ARB tokens": "399155680000000000"
+    },
+    "0x7299E85534E6552Ebee091d01063E619464a5E69": {
+      "TLP reward in ARB tokens": "77858280000000000"
+    },
+    "0x72f35214C12681dF231fe8C55cA7917130AB9834": {
+      "TLP reward in ARB tokens": "84338610000000000"
+    },
+    "0x7323b3A0bBcBc66CC1570F9d1AF3cD7D7422ce58": {
+      "TLP reward in ARB tokens": "9964998430000000000"
+    },
+    "0x732A1d8BDf86ba67Ccff57823B2E8935a050d18D": {
+      "TLP reward in ARB tokens": "9392380000000000"
+    },
+    "0x73A5DE038136e9A45B6D01B6e3D9673241b3e6d6": {
+      "TLP reward in ARB tokens": "142247700000000000"
+    },
+    "0x73B7E354685C0ef327fA51287a2589D6D64dAAe8": {
+      "TLP reward in ARB tokens": "844201890000000000"
+    },
+    "0x73bA2f53795a9d500d3C7918aBe7a60Fb2cCfa18": {
+      "TLP reward in ARB tokens": "4601604310000000000"
+    },
+    "0x73e47E110dD251bd6449381724F2BB51C11b14BC": {
+      "TLP reward in ARB tokens": "82176862050000000000"
+    },
+    "0x741D983BA0D4DC85927317f8D916355b48B4cb7a": {
+      "TLP reward in ARB tokens": "555380410000000000"
+    },
+    "0x743a9405ad6dfFCC8110b1037fEd67a01Edd143c": {
+      "TLP reward in ARB tokens": "39705970000000000"
+    },
+    "0x745915418D8B70f39ce9e61A965cBB0C87f9f7Ed": {
+      "TLP reward in ARB tokens": "6896794910000000000"
+    },
+    "0x746F37bf5C9CdeA1b374A44F8D03bD4279884D59": {
+      "TLP reward in ARB tokens": "27912775380000000000"
+    },
+    "0x746b70dF44f2Bccaf7092D4989d3f18C774a222d": {
+      "TLP reward in ARB tokens": "34865600000000000"
+    },
+    "0x74769E205fCCE2577cc2F4ca67762e6595D6306C": {
+      "TLP reward in ARB tokens": "1814649680000000000"
+    },
+    "0x749501c68C60341bb0eD84de06e6C37038669C12": {
+      "TLP reward in ARB tokens": "230166390000000000"
+    },
+    "0x74a9401b7C2cC92282e2548A7D5A34963083F17A": {
+      "TLP reward in ARB tokens": "28265411600000000000"
+    },
+    "0x750E9A7b449904f47B793B805dB469FA6e025E33": {
+      "TLP reward in ARB tokens": "164615689860000000000"
+    },
+    "0x75B3aE68430E4FfD6825fE5AB50342BD638fee06": {
+      "TLP reward in ARB tokens": "93323140000000000"
+    },
+    "0x75D37F0c2cFF3f054d59F00D6c1cA732160d4FD2": {
+      "TLP reward in ARB tokens": "10926110000000000"
+    },
+    "0x7635A3EdaCF3D4a2be7C553df1794736E799BA00": {
+      "TLP reward in ARB tokens": "447617320000000000"
+    },
+    "0x763d7D362B59aeA3858a92a302e18cd41b1252d4": {
+      "TLP reward in ARB tokens": "438880000000000"
+    },
+    "0x765e4B9A0BACC1E02ffE3D3c8abb8c7190C721F8": {
+      "TLP reward in ARB tokens": "970052270000000000"
+    },
+    "0x76916fBEA72f9F713dc484EBB3E5D7EaA96A1CD7": {
+      "TLP reward in ARB tokens": "621368820000000000"
+    },
+    "0x76b60dCf71dA2294f8aA034432D925D1eED8cf68": {
+      "TLP reward in ARB tokens": "12135900000000000"
+    },
+    "0x76c222C764614A21BD73f30135D3f35b259F0b05": {
+      "TLP reward in ARB tokens": "3866528780000000000"
+    },
+    "0x76c5480ED39E1494755aA49945b202CAA553D7b9": {
+      "TLP reward in ARB tokens": "40810204900000000000"
+    },
+    "0x76d5eb42A854A1cEAfFD99000341d4E4e7a4a70F": {
+      "TLP reward in ARB tokens": "6357127820000000000"
+    },
+    "0x77029090e07F7D144538C74cD3B7EcF674d82f62": {
+      "TLP reward in ARB tokens": "2254680000000000"
+    },
+    "0x7748cc032Eebd802dDFD0EB29DB65C02Fe790e6B": {
+      "TLP reward in ARB tokens": "639431160000000000"
+    },
+    "0x774EE78e3dEb241F54e153EADE5Dd085ED1f3149": {
+      "TLP reward in ARB tokens": "13481077630000000000"
+    },
+    "0x77569658AB29c89f6a99585eC5c24f84d7e10C68": {
+      "TLP reward in ARB tokens": "233725670000000000"
+    },
+    "0x775b4E905731136682d2507A3AC256Ae0931c7E6": {
+      "TLP reward in ARB tokens": "76288910000000000"
+    },
+    "0x77E7ca39F8E9Ced86EAf1BB01C114BAfC6D1F015": {
+      "TLP reward in ARB tokens": "1732674780000000000"
+    },
+    "0x77d780d49a609291666432953E94376cd5A2b7ce": {
+      "TLP reward in ARB tokens": "6988438110000000000"
+    },
+    "0x78262c9680FF0b15484d78c413aA209620320848": {
+      "TLP reward in ARB tokens": "617600930000000000"
+    },
+    "0x783e1Fa052ba30d23ab58fB03A5F068E1ff8e438": {
+      "TLP reward in ARB tokens": "1540171550000000000"
+    },
+    "0x7841b11b312CAb36665Ca321b405619c15AB0Bcf": {
+      "TLP reward in ARB tokens": "396301470000000000"
+    },
+    "0x787fd1b3C729F386123e2bEcB829d9bc480Eb610": {
+      "TLP reward in ARB tokens": "50654522750000000000"
+    },
+    "0x7886d1ed33A0F23Ac91b76EE862c2A9aD33C9aC6": {
+      "TLP reward in ARB tokens": "199314830000000000"
+    },
+    "0x788Df1CF86747F24f52e6445Ffc0E5Ae5bd12437": {
+      "TLP reward in ARB tokens": "36858164900000000000"
+    },
+    "0x791f63560082783CE68F7ed329D93e85D6E88Bb2": {
+      "TLP reward in ARB tokens": "3468398260000000000"
+    },
+    "0x79522998AF5Ce9895842ab7a6210b5E224C089d2": {
+      "TLP reward in ARB tokens": "7386023620000000000"
+    },
+    "0x795D29405d8b3718f4D7df69848975ca3D305628": {
+      "TLP reward in ARB tokens": "56820460000000000"
+    },
+    "0x798d0fb4E136138fC19950A6487a3819e275174F": {
+      "TLP reward in ARB tokens": "11979080000000000"
+    },
+    "0x79dAB427458CaB98770F3695E1d9DEe5e9c43caD": {
+      "TLP reward in ARB tokens": "127501881120000000000"
+    },
+    "0x7A317d3C925EF0fd924592049325C0A0a840Af86": {
+      "TLP reward in ARB tokens": "3417904270000000000"
+    },
+    "0x7A4E47a4E99e7d5Eb9BB5A619E4475D1dc7B3ab9": {
+      "TLP reward in ARB tokens": "693250990000000000"
+    },
+    "0x7AC5AfC6f4ABfc4D072b302ef48941f6b83b16FE": {
+      "TLP reward in ARB tokens": "1750547530000000000"
+    },
+    "0x7B09d589Ede12b4f03c372c61d94d7927E824a8a": {
+      "TLP reward in ARB tokens": "1238489660000000000"
+    },
+    "0x7B1d3bB271Aa9144A0f058553383fb0b696f441B": {
+      "TLP reward in ARB tokens": "329591760000000000"
+    },
+    "0x7B554D64B2f23511CcFcF2f40D88BBf8219c1131": {
+      "TLP reward in ARB tokens": "6144280000000000"
+    },
+    "0x7B5aa4D3D36e24c06a46453b6186a188fd5e033F": {
+      "TLP reward in ARB tokens": "13630862380000000000"
+    },
+    "0x7C533cd4751284fEFE764cAa7204981cF642Bc6D": {
+      "TLP reward in ARB tokens": "49392467140000000000"
+    },
+    "0x7C9e1cd5850D009a6A4c52af4857e619DF2bCA06": {
+      "TLP reward in ARB tokens": "687396890000000000"
+    },
+    "0x7D9c4084eeE39b305Bba0888aDcD7C81183efbBb": {
+      "TLP reward in ARB tokens": "7374336790000000000"
+    },
+    "0x7E504549454f7C070b689edb6054C1FC8c013dfb": {
+      "TLP reward in ARB tokens": "3955476330000000000"
+    },
+    "0x7F429edeff8afC7Bb3A2CF7DB832Fc86f6FA99DA": {
+      "TLP reward in ARB tokens": "28567060000000000"
+    },
+    "0x7F437A30C8b04f8C62B99D8977713f955A662E7E": {
+      "TLP reward in ARB tokens": "90827020000000000"
+    },
+    "0x7F6f138C955e5B1017A12E4567D90C62abb00074": {
+      "TLP reward in ARB tokens": "159597380000000000"
+    },
+    "0x7a4Fa77532cFf68b0139343230F9B793994B32A9": {
+      "TLP reward in ARB tokens": "317639623610000000000"
+    },
+    "0x7ad367A6b712363cEEca0a8246ed621fc848B90b": {
+      "TLP reward in ARB tokens": "7999980940000000000"
+    },
+    "0x7bA3c3BFC0F95cc5eF4Aa0B58b51F6eEcc24ce45": {
+      "TLP reward in ARB tokens": "181907160000000000"
+    },
+    "0x7bB174f9dcDDC1D1e231eFb7224Bd4f667704Ef7": {
+      "TLP reward in ARB tokens": "30291750000000000"
+    },
+    "0x7c3c938495EDD5F0E490099E1b080586ee24999d": {
+      "TLP reward in ARB tokens": "220035631230000000000"
+    },
+    "0x7c8eD03000c59de03Ac3868E11e806C9CF9CCF69": {
+      "TLP reward in ARB tokens": "22251578530000000000"
+    },
+    "0x7d46De5485edD39A501971388F6a0b57dD971644": {
+      "TLP reward in ARB tokens": "301935620000000000"
+    },
+    "0x7e1E1c5ac70038a9718431C92A618F01f8DADa18": {
+      "TLP reward in ARB tokens": "17417130000000000"
+    },
+    "0x7e2400626811b1cAe987C41139c39830F4b2BA9A": {
+      "TLP reward in ARB tokens": "178017050000000000"
+    },
+    "0x7eE5783903dD659B44204806b25A9E95D6f00285": {
+      "TLP reward in ARB tokens": "8285170140000000000"
+    },
+    "0x7ea0F10D0496b7170f67A728F8b8bD8B62367e03": {
+      "TLP reward in ARB tokens": "34725670000000000"
+    },
+    "0x7f055F4d9035ccC9678c4173856056Fd87b2db6d": {
+      "TLP reward in ARB tokens": "27515648360000000000"
+    },
+    "0x7f9dC9b6ad06D345cFefE8e6098798Be1d497A1A": {
+      "TLP reward in ARB tokens": "219950430000000000"
+    },
+    "0x7fDEb55fdfB740E97911df080F9219b4E7617060": {
+      "TLP reward in ARB tokens": "253500000000000"
+    },
+    "0x7faFbFf71712f4F663Db183E2f3003f7280f588b": {
+      "TLP reward in ARB tokens": "736321290000000000"
+    },
+    "0x7fb3933a47D20ab591D4F136E36865576c6f305c": {
+      "TLP reward in ARB tokens": "3309390000000000"
+    },
+    "0x802164161dC7D8365E41B5227c8e6EFE8A6f8Fe1": {
+      "TLP reward in ARB tokens": "14108672270000000000"
+    },
+    "0x80E6C132a29dB5de2E61f0E2EA3ba29A573a383b": {
+      "TLP reward in ARB tokens": "4979810130000000000"
+    },
+    "0x811a8CA0E5E5577D56454C0049e6B9969D715700": {
+      "TLP reward in ARB tokens": "370087070000000000"
+    },
+    "0x816F99741A20958544F6cd09ae58B17Ff43E0C6a": {
+      "TLP reward in ARB tokens": "3324410000000000"
+    },
+    "0x81762E633e2ff343422e65A5D67Ec6AcE60Bbe65": {
+      "TLP reward in ARB tokens": "806858860000000000"
+    },
+    "0x81EdD8140454b1C2a95b21215dAe905A39D26A07": {
+      "TLP reward in ARB tokens": "7781199260000000000"
+    },
+    "0x81e14E07493BD2A3ad29bB7dAB1f26de9C98151b": {
+      "TLP reward in ARB tokens": "3331089840000000000"
+    },
+    "0x8238892095d3BAc5322894e84F349BCd52F843d5": {
+      "TLP reward in ARB tokens": "1082418940000000000"
+    },
+    "0x8258EceC50C5b0C0179d9986a9942Fc2B8Ad2362": {
+      "TLP reward in ARB tokens": "7407700000000000"
+    },
+    "0x826F5CcDB20044CaF36e31328652c4396bf01E65": {
+      "TLP reward in ARB tokens": "1710300000000000"
+    },
+    "0x82E8936b187d83FD6eb2B7Dab5B19556e9DEFF1C": {
+      "TLP reward in ARB tokens": "313524428810000000000"
+    },
+    "0x82F9eA8D814A6eb335cFe17500CdcbB69c7EBbFE": {
+      "TLP reward in ARB tokens": "1163698910000000000"
+    },
+    "0x82ac164740Ab6a399b2a801511819290597a0Ea0": {
+      "TLP reward in ARB tokens": "1911524790000000000"
+    },
+    "0x82b417bA7dAf38C496435E23e7714B5860C1C85F": {
+      "TLP reward in ARB tokens": "58002506150000000000"
+    },
+    "0x82e4bB9Af122e3cB50FCb8b6ea62F115daEDF860": {
+      "TLP reward in ARB tokens": "3394219660000000000"
+    },
+    "0x8343712Fb99d2FEa705d9394D39764b089737Cbd": {
+      "TLP reward in ARB tokens": "1971893530000000000"
+    },
+    "0x83681C14770b44361e21Faf91D8325423365eA5C": {
+      "TLP reward in ARB tokens": "43424550000000000"
+    },
+    "0x837A04322815B008c3e60C864Bd5712e1dA468b0": {
+      "TLP reward in ARB tokens": "3894919120000000000"
+    },
+    "0x8383eb10557A75eC7550418B352B6eDDD472F3D7": {
+      "TLP reward in ARB tokens": "1744860000000000"
+    },
+    "0x83A9F3bD34fcf7bcCf4Eb030dC5245f2A4e0faD3": {
+      "TLP reward in ARB tokens": "28754211880000000000"
+    },
+    "0x83eC4F273b4cF6BC24eac23CF2C16Aedb5acE939": {
+      "TLP reward in ARB tokens": "1744163660000000000"
+    },
+    "0x841eD24C4d9f950B6d48b8ee16b524ca38e4d7bf": {
+      "TLP reward in ARB tokens": "698216620000000000"
+    },
+    "0x842D5aF59eAF75Ae2Dc7dC37C1622Eb08e53bdb6": {
+      "TLP reward in ARB tokens": "44860920000000000"
+    },
+    "0x8457c6F0350D063f162dAb5ab5CCB9e845413081": {
+      "TLP reward in ARB tokens": "628601530000000000"
+    },
+    "0x84912149f93D963ad5Ddc3c2781B1950d160a4DA": {
+      "TLP reward in ARB tokens": "1634505630000000000"
+    },
+    "0x84D36eA4044161232803c216BF1D103469713943": {
+      "TLP reward in ARB tokens": "11968910000000000"
+    },
+    "0x84F14f17bc7975D1D359d2A64Be98820e919650b": {
+      "TLP reward in ARB tokens": "876640270000000000"
+    },
+    "0x85281A9E268E8a4280A451eEef18e4307143225a": {
+      "TLP reward in ARB tokens": "145842910000000000"
+    },
+    "0x856066C2BA008B6D7b3eb338A57223bf097A5f7B": {
+      "TLP reward in ARB tokens": "557165350000000000"
+    },
+    "0x860503D98894daD4cD0dd1D621a8b08981E5e9EC": {
+      "TLP reward in ARB tokens": "2968899560000000000"
+    },
+    "0x8623f010312C48139563809C0c7Aad88b01bbA75": {
+      "TLP reward in ARB tokens": "170752360000000000"
+    },
+    "0x867f0B50a2ebc94cA8abEbf7b4A420DF1Ba24b8B": {
+      "TLP reward in ARB tokens": "93966530000000000"
+    },
+    "0x86A1c481ef6FA6E1eB4bc20e749b86A8150A403A": {
+      "TLP reward in ARB tokens": "5756346200000000000"
+    },
+    "0x86Cc82677ceFB3f6FD7dfd8f88eAcAa7ca38d83F": {
+      "TLP reward in ARB tokens": "6253150850000000000"
+    },
+    "0x86E88151596c15B6eF484E3AC615178008b2630B": {
+      "TLP reward in ARB tokens": "66859810630000000000"
+    },
+    "0x87061C2Ee6981dCD3a5a0Ba15284aa53dE0D7110": {
+      "TLP reward in ARB tokens": "3923670110000000000"
+    },
+    "0x870aa098D943382d13B491B50C6b93876Eba1eEa": {
+      "TLP reward in ARB tokens": "505166860000000000"
+    },
+    "0x872199e26da7C1d94E2d5bB0d45ce56FF9fc1b8e": {
+      "TLP reward in ARB tokens": "3311381230000000000"
+    },
+    "0x87333f7c9606490718265Ade63f1ffB033278b71": {
+      "TLP reward in ARB tokens": "3218564350000000000"
+    },
+    "0x876247bD2e7B9f543a4324C0b8DBB113940A8334": {
+      "TLP reward in ARB tokens": "1032492430000000000"
+    },
+    "0x877b90d9C7E945ef13500C25dDd9A0516003CAcE": {
+      "TLP reward in ARB tokens": "877050040000000000"
+    },
+    "0x87B04eb1fAa6FE8Dc7b50A428Fbf9856b4b169A2": {
+      "TLP reward in ARB tokens": "1045392760000000000"
+    },
+    "0x87bd410eEdeC6CaAa2Bf4Bad62563C538EAF586D": {
+      "TLP reward in ARB tokens": "1143800850000000000"
+    },
+    "0x881492ba656B25163795464824D6155f7ac65131": {
+      "TLP reward in ARB tokens": "16825010000000000"
+    },
+    "0x8864FcD125E24d3cF52AAc71d0EDc61922566740": {
+      "TLP reward in ARB tokens": "26696869030000000000"
+    },
+    "0x8888888841B669313CdC735910214313d7420E25": {
+      "TLP reward in ARB tokens": "387595540000000000"
+    },
+    "0x8888888888c8b49200A0CBb054E5c4e2dd8b4140": {
+      "TLP reward in ARB tokens": "3694769800000000000"
+    },
+    "0x88A6878aBBAA13AE9918BC0C2e7300d8cB3A6b58": {
+      "TLP reward in ARB tokens": "1294492510000000000"
+    },
+    "0x891253dFa20491D114891688B38F25CedcdfaaA2": {
+      "TLP reward in ARB tokens": "213732070000000000"
+    },
+    "0x892Ad81875e977024D0C7546CdA9EFe1665320ab": {
+      "TLP reward in ARB tokens": "468418880000000000"
+    },
+    "0x89593D976DB25e6581B48839CBFFa1D1dbF9ff8B": {
+      "TLP reward in ARB tokens": "19391800000000000"
+    },
+    "0x895bF3e8D1fE3FbCCe32b7c25C33e5186067d13A": {
+      "TLP reward in ARB tokens": "2577486520000000000"
+    },
+    "0x896dd20C062Ed1A523C8338C1E685E2384d36410": {
+      "TLP reward in ARB tokens": "777193670060000000000"
+    },
+    "0x89743312410B4aBc456Fb262D1FCB4d0b8fDFAbE": {
+      "TLP reward in ARB tokens": "40033710000000000"
+    },
+    "0x898A0280778904E721377cDD2ED087580757ec06": {
+      "TLP reward in ARB tokens": "46213550000000000"
+    },
+    "0x89f07D5EC0dCB35673d5a783280c962c1060fDca": {
+      "TLP reward in ARB tokens": "1476008820000000000"
+    },
+    "0x8A345365097244e553d0c2A5442E5AD9E4182293": {
+      "TLP reward in ARB tokens": "22679580150000000000"
+    },
+    "0x8A4F147Cb4C2fF35f6A4379Ba37c58b0E7403fB8": {
+      "TLP reward in ARB tokens": "59397282620000000000"
+    },
+    "0x8B544bCC9c6B3fd1d7Ca7A4000092F6DcCd1c3C8": {
+      "TLP reward in ARB tokens": "56280380000000000"
+    },
+    "0x8B5f5eecb9a480458515386a62AB9E4C568d3a87": {
+      "TLP reward in ARB tokens": "1368107090000000000"
+    },
+    "0x8BD90Af545D8C2f82d8DC0acEa059116F9E17675": {
+      "TLP reward in ARB tokens": "40030260000000000"
+    },
+    "0x8BFA6a80f7d384F85A3222eEdc0858477Caa272D": {
+      "TLP reward in ARB tokens": "33434150000000000"
+    },
+    "0x8Bb266c53019648621A86a0A54d34Ca0942994e9": {
+      "TLP reward in ARB tokens": "40699880000000000"
+    },
+    "0x8C9751FDCd1032117BfEe2E7fcD1bfC672a0656f": {
+      "TLP reward in ARB tokens": "2569088840000000000"
+    },
+    "0x8De14E014402C0677B075A69122F94C0425Cc179": {
+      "TLP reward in ARB tokens": "4307862592270000000000"
+    },
+    "0x8E0a4F4B5f7DF88CBb3883cC915fc2480cEA2f77": {
+      "TLP reward in ARB tokens": "914584190000000000"
+    },
+    "0x8E1DF9C846b5Dd366FE6e4C7B12aAd852AE6b788": {
+      "TLP reward in ARB tokens": "42997610000000000"
+    },
+    "0x8E29d271014Bdc53D2F6E033116Ec349F5a1B019": {
+      "TLP reward in ARB tokens": "48424820000000000"
+    },
+    "0x8E3e13554ad5A10b224f9021D77bEE8ECC217c26": {
+      "TLP reward in ARB tokens": "616575530000000000"
+    },
+    "0x8E91249e90C1f6fFF97A57D1fC83B9F9b5dBB0db": {
+      "TLP reward in ARB tokens": "12355851640000000000"
+    },
+    "0x8E918deB2824b55d137599238a93cA318a8300EF": {
+      "TLP reward in ARB tokens": "70572810000000000"
+    },
+    "0x8Eba9Bd627D290aF737d74eC58690A2D50686b10": {
+      "TLP reward in ARB tokens": "33437640000000000"
+    },
+    "0x8FE719CFdF1dF5c5568fBb517a65fbb83B16fCfD": {
+      "TLP reward in ARB tokens": "25809900000000000"
+    },
+    "0x8a72c47F190f2118227A83Da784A2Ce45C54f484": {
+      "TLP reward in ARB tokens": "84091433410000000000"
+    },
+    "0x8aF7460a14D4E6728271B4951622fB320f1A6d68": {
+      "TLP reward in ARB tokens": "2098837670000000000"
+    },
+    "0x8b34963Bcb4e8192ceaE8610cE1c63c2A806A376": {
+      "TLP reward in ARB tokens": "40055310000000000"
+    },
+    "0x8b39b368dff2eb090A2De6e361E2485Ce679B00F": {
+      "TLP reward in ARB tokens": "450027970000000000"
+    },
+    "0x8b6431800F1E5Ae98023A621F4A57b313213EF9b": {
+      "TLP reward in ARB tokens": "82394904400000000000"
+    },
+    "0x8cA26a0a426E8c2110c065FF8f2aC6e8Bc2a6D72": {
+      "TLP reward in ARB tokens": "20663250000000000"
+    },
+    "0x8caF3E2245D7C421AE4084c3988D46aa9641792A": {
+      "TLP reward in ARB tokens": "17050047040000000000"
+    },
+    "0x8d515Db367840633ccC7e24D2B7f89a400263bd0": {
+      "TLP reward in ARB tokens": "29976230000000000"
+    },
+    "0x8db2e143496132C03799767486C36A2387115a6F": {
+      "TLP reward in ARB tokens": "20804180000000000"
+    },
+    "0x8dbdFC0c7D65dbc7Ae8D3c2a6e869C16D8Ba3164": {
+      "TLP reward in ARB tokens": "10094744410000000000"
+    },
+    "0x8e08310466429DC0433204da546d23BEe48fe2aB": {
+      "TLP reward in ARB tokens": "809089110000000000"
+    },
+    "0x8e4eC074d9D5CE19D34Ef67405b6EcE8126373Fb": {
+      "TLP reward in ARB tokens": "1483798080000000000"
+    },
+    "0x8e7fb4D4fAbC504A4ad73D44e09080cb68960098": {
+      "TLP reward in ARB tokens": "690296140000000000"
+    },
+    "0x8e8151283d22c6e1c861C70bc638422FB9F8e19D": {
+      "TLP reward in ARB tokens": "121593487960000000000"
+    },
+    "0x8f981Cf2377A6bF1b3B407eFBdF978Df96BA2042": {
+      "TLP reward in ARB tokens": "19712720000000000"
+    },
+    "0x8fFcca0415998712B842E07F4Ac805fc19e83847": {
+      "TLP reward in ARB tokens": "217772110000000000"
+    },
+    "0x8ff3918F667469365f84e8d2975118c15528c469": {
+      "TLP reward in ARB tokens": "6947561030000000000"
+    },
+    "0x90856c1A81494F1248Cfe4DdE952D027F54b9c82": {
+      "TLP reward in ARB tokens": "1437296920000000000"
+    },
+    "0x90C290a07A52bE5B6340Dc971ca6c954d630bDcd": {
+      "TLP reward in ARB tokens": "323897830000000000"
+    },
+    "0x91CFfB9ba0586CCECc9f9106b6e5D9260d2A28a0": {
+      "TLP reward in ARB tokens": "128538541610000000000"
+    },
+    "0x91aBfD666934bB840217Bd5B556632D1CB83C687": {
+      "TLP reward in ARB tokens": "4604351090000000000"
+    },
+    "0x91c918D1f173f8437be03c22628373d044Afa647": {
+      "TLP reward in ARB tokens": "927019340000000000"
+    },
+    "0x9205aB286E335aD50A7BA25C2450817a32E9E474": {
+      "TLP reward in ARB tokens": "52129710000000000"
+    },
+    "0x923F88dB4113BC64f6Ef391AD06f33cbD379aa40": {
+      "TLP reward in ARB tokens": "1633821420000000000"
+    },
+    "0x92A28A7679E06a605fde197D62d63a1CF37512e5": {
+      "TLP reward in ARB tokens": "6602660000000000"
+    },
+    "0x93280938dB9F5e7d430aeC5eBAA5e8B17daD7019": {
+      "TLP reward in ARB tokens": "8178930000000000"
+    },
+    "0x932B6a952394F052263ed41a39a19EF65dd79279": {
+      "TLP reward in ARB tokens": "23701360000000000"
+    },
+    "0x9334945F984A8737011Fd1cd793e03f78AA66e27": {
+      "TLP reward in ARB tokens": "1645779100000000000"
+    },
+    "0x936C587C527182183e48cF2a352513A7F7DD1bD3": {
+      "TLP reward in ARB tokens": "16239071620000000000"
+    },
+    "0x93Df16E5d6B28874EdD1A24f7E9Ec1975bc55a49": {
+      "TLP reward in ARB tokens": "160021260000000000"
+    },
+    "0x93ca26Ac2d0a5Ef91ad08462B4a403abac05b0E2": {
+      "TLP reward in ARB tokens": "301663020000000000"
+    },
+    "0x941AcAc03e0A45aE1176683D5540b8eE7cFeBeBF": {
+      "TLP reward in ARB tokens": "2738033890000000000"
+    },
+    "0x943980b467fE194Beb923dAF7A544aBce90b5f93": {
+      "TLP reward in ARB tokens": "25044081230000000000"
+    },
+    "0x94910eADdC87AfF0d8C5582082aEaAfB5f5BEdFe": {
+      "TLP reward in ARB tokens": "5885830000000000"
+    },
+    "0x95248d46BfE8cea78363A9b1e72FC69D19B60FE6": {
+      "TLP reward in ARB tokens": "32817530000000000"
+    },
+    "0x9544e0500407dad0765b11c67D6c94645Cf343Ca": {
+      "TLP reward in ARB tokens": "248951060000000000"
+    },
+    "0x9572EdeBc6bdEF0d12Dd0Db821d54c0b4b77B374": {
+      "TLP reward in ARB tokens": "16233880000000000"
+    },
+    "0x958caF14F1F67f6f654357B3b46b17E5F611C49F": {
+      "TLP reward in ARB tokens": "111704413400000000000"
+    },
+    "0x95D0799482322aeB65Bc0492817783288C68a423": {
+      "TLP reward in ARB tokens": "3821271500000000000"
+    },
+    "0x95DB87B171654dc18a6abFB919e758F9F21aa514": {
+      "TLP reward in ARB tokens": "16887766410000000000"
+    },
+    "0x95c14C058Aaffda687780eB60Ef8658EF1166578": {
+      "TLP reward in ARB tokens": "12315433550000000000"
+    },
+    "0x95e90cc769EdF0cdBe9ff8A45b656D8316977bb2": {
+      "TLP reward in ARB tokens": "1014291280000000000"
+    },
+    "0x960d98a8D6Aa4d03985F8468FB54E1A33453EaA4": {
+      "TLP reward in ARB tokens": "728359080000000000"
+    },
+    "0x9667FB9fce99ce1D0e6604CD518aEd31796c771e": {
+      "TLP reward in ARB tokens": "1090277690000000000"
+    },
+    "0x966f0C8a6e6E68b87cBeAD8D0e737D6FC99aEB16": {
+      "TLP reward in ARB tokens": "4552844650000000000"
+    },
+    "0x9674Fc77A3f5773002877cAe189a51Ea89CC4316": {
+      "TLP reward in ARB tokens": "16709786680000000000"
+    },
+    "0x96783cfD992c23E26d3AC77673b2C2d9438a2501": {
+      "TLP reward in ARB tokens": "7902558340000000000"
+    },
+    "0x9695b507A59f00f2fd667525D9Fa661Ef0280308": {
+      "TLP reward in ARB tokens": "266035918360000000000"
+    },
+    "0x96E3C14c35d93437FB6753714EDA6a3779DeAe9f": {
+      "TLP reward in ARB tokens": "86718495530000000000"
+    },
+    "0x96b8124d5e255eFE779145123b3606a6003F7188": {
+      "TLP reward in ARB tokens": "717496190000000000"
+    },
+    "0x970302725Be26aBc6E4Fc27398C4C43921Bd0e81": {
+      "TLP reward in ARB tokens": "123539683290000000000"
+    },
+    "0x9729585607568Dcbf1f5f3802AfBf5B221702932": {
+      "TLP reward in ARB tokens": "326459780000000000"
+    },
+    "0x974b173015571521A5E6cDd0C6605e69B685CFDd": {
+      "TLP reward in ARB tokens": "4569170320000000000"
+    },
+    "0x9754916B26B23c01765127180A3C727448fE794f": {
+      "TLP reward in ARB tokens": "63693186700000000000"
+    },
+    "0x97dD79bd415651cd3236Ecdfe99191652c5Ddb73": {
+      "TLP reward in ARB tokens": "6393100000000000"
+    },
+    "0x982F264ce97365864181df65dF4931C593A515ad": {
+      "TLP reward in ARB tokens": "1369310000000000"
+    },
+    "0x987095086e4B0828f7B5940c2144E8aCB0f6D7b1": {
+      "TLP reward in ARB tokens": "899646730000000000"
+    },
+    "0x98b4E19a051f2B8f55A0eF74E9e55cd2E45dF73f": {
+      "TLP reward in ARB tokens": "48445098700000000000"
+    },
+    "0x99150d9C20fC2ccCde7941917409F418897fDaEB": {
+      "TLP reward in ARB tokens": "1348848980000000000"
+    },
+    "0x991c4D7D1C194A6753799f788fA49218181cCFfA": {
+      "TLP reward in ARB tokens": "4866516200000000000"
+    },
+    "0x992500f42A48371c2c9f91EE6165ba8F9dfB1692": {
+      "TLP reward in ARB tokens": "3430300000000000"
+    },
+    "0x993BcFC6CE013417FE3529aC31e09c5C71ae4259": {
+      "TLP reward in ARB tokens": "3711961310000000000"
+    },
+    "0x9974847e286aA090186132EFD78b5a19E9e2605a": {
+      "TLP reward in ARB tokens": "732428700000000000"
+    },
+    "0x998F0CF48BA5026912Cb2BB41947C0aD92ce58A4": {
+      "TLP reward in ARB tokens": "93492384900000000000"
+    },
+    "0x9996890F80b0624f3087F8EC0c2A8FcC9C5eE103": {
+      "TLP reward in ARB tokens": "5253603560000000000"
+    },
+    "0x99Bf19dcA2125B789Cfe8A9609C1A217b4E5c918": {
+      "TLP reward in ARB tokens": "1221063160000000000"
+    },
+    "0x9A0081F929816D010F357727f5beF6e66Aa51881": {
+      "TLP reward in ARB tokens": "662242129780000000000"
+    },
+    "0x9A01CE1eCbb36E4f3892c94F6243a4E27E5Ce3DE": {
+      "TLP reward in ARB tokens": "6809187940000000000"
+    },
+    "0x9Ae305cA9182A31c14F9624C305BE8AcBff78ad2": {
+      "TLP reward in ARB tokens": "1068520030000000000"
+    },
+    "0x9B4fb44B7B8Cb01771B896D5e184f4FF94666d54": {
+      "TLP reward in ARB tokens": "10863697080000000000"
+    },
+    "0x9B8Df1D91D84C80385AF9f5f9003713c5B041b04": {
+      "TLP reward in ARB tokens": "3149961550000000000"
+    },
+    "0x9B9a2069810eA300889250E54600d1F55d778831": {
+      "TLP reward in ARB tokens": "5647058930000000000"
+    },
+    "0x9C48C695bb69EAED196AB483CEa50d085Ebb4d71": {
+      "TLP reward in ARB tokens": "26872881710000000000"
+    },
+    "0x9C56887bB34779DcC0345fc017908655223fAf62": {
+      "TLP reward in ARB tokens": "283383620000000000"
+    },
+    "0x9D0d919773E59914AE1243B557868e0d9Fe4B6a9": {
+      "TLP reward in ARB tokens": "1054109160000000000"
+    },
+    "0x9D9CF372628B63ce7C9Fa8527Dfcc23372FC04d2": {
+      "TLP reward in ARB tokens": "299155870000000000"
+    },
+    "0x9Dfb32E7a236cD36e8E65398272E1D5548D85536": {
+      "TLP reward in ARB tokens": "21123030000000000"
+    },
+    "0x9E175AB6B3840f3f206Da53332323C1b4C888753": {
+      "TLP reward in ARB tokens": "2720729630000000000"
+    },
+    "0x9E8F3B1eE75DDE8B25C242E65d42119A6De87485": {
+      "TLP reward in ARB tokens": "162189430000000000"
+    },
+    "0x9a4E7217A286e278d45E6Ac3716062fD38425e02": {
+      "TLP reward in ARB tokens": "31498863140000000000"
+    },
+    "0x9a72dEAf6089d0664A7712fD16e26522BBeCc7dA": {
+      "TLP reward in ARB tokens": "21920197950000000000"
+    },
+    "0x9aACA85f29e90B6AD47FF77C59CBbb575B553494": {
+      "TLP reward in ARB tokens": "12844130000000000"
+    },
+    "0x9b1f1C854a8a670460AefC2d8ac888a99554855C": {
+      "TLP reward in ARB tokens": "904034790000000000"
+    },
+    "0x9c2d3CA199bFB36eA2da877A6865521EeF83F618": {
+      "TLP reward in ARB tokens": "46982890000000000"
+    },
+    "0x9cA6C58B262975E46CD008206284ddabfa3AF3B1": {
+      "TLP reward in ARB tokens": "341662700000000000"
+    },
+    "0x9cD612c7E1B3A552da39864736389Aa5F08Ea4Bf": {
+      "TLP reward in ARB tokens": "5238769800000000000"
+    },
+    "0x9d1678CaAc41F1B3bb67854CC77B614Bce1ac8F9": {
+      "TLP reward in ARB tokens": "7654370310000000000"
+    },
+    "0x9d3666AC78eE404D3F490E4216b9C79E35aA97d9": {
+      "TLP reward in ARB tokens": "103872777130000000000"
+    },
+    "0x9d64191d2928FcfcAcf98A0c2AE28C078b28f8c4": {
+      "TLP reward in ARB tokens": "227425738420000000000"
+    },
+    "0x9dc66e07aB65Fd6AA6Ca2deA325b97969bE11b03": {
+      "TLP reward in ARB tokens": "178789100000000000"
+    },
+    "0x9e32E00778C1FfADa203F4811B677be1f7aD85E0": {
+      "TLP reward in ARB tokens": "187152020000000000"
+    },
+    "0x9eBAFf2192d2746FeC76561bdF72fd249d7a73ab": {
+      "TLP reward in ARB tokens": "130650481890000000000"
+    },
+    "0x9eC16e7F097453Eb6047e711B8Cb65C86e556349": {
+      "TLP reward in ARB tokens": "1182220900000000000"
+    },
+    "0x9f1920d0cbB63Ed03376A1e09FD2851D601234C8": {
+      "TLP reward in ARB tokens": "27428210010000000000"
+    },
+    "0x9f5393fD052c24c96ECd87CD2966eEE964C0A01e": {
+      "TLP reward in ARB tokens": "289953200000000000"
+    },
+    "0x9f6752eAC06BaB7C0233a1a4349c0364a3D95507": {
+      "TLP reward in ARB tokens": "1261058900000000000"
+    },
+    "0x9fde52a0cCEBc8dB70397B21d58c19c5C72e3F6F": {
+      "TLP reward in ARB tokens": "16072870000000000"
+    },
+    "0xA08EA44F9Ff8Df21f37766950c762cD1C2a7380a": {
+      "TLP reward in ARB tokens": "1194466480000000000"
+    },
+    "0xA13E4AD21dC3e879bFe1Af7B47f62A7cA6b192Bd": {
+      "TLP reward in ARB tokens": "330522257020000000000"
+    },
+    "0xA1c50Be5C6B2C79Fb960933B7d2c8cB61F1b110a": {
+      "TLP reward in ARB tokens": "1817833770000000000"
+    },
+    "0xA1df0abBA9E43d92ab1A364c1335865C48891D74": {
+      "TLP reward in ARB tokens": "349557550000000000"
+    },
+    "0xA23A5Cd102C3b6633E58a127132d21b052199c1e": {
+      "TLP reward in ARB tokens": "2517740000000000"
+    },
+    "0xA23e3951FB8DAc1cF524ad6153D25962A17aD9Af": {
+      "TLP reward in ARB tokens": "39249923890000000000"
+    },
+    "0xA249aC7499Bb7A18f47168f936825452d466DcAf": {
+      "TLP reward in ARB tokens": "297731426740000000000"
+    },
+    "0xA2c3478Be0D1F31f5cE637Da36dC2187035c0083": {
+      "TLP reward in ARB tokens": "34819510000000000"
+    },
+    "0xA49c738162A6FaAC74220993Ad014814955a535c": {
+      "TLP reward in ARB tokens": "3449530000000000"
+    },
+    "0xA4AaA50F1c875724B4BCFAe2D9D9393b7dbf9ee4": {
+      "TLP reward in ARB tokens": "43616570000000000"
+    },
+    "0xA4a166904779A978D6666CF86a5c9cb5B02aa19d": {
+      "TLP reward in ARB tokens": "589568620000000000"
+    },
+    "0xA502dA15A10C5ac1A820f33D9352c608762f2E54": {
+      "TLP reward in ARB tokens": "33697410000000000"
+    },
+    "0xA50743fd3E6F09eEa7a599a47df121f4828009ca": {
+      "TLP reward in ARB tokens": "187900570000000000"
+    },
+    "0xA534e734446CAe195d65d920fA47305F0dC55934": {
+      "TLP reward in ARB tokens": "30698367320000000000"
+    },
+    "0xA613877f3A2A73D67c313fB43B740C5f877E98B9": {
+      "TLP reward in ARB tokens": "12601328020000000000"
+    },
+    "0xA61D9946974adcd77e2965686C5c25845fD80C87": {
+      "TLP reward in ARB tokens": "181574390000000000"
+    },
+    "0xA626Bd40A8c88F59A4CF9b1821A7bD71faD96285": {
+      "TLP reward in ARB tokens": "11632666690000000000"
+    },
+    "0xA636D78C731Fd51E546aD58B3b756A45dB507259": {
+      "TLP reward in ARB tokens": "1357504930000000000"
+    },
+    "0xA742aAb11590b0ae67f7Ad4aB0Cfc3c09774F4eB": {
+      "TLP reward in ARB tokens": "613836180000000000"
+    },
+    "0xA7Eef766B1f3F3d31A0c7C6Ebd0B3f31e9a87634": {
+      "TLP reward in ARB tokens": "331625710000000000"
+    },
+    "0xA7f341B197D19487F22fB2133d765371BF72D62F": {
+      "TLP reward in ARB tokens": "268107510000000000"
+    },
+    "0xA821c605C4a4b7E5B8B06f5d1Dab4323C1B56dD3": {
+      "TLP reward in ARB tokens": "106404840000000000"
+    },
+    "0xA93093fc1D0343298966E1F971fAE10a7a629296": {
+      "TLP reward in ARB tokens": "19413120000000000"
+    },
+    "0xA9653762f556852109560a76B3B8569d402E05B6": {
+      "TLP reward in ARB tokens": "8127993290000000000"
+    },
+    "0xA9DC8797F4416f7db48168A16E51F0BE5d0E8474": {
+      "TLP reward in ARB tokens": "93813210000000000"
+    },
+    "0xA9FD95F68D801fb3f1D6C7fBa4B141F4De05779d": {
+      "TLP reward in ARB tokens": "281281820000000000"
+    },
+    "0xA9f077ABBeBF343b66F967bD55E436D94e6400d8": {
+      "TLP reward in ARB tokens": "19740182660000000000"
+    },
+    "0xAB60dBa75F98De7BFcb5FEF3F330f6e8C1A5DA02": {
+      "TLP reward in ARB tokens": "2613581640000000000"
+    },
+    "0xABC6dBAe6e8A3CA2508f053232daC7b77A795069": {
+      "TLP reward in ARB tokens": "3383842200000000000"
+    },
+    "0xACdBE69Dc5efefAD773F4B3F307687E29f4Ae594": {
+      "TLP reward in ARB tokens": "24797700000000000"
+    },
+    "0xAD9eDe4e63a185eAc70eD3c3A5586FE2ca1Bb701": {
+      "TLP reward in ARB tokens": "281628900000000000"
+    },
+    "0xAF05F8Ab97c202fE2e2AA87A777d6D2C376eb5B1": {
+      "TLP reward in ARB tokens": "556351640000000000"
+    },
+    "0xAFA6aDA7EDd74f40F34cD14B269aDb7FEb5443c2": {
+      "TLP reward in ARB tokens": "2142506900000000000"
+    },
+    "0xAa4B96cbd2abe2a01f4BA18185c84c290DFC9650": {
+      "TLP reward in ARB tokens": "6355860270000000000"
+    },
+    "0xAb03d86c0cfe9790752073d31bCcfB00B8998740": {
+      "TLP reward in ARB tokens": "206593718860000000000"
+    },
+    "0xAc8591B0adF9EB2418e8545c2aD7e4253CF6f5b6": {
+      "TLP reward in ARB tokens": "250661459720000000000"
+    },
+    "0xAcad027eC3F4746f052345a5d058591c81FBb925": {
+      "TLP reward in ARB tokens": "2727174570000000000"
+    },
+    "0xAd1D277061726De215D212c593F478aa36DA36B0": {
+      "TLP reward in ARB tokens": "89589724300000000000"
+    },
+    "0xAeA3A0F443b268aeaA486C8E79C9231628426Cc0": {
+      "TLP reward in ARB tokens": "6297201060000000000"
+    },
+    "0xAeb055eDd6B843aff4843AF84C687Ab25c9cC885": {
+      "TLP reward in ARB tokens": "1569066460000000000"
+    },
+    "0xAefD7b72D53d74bD6833B359F1C1E84fDf1E8B03": {
+      "TLP reward in ARB tokens": "20429982260000000000"
+    },
+    "0xAf13c1daeD0EFf0e9F4A3CEF8ec8DC9C7a01d80B": {
+      "TLP reward in ARB tokens": "2237130000000000"
+    },
+    "0xAf2fe4Ce68387450d81eEBD330eb2bf6f73Ebf5a": {
+      "TLP reward in ARB tokens": "13096000000000000"
+    },
+    "0xAf965AA261dB754C7Af98B6D4988F27C8E594327": {
+      "TLP reward in ARB tokens": "277401300000000000"
+    },
+    "0xAfa4655D7dD7C39225d593c784ED5c352349FFca": {
+      "TLP reward in ARB tokens": "666252960000000000"
+    },
+    "0xB00C639fb8996f2aC3713C41a3194FAb6C87AcbF": {
+      "TLP reward in ARB tokens": "93218280000000000"
+    },
+    "0xB04024DAfdE70Eb61f71629e6aCf47e72522eed4": {
+      "TLP reward in ARB tokens": "4633513540000000000"
+    },
+    "0xB06EE45E8E075cfbC862412b89272Dd131d73417": {
+      "TLP reward in ARB tokens": "4113812580000000000"
+    },
+    "0xB0E9B8b5CEf3BB2CA813fF09C1E3d21267773055": {
+      "TLP reward in ARB tokens": "9284800000000000"
+    },
+    "0xB0F00C31BD5E4CDfB6245420B1d05eE616B009D3": {
+      "TLP reward in ARB tokens": "250936860000000000"
+    },
+    "0xB17F1ed5229521929ae794c84A4e8E202a50dB01": {
+      "TLP reward in ARB tokens": "2877440000000000"
+    },
+    "0xB1Ecc06C51D2523145465C7C2C29930DD47f5947": {
+      "TLP reward in ARB tokens": "22090940000000000"
+    },
+    "0xB3aA47edBc9A1178B56bB55D1a9E3821845870e8": {
+      "TLP reward in ARB tokens": "2683958433920000000000"
+    },
+    "0xB406F29C62b94A717B2714A4982E307e828FFaFa": {
+      "TLP reward in ARB tokens": "255283850000000000"
+    },
+    "0xB4e059EBC6BefEF5F815c712832b5FA2C854ab76": {
+      "TLP reward in ARB tokens": "2558993690000000000"
+    },
+    "0xB54Bb2f1c5828800BfBE59C376A9c92D1F891e2a": {
+      "TLP reward in ARB tokens": "16988510000000000"
+    },
+    "0xB5A3e73A3DC7c3E2B24EE370673eA7C50416B5B1": {
+      "TLP reward in ARB tokens": "599029100000000000"
+    },
+    "0xB5D097bc363D5894dE64f71a0d3AdaAdd7e0bd1E": {
+      "TLP reward in ARB tokens": "321613097370000000000"
+    },
+    "0xB5adbcE0897a300a57db0Eb3C9781117bfb26791": {
+      "TLP reward in ARB tokens": "282115401870000000000"
+    },
+    "0xB5dfcE924062687f6a57996a680A823FdE8022CA": {
+      "TLP reward in ARB tokens": "1233179410000000000"
+    },
+    "0xB624EFc09BEE8E00B8B3a0C7b063a5a7CBE6FA13": {
+      "TLP reward in ARB tokens": "65506190000000000"
+    },
+    "0xB6860393Ade5CD3766E47e0B031A0F4C33FD48a4": {
+      "TLP reward in ARB tokens": "1629355415530000000000"
+    },
+    "0xB71C5C0f6413CEdAFD0168B4C3C03bB70ed8c99E": {
+      "TLP reward in ARB tokens": "4566410000000000"
+    },
+    "0xB72eD8401892466Ea8aF528C1af1d0524bc5e105": {
+      "TLP reward in ARB tokens": "82098055560000000000"
+    },
+    "0xB7FDa9FAb3215B27978FBC701844Df331216FD8A": {
+      "TLP reward in ARB tokens": "6778177120000000000"
+    },
+    "0xB7f577998fFb8DD0f4498A83679A09726d8a9Bbb": {
+      "TLP reward in ARB tokens": "655950650000000000"
+    },
+    "0xB8884F6E8f676c1CA8531A7acb56982a6FD5a8de": {
+      "TLP reward in ARB tokens": "164661029110000000000"
+    },
+    "0xB8fD61993B7e95eF57D7Ae0aE62bEe03B9eee760": {
+      "TLP reward in ARB tokens": "108336870000000000"
+    },
+    "0xB931315D66D22377cB26E8C5b8e24861149aD480": {
+      "TLP reward in ARB tokens": "4373215800000000000"
+    },
+    "0xB9C72FE30D727D034448b0C0ca115Fd0e5600589": {
+      "TLP reward in ARB tokens": "10447419530000000000"
+    },
+    "0xBA5e6820e09f13d615B2Ee1D1C18137149cFA7aB": {
+      "TLP reward in ARB tokens": "378929030000000000"
+    },
+    "0xBAE78446C1d44aAe0Bc84dA9e7a8162e25d75813": {
+      "TLP reward in ARB tokens": "10003460060000000000"
+    },
+    "0xBBD35eb9119B66B9D4Eb98C65048d627039570C5": {
+      "TLP reward in ARB tokens": "941288150000000000"
+    },
+    "0xBCEa862740c550A3b6aDCc750674be9F38796D1f": {
+      "TLP reward in ARB tokens": "1829115670000000000"
+    },
+    "0xBD78A5988FD1d490b878fdd1FDE3D2B94147C646": {
+      "TLP reward in ARB tokens": "365815570000000000"
+    },
+    "0xBD8CCf3ebE4CC2D57962cdC2756B143ce0135a6B": {
+      "TLP reward in ARB tokens": "657146119630000000000"
+    },
+    "0xBDaCa39ea91F9b8Ff0f9aB743e9cc2871b56847a": {
+      "TLP reward in ARB tokens": "19261700000000000"
+    },
+    "0xBF80701f21258bD7CdDc8C84dBfF5cC276a405f9": {
+      "TLP reward in ARB tokens": "5998580360000000000"
+    },
+    "0xBFB6bc030Dd8A7EDaBA8Ee13f931D2B495E39DA2": {
+      "TLP reward in ARB tokens": "233549200000000000"
+    },
+    "0xBaA81e92c1c6Ad6aeBd1b69AD67C019815143DE7": {
+      "TLP reward in ARB tokens": "242066540000000000"
+    },
+    "0xBb1A1a2773a799D83078ae4d59d9F4B2B6aC50fF": {
+      "TLP reward in ARB tokens": "587878790000000000"
+    },
+    "0xBb518c7a5870317F2DdCA6417DeeA7445F12c588": {
+      "TLP reward in ARB tokens": "16979223600000000000"
+    },
+    "0xBccbc9fC2d1D9e9aBd0Ca132BE816bd4f6051B86": {
+      "TLP reward in ARB tokens": "164615689860000000000"
+    },
+    "0xBf262D5EfAC49b8146867Cf2cB4127cE5AAeCD87": {
+      "TLP reward in ARB tokens": "1644918160000000000"
+    },
+    "0xBf4AD5587A9047F22622Bd091f691F3Bbdbed1A6": {
+      "TLP reward in ARB tokens": "8180420710000000000"
+    },
+    "0xBf52C3024Be6bCa82b331ef1557Fa95727075643": {
+      "TLP reward in ARB tokens": "485462900000000000"
+    },
+    "0xBf9ce8e7a637a18cDA7958CeA446681DB7987c7f": {
+      "TLP reward in ARB tokens": "345194160000000000"
+    },
+    "0xBfF9cC91516548E824db12D0B4ac37343DECf873": {
+      "TLP reward in ARB tokens": "151787515910000000000"
+    },
+    "0xC04Ca1e8B78fFc895c9B4dC4705c0334B1135Ad9": {
+      "TLP reward in ARB tokens": "81222200000000000"
+    },
+    "0xC05f19926beC6e2c7648D93B1343aaffFadaE479": {
+      "TLP reward in ARB tokens": "4721010720000000000"
+    },
+    "0xC07f94A5386096a4867Af47B5DB07C60CD4280d9": {
+      "TLP reward in ARB tokens": "338153950000000000"
+    },
+    "0xC09cbaf20cf301dCd9204b2e86CCD1FA163d4019": {
+      "TLP reward in ARB tokens": "33662459150000000000"
+    },
+    "0xC0C92c49f2e516550DA3EE5fecA2b2725bA32c7A": {
+      "TLP reward in ARB tokens": "44579548630000000000"
+    },
+    "0xC0CdbCD0B24361Df8A888E18D2A3cEDD4CEc948E": {
+      "TLP reward in ARB tokens": "68700240000000000"
+    },
+    "0xC0bD0FD903538Fb5dAFBcE523930393543fc06D1": {
+      "TLP reward in ARB tokens": "808243953330000000000"
+    },
+    "0xC0c597D4234BF1Ed01CFf725302FEFc1010577BA": {
+      "TLP reward in ARB tokens": "1364992237600000000000"
+    },
+    "0xC0f51806D717324a532915B1F6ACC2121CDb3Ec7": {
+      "TLP reward in ARB tokens": "26116967480000000000"
+    },
+    "0xC17A00b9b57ae98ea188728B8806cFcCbe2774E0": {
+      "TLP reward in ARB tokens": "71321350000000000"
+    },
+    "0xC197Ce0B6e3ddFbC29f17C48553ceECE4cb1d116": {
+      "TLP reward in ARB tokens": "6433388570000000000"
+    },
+    "0xC24301B481D38837444Fa02F5C1A5eb9D7dd57B4": {
+      "TLP reward in ARB tokens": "263510210000000000"
+    },
+    "0xC25C8424447685800fe83D366Cf9Cb980dACb852": {
+      "TLP reward in ARB tokens": "830739010000000000"
+    },
+    "0xC26EF9e8b5B783aaE49bD37fCf94b16b70579c89": {
+      "TLP reward in ARB tokens": "1385081350000000000"
+    },
+    "0xC2b8335F03Ff5C7E988dE97B63ec26CA841e2504": {
+      "TLP reward in ARB tokens": "20429148420000000000"
+    },
+    "0xC3330C8b15a7F0715a83F465c16767076C984438": {
+      "TLP reward in ARB tokens": "69519670000000000"
+    },
+    "0xC4974ECf75c3E1E142861f84977B2064A926E616": {
+      "TLP reward in ARB tokens": "408094150000000000"
+    },
+    "0xC4E7263Dd870A29f1cFe438D1A7DB48547B16888": {
+      "TLP reward in ARB tokens": "1473577876730000000000"
+    },
+    "0xC5042F9d9a18e95547864438455c8F05b4987399": {
+      "TLP reward in ARB tokens": "504504380000000000"
+    },
+    "0xC5bBb5D2216B0aAEB60dcc91eb93c9fF7D2B395B": {
+      "TLP reward in ARB tokens": "418314800000000000"
+    },
+    "0xC6269F0E9f4618cDD40975194D0A23fE98848a20": {
+      "TLP reward in ARB tokens": "311115490000000000"
+    },
+    "0xC693B4FFB338579467a541b2bF267B1955870920": {
+      "TLP reward in ARB tokens": "505456590000000000"
+    },
+    "0xC6E2A6CD2399Ab2e56D8E28ae34c8B23D1cDc653": {
+      "TLP reward in ARB tokens": "5206580000000000"
+    },
+    "0xC81fA91f8da4f2b07434BB4DFc205FaDbD1beb6E": {
+      "TLP reward in ARB tokens": "471036340000000000"
+    },
+    "0xC8233a46F57Add754f32Cf9e25A85aAe8a7D5f29": {
+      "TLP reward in ARB tokens": "91728800000000000"
+    },
+    "0xC960338B529e0353F570f62093Fd362B8FB55f0B": {
+      "TLP reward in ARB tokens": "2110503410000000000"
+    },
+    "0xC9BeD446bA17548Ee3bf51986c21688940bCEAf8": {
+      "TLP reward in ARB tokens": "207416420000000000"
+    },
+    "0xCA0073964efe7f9422CeB16901018b1DB0cC4785": {
+      "TLP reward in ARB tokens": "90180140000000000"
+    },
+    "0xCA12561c388FB36719A0fc13fB3FFC21E3e86cBd": {
+      "TLP reward in ARB tokens": "22564336030000000000"
+    },
+    "0xCA2cEbc209bcDe7e178cBcDDf7f3BbBE1a26fBc7": {
+      "TLP reward in ARB tokens": "19054025760000000000"
+    },
+    "0xCA6Ff42933C0c76e9Ae059b495476fad3E366494": {
+      "TLP reward in ARB tokens": "413180000000000"
+    },
+    "0xCCE609ffA36DccA6B2aaa4D59E8686113b8F7f46": {
+      "TLP reward in ARB tokens": "14611769460000000000"
+    },
+    "0xCD24143235706dce54e8dc01dbD912f2Cc6c5426": {
+      "TLP reward in ARB tokens": "4418006910000000000"
+    },
+    "0xCF1dd438BA15d5ecAE710Bdc7b917Be8DD3Da21c": {
+      "TLP reward in ARB tokens": "281319160000000000"
+    },
+    "0xCa248ae67B1720bb1A69463201225B92bF3a4350": {
+      "TLP reward in ARB tokens": "826019300000000000"
+    },
+    "0xCa7Cf6E07ABed9166aD889cB0416121C0F25bdaa": {
+      "TLP reward in ARB tokens": "130511431880000000000"
+    },
+    "0xCa82151688C91013b42efaB54175F53de62d0fd6": {
+      "TLP reward in ARB tokens": "129820000000000"
+    },
+    "0xCb55A313f341Cd34eDf3bD12BF5DFAB4B67029Fd": {
+      "TLP reward in ARB tokens": "51240517570000000000"
+    },
+    "0xCb608A4D070b7eE694C471fc65717B97838dFcb3": {
+      "TLP reward in ARB tokens": "2638869310000000000"
+    },
+    "0xCc322A2F16E7f64C90538A27ccf367a61ccDABDD": {
+      "TLP reward in ARB tokens": "3341418710000000000"
+    },
+    "0xCca241aa38AD3E4a252a42690c5642c9F981e33d": {
+      "TLP reward in ARB tokens": "743148630000000000"
+    },
+    "0xCd064e5D6a477517FdC1EB30ff46eE593537DbEa": {
+      "TLP reward in ARB tokens": "3291144100000000000"
+    },
+    "0xCd4D532b1fCf756FE5343bf269127b2b813B39C7": {
+      "TLP reward in ARB tokens": "1557950000000000"
+    },
+    "0xCec7e0253Dd97Ab9701A8b061e26Ca85B2Ad0652": {
+      "TLP reward in ARB tokens": "8499100000000000"
+    },
+    "0xD0f245Dc9e6f6820ADa1428E4dD040e8aDEb9419": {
+      "TLP reward in ARB tokens": "203305400000000000"
+    },
+    "0xD11120F24a68BcFAb0eDa20E3aAD31820a3F9940": {
+      "TLP reward in ARB tokens": "30606170000000000"
+    },
+    "0xD225c67697904482Ca636f52a04750243FD0b1F9": {
+      "TLP reward in ARB tokens": "29670300000000000"
+    },
+    "0xD27D6E3FB9B8959eEaf97e7c75E3D1895C77f80D": {
+      "TLP reward in ARB tokens": "2220279630000000000"
+    },
+    "0xD28F0C149598A4d9bf73a53282b9563cCc362f36": {
+      "TLP reward in ARB tokens": "380604640000000000"
+    },
+    "0xD298006535A88eCb20b238b9A1ED6a36B4Ddc831": {
+      "TLP reward in ARB tokens": "233715590000000000"
+    },
+    "0xD2A7b8A16ec6F734606cA79bdAcF7b841304cd48": {
+      "TLP reward in ARB tokens": "81679050000000000"
+    },
+    "0xD302B88FB45F9e97ce58A32BFCc74010fd1fAAed": {
+      "TLP reward in ARB tokens": "148237138120000000000"
+    },
+    "0xD3f925042d39c23E7126e140AD1423142721C97C": {
+      "TLP reward in ARB tokens": "2375380000000000"
+    },
+    "0xD46d952b81b31E00b3D98270C3990926D36F7397": {
+      "TLP reward in ARB tokens": "292071030000000000"
+    },
+    "0xD5047d16e9AA00d84Facf9772c189797E1b64848": {
+      "TLP reward in ARB tokens": "11416878370000000000"
+    },
+    "0xD683BC8e4A24097bbeC4f7cDBC7021CF356B808C": {
+      "TLP reward in ARB tokens": "10680000000000"
+    },
+    "0xD8236cf455439F214b9e695951d73D2A04d73e77": {
+      "TLP reward in ARB tokens": "42808505210000000000"
+    },
+    "0xD834839Da5f1A49404270B231163A8fD1dF1f94c": {
+      "TLP reward in ARB tokens": "15201884450000000000"
+    },
+    "0xD927cE147f098cE634301e6c4281541b1939a132": {
+      "TLP reward in ARB tokens": "40776880000000000"
+    },
+    "0xDAA27d84ea816F28F4c420F7b0AD6a9998B7e305": {
+      "TLP reward in ARB tokens": "1192841060000000000"
+    },
+    "0xDCc2675bbE4D931dE00da054C62eB9FCff2175A9": {
+      "TLP reward in ARB tokens": "29222435690000000000"
+    },
+    "0xDD04F896458a79B51c8B4032dcE4861A297128EC": {
+      "TLP reward in ARB tokens": "246923530000000000"
+    },
+    "0xDDe3f0155480962B086e966D5B4dC0E72Be0F13a": {
+      "TLP reward in ARB tokens": "151225040000000000"
+    },
+    "0xDbE0c28c273bbB10a632B1aaf65AC2B877bb2b92": {
+      "TLP reward in ARB tokens": "303882440000000000"
+    },
+    "0xDbdE6081017F0a9F88DB0b23ea731f75e5285242": {
+      "TLP reward in ARB tokens": "314126240000000000"
+    },
+    "0xDc048fb9f1C355d9b93B4db8430941e831ee0573": {
+      "TLP reward in ARB tokens": "6605839120000000000"
+    },
+    "0xDcfdc6119011ECAC29b61DcFd92Ab6B2732214b7": {
+      "TLP reward in ARB tokens": "1973151970000000000"
+    },
+    "0xDe93A283495fA2834047B53871A8E4e09f96d841": {
+      "TLP reward in ARB tokens": "24642252770000000000"
+    },
+    "0xDeC78FE3B083FeBb8485223e82dc0E488f0FC9d1": {
+      "TLP reward in ARB tokens": "399797150000000000"
+    },
+    "0xDf10Cc6cCd5281C7A1f75003C802C3fC287e8ed2": {
+      "TLP reward in ARB tokens": "211458305040000000000"
+    },
+    "0xDf789AB9f28550416e4a4197f8aA5D6553F8d7a9": {
+      "TLP reward in ARB tokens": "77761004970000000000"
+    },
+    "0xE0075cB3A1a45c3061cd636f9F69cb7c223823C9": {
+      "TLP reward in ARB tokens": "67620005060000000000"
+    },
+    "0xE0aAEC9c2A93c262cA56bc22Ea0B404f6DcFa776": {
+      "TLP reward in ARB tokens": "551646100000000000"
+    },
+    "0xE1a5874c98FC86cfd1cA147983a4f0CE760673A3": {
+      "TLP reward in ARB tokens": "23281350000000000"
+    },
+    "0xE1c5a95CC2358562E5fA79b68ecF758367DD7bC9": {
+      "TLP reward in ARB tokens": "25338348240000000000"
+    },
+    "0xE279b0A9798BDb6225767b3F8895d70351428ea1": {
+      "TLP reward in ARB tokens": "5526540490000000000"
+    },
+    "0xE33fc4387E18614e4dA4B1942F88E491129439f0": {
+      "TLP reward in ARB tokens": "2036959320000000000"
+    },
+    "0xE472fEF1286cC1c367821e317921fc07084A62D2": {
+      "TLP reward in ARB tokens": "1220943350000000000"
+    },
+    "0xE500b047c06EF7601a9E2B3B66be456EbC23310C": {
+      "TLP reward in ARB tokens": "52710916590000000000"
+    },
+    "0xE58146634DE4E72B953697BDE91527E597004A82": {
+      "TLP reward in ARB tokens": "371930900000000000"
+    },
+    "0xE59E6ee25868B588AC26C2Da0B2d12db912e3B52": {
+      "TLP reward in ARB tokens": "3553840000000000"
+    },
+    "0xE62E837d3852ab29A96522368C71225BAB823188": {
+      "TLP reward in ARB tokens": "3999700310000000000"
+    },
+    "0xE64F1E21299215d8E1C70dFf9CE42B6f85CD969c": {
+      "TLP reward in ARB tokens": "283995810000000000"
+    },
+    "0xE66fBC8Be19bD6B60a7FdC743a1019435EE0a04F": {
+      "TLP reward in ARB tokens": "280689710000000000"
+    },
+    "0xE6B94572b3d38f7775EEc0F60fB7517B9286753d": {
+      "TLP reward in ARB tokens": "28769760000000000"
+    },
+    "0xE6e3f7fF72b5E9f30f199d3389F4FC8F221c1914": {
+      "TLP reward in ARB tokens": "1803816060000000000"
+    },
+    "0xE73917338FeAB03443Fe58d42A1E0918fA4293a8": {
+      "TLP reward in ARB tokens": "339610287030000000000"
+    },
+    "0xE84f07696833027Af58BBf34FD6FD4e9378F1707": {
+      "TLP reward in ARB tokens": "187196020000000000"
+    },
+    "0xE922C74Fa1d1B148D2ab3A586349C5AEAF299B65": {
+      "TLP reward in ARB tokens": "94919150000000000"
+    },
+    "0xEA8b83fab533057b8BAf956A3bbbD531189D163e": {
+      "TLP reward in ARB tokens": "1984260240000000000"
+    },
+    "0xEAF1EaF9A95c7f1c37bCEeAF49423dccDEBFc6E1": {
+      "TLP reward in ARB tokens": "3208422340000000000"
+    },
+    "0xEB00742cA2c23a090092f56cD64733936807b10E": {
+      "TLP reward in ARB tokens": "650347240000000000"
+    },
+    "0xEB4576fE753DAB07635c0Bb6c8f0A355e1Db5d31": {
+      "TLP reward in ARB tokens": "116501730000000000"
+    },
+    "0xEB4b6b77aa957aD9d1c7D7175538800411d4dD01": {
+      "TLP reward in ARB tokens": "1644399930000000000"
+    },
+    "0xEBc06cC667E99D89c60921dE7C3D01a3874f66C0": {
+      "TLP reward in ARB tokens": "346203102600000000000"
+    },
+    "0xECD40f8E95254AdDA043A68b1dcc3A1F090D541E": {
+      "TLP reward in ARB tokens": "18118420000000000"
+    },
+    "0xEE6f59F7118a8A4B906e9Dbbe7F010a91F8E73cB": {
+      "TLP reward in ARB tokens": "364116730000000000"
+    },
+    "0xEe9525126FFAdb8326fe1001Fe88CF4AC405D44A": {
+      "TLP reward in ARB tokens": "149852130000000000"
+    },
+    "0xEef09b5829650d9550F23b044EdBF8F64246b830": {
+      "TLP reward in ARB tokens": "1214440000000000"
+    },
+    "0xEfD36D022c0099579715382D5bc929f16e14A984": {
+      "TLP reward in ARB tokens": "8835743260000000000"
+    },
+    "0xF0eb40D882AD5Fab2036870FA3510144b16de186": {
+      "TLP reward in ARB tokens": "1041359630000000000"
+    },
+    "0xF1E9BF2ED1e246DDAA102e13B1Ca13f885e334d4": {
+      "TLP reward in ARB tokens": "49997070000000000"
+    },
+    "0xF222dF9c1b6434772A8657B6071b8DAf22c4cE56": {
+      "TLP reward in ARB tokens": "126244279550000000000"
+    },
+    "0xF3c73da2a7c4233Edd357189f2cB09403Cfb21Ed": {
+      "TLP reward in ARB tokens": "31974410000000000"
+    },
+    "0xF417507c07C1cf4044dBB58AF8195995f72c1d40": {
+      "TLP reward in ARB tokens": "2070281810000000000"
+    },
+    "0xF501b339d6caf9929E33c32BE517B66BE5cfD589": {
+      "TLP reward in ARB tokens": "1358427690000000000"
+    },
+    "0xF52A98b1DC37a99367F2147B02873c48fa4Afb37": {
+      "TLP reward in ARB tokens": "1162539040000000000"
+    },
+    "0xF5445C0e1B54CE6f6Be135CCBef3FB0d77c6241B": {
+      "TLP reward in ARB tokens": "68344414200000000000"
+    },
+    "0xF6FE555C2C67793aA3d3583D0c924FcceF4062F1": {
+      "TLP reward in ARB tokens": "458766640000000000"
+    },
+    "0xF6c01D14Adead16c6a9d62349E5A0679f0dfbfBe": {
+      "TLP reward in ARB tokens": "24505750000000000"
+    },
+    "0xF761bb7B92553eA6027045E9aEdD6c8D2510FCC0": {
+      "TLP reward in ARB tokens": "58103244340000000000"
+    },
+    "0xF78A79277c2a8121ea43bB75CA13832f524E9CBA": {
+      "TLP reward in ARB tokens": "284099590000000000"
+    },
+    "0xF7936ca0b6D9a40C25ED1a5A228377aFBBfd7007": {
+      "TLP reward in ARB tokens": "125223580000000000"
+    },
+    "0xF7A5c6B0428fca63F2dE15C9765FebE7e496E673": {
+      "TLP reward in ARB tokens": "2071625530000000000"
+    },
+    "0xF7c1E17E2e98f69a5e7E2B7fd5332360FffC7699": {
+      "TLP reward in ARB tokens": "10225437670000000000"
+    },
+    "0xF82fb5dAB21821F38b38Bfe80E689231EE57DF58": {
+      "TLP reward in ARB tokens": "69112180000000000"
+    },
+    "0xF882C6d3ba1861Ae1173048794bBaF120FF97DbF": {
+      "TLP reward in ARB tokens": "56100200000000000"
+    },
+    "0xF8F4bf762b0161BDD2280970c516feDfE122BA2a": {
+      "TLP reward in ARB tokens": "654088187810000000000"
+    },
+    "0xF942457b49E10D4BBde841D93903cd707AdD1637": {
+      "TLP reward in ARB tokens": "33642985090000000000"
+    },
+    "0xF9848fdf1f6046406929A6808B3e33a0Ad8A70d2": {
+      "TLP reward in ARB tokens": "47171980000000000"
+    },
+    "0xFA81ACecFdFBC0ddD56Afb55C4AA12616AD8e42d": {
+      "TLP reward in ARB tokens": "4288230000000000"
+    },
+    "0xFC88e456b3a5620E63A449cE429dCcF2687cac26": {
+      "TLP reward in ARB tokens": "2922810010000000000"
+    },
+    "0xFC8bf1127ABA05e37862eA211cA23B328909C509": {
+      "TLP reward in ARB tokens": "11733337640000000000"
+    },
+    "0xFF21810BEF93f998258c213690A929e8AC0A670E": {
+      "TLP reward in ARB tokens": "2374377200000000000"
+    },
+    "0xFa9c05067daD62037bDb414fCed721C63cA99EFd": {
+      "TLP reward in ARB tokens": "15477843730000000000"
+    },
+    "0xFb221214C66358606dAac130D39f3DcFa8982536": {
+      "TLP reward in ARB tokens": "114226690000000000"
+    },
+    "0xFbe6b050a4d5f3A3919028c24bcC22547c6ECc58": {
+      "TLP reward in ARB tokens": "115905938370000000000"
+    },
+    "0xFc1e208d61F32C347B3Fe162f54B2a2c100E5cf7": {
+      "TLP reward in ARB tokens": "3560988010000000000"
+    },
+    "0xFc65A7703939f14C396ab1D935f9a31784D6BABE": {
+      "TLP reward in ARB tokens": "268031150000000000"
+    },
+    "0xFc735c063eA3D52371334953310Dcf847C8a643b": {
+      "TLP reward in ARB tokens": "87777200000000000"
+    },
+    "0xFdbBfB0Fe2986672af97Eca0e797D76A0bbF35c9": {
+      "TLP reward in ARB tokens": "564137960000000000"
+    },
+    "0xFe1077cFc039E0Cf3B4dc6ff48ef5189bC56DF9d": {
+      "TLP reward in ARB tokens": "43660910380000000000"
+    },
+    "0xFeed4C53d827AEBEBED6066788065eA1027C7e70": {
+      "TLP reward in ARB tokens": "66290730000000000"
+    },
+    "0xFf4F7b726eE86f810531d2842B3BDd8A512dB594": {
+      "TLP reward in ARB tokens": "1026404020000000000"
+    },
+    "0xa1372c03f10CAbeAa3dF38C6DFa3C3a61d240FfE": {
+      "TLP reward in ARB tokens": "124516400000000000"
+    },
+    "0xa141D0C91177Bd655380b0D2F76e3dc275AE4d56": {
+      "TLP reward in ARB tokens": "16509634950000000000"
+    },
+    "0xa1832efA6dE053730Db9eB8415af64AC38Eb8D75": {
+      "TLP reward in ARB tokens": "20808320000000000"
+    },
+    "0xa25A93F5029e14b8a26b871f353Fc9d0762C04Ca": {
+      "TLP reward in ARB tokens": "8451719840000000000"
+    },
+    "0xa274F4bb88A0BC689049A02b3738E6584Fa4aC9C": {
+      "TLP reward in ARB tokens": "28020000000000"
+    },
+    "0xa2b12a72017E230ae0f10c5b3A1f0F71c0537636": {
+      "TLP reward in ARB tokens": "60413897220000000000"
+    },
+    "0xa30b8deFcC9eDdf9E960ef810D89E194C1f65771": {
+      "TLP reward in ARB tokens": "500190000000000"
+    },
+    "0xa400b5a065A77D6D74c31F2B5022dD48AE4F650B": {
+      "TLP reward in ARB tokens": "15046547330000000000"
+    },
+    "0xa406dbD52D2596594766E4BBC8E16393f96ec999": {
+      "TLP reward in ARB tokens": "16354500000000000"
+    },
+    "0xa426B2E6987fEB52e1678e1f784f7580567D30DE": {
+      "TLP reward in ARB tokens": "42508537570000000000"
+    },
+    "0xa42E4685069F9E9D5345fa2aa85Fd1Af4F3a4dA0": {
+      "TLP reward in ARB tokens": "13039550000000000"
+    },
+    "0xa491b44426141D1759e043c60911c109F09544E4": {
+      "TLP reward in ARB tokens": "61189701670000000000"
+    },
+    "0xa4a4f69FF3585c15799E00dAB4CEA36823E0cBB1": {
+      "TLP reward in ARB tokens": "901003400000000000"
+    },
+    "0xa5948420618eb31eA639cB85386D7144a7cB8Cb5": {
+      "TLP reward in ARB tokens": "108882513010000000000"
+    },
+    "0xa6b3E57C131f5F118179D6c1c7f4dA47d9f34C59": {
+      "TLP reward in ARB tokens": "69522155000000000000"
+    },
+    "0xa6c7Bb04E35D98eD775Fe78eFe330ebfe7d059a4": {
+      "TLP reward in ARB tokens": "3254822170000000000"
+    },
+    "0xa712503e840648c4FcAf569E6Db9A1911B82224e": {
+      "TLP reward in ARB tokens": "1447410000000000"
+    },
+    "0xa7908e62bB5e746c1538046aC4d65f5D35304240": {
+      "TLP reward in ARB tokens": "58139870000000000"
+    },
+    "0xa79a356B01ef805B3089b4FE67447b96c7e6DD4C": {
+      "TLP reward in ARB tokens": "34569294870000000000"
+    },
+    "0xa8D4F0717bd2D154bAEC6B83AfB84b4bFEa1483a": {
+      "TLP reward in ARB tokens": "70044790000000000"
+    },
+    "0xa8aE918AbA9FBd5d2d14357B966f431a7B960ea4": {
+      "TLP reward in ARB tokens": "8520461940000000000"
+    },
+    "0xa8d354d2828eAe9E9FBf4B0044C41C2fD33b937F": {
+      "TLP reward in ARB tokens": "72858080000000000"
+    },
+    "0xa93DFC2B32715c5809fd14c347A8Cd123E74C2e7": {
+      "TLP reward in ARB tokens": "621973063580000000000"
+    },
+    "0xaA9Ba6E020f00642233C82161Ce86F04C6156496": {
+      "TLP reward in ARB tokens": "4370685310000000000"
+    },
+    "0xaAf9d29d2df3b16329505d189b9C77E43369Ad58": {
+      "TLP reward in ARB tokens": "15598240000000000"
+    },
+    "0xaB58304942c58363e22BBd012c6CB6E0E54Bc7f1": {
+      "TLP reward in ARB tokens": "100289480000000000"
+    },
+    "0xaE3ad4E3F30F830757471435338dab2B06D352CA": {
+      "TLP reward in ARB tokens": "534743360000000000"
+    },
+    "0xaF2cA64693B6d94F7Ca5A48147B8bA769D18891F": {
+      "TLP reward in ARB tokens": "728516210000000000"
+    },
+    "0xaF6b14f4a3A77B73994aCa1074baD1D18D46c61E": {
+      "TLP reward in ARB tokens": "247361820000000000"
+    },
+    "0xaF96Ce1e1952B2308eb36515867E041f32490EF4": {
+      "TLP reward in ARB tokens": "1228583700000000000"
+    },
+    "0xaFA88b24d9c725fa2a0685b161Df76AE18A25D65": {
+      "TLP reward in ARB tokens": "340865590000000000"
+    },
+    "0xaFb39cab24aB28A138A6e6BADAD4ba6603CE4392": {
+      "TLP reward in ARB tokens": "14523234270000000000"
+    },
+    "0xaa324fB0A78a9092dbBC181f6025938b87D289bb": {
+      "TLP reward in ARB tokens": "4743833210000000000"
+    },
+    "0xaa9Dc5A32F042941007d281813B0FC1d51DEdC03": {
+      "TLP reward in ARB tokens": "2744500000000000"
+    },
+    "0xabcA5857E8d5c0458910463d40cBF1bCe1638831": {
+      "TLP reward in ARB tokens": "3441370000000000"
+    },
+    "0xac6c521434540CD052fFacEC08FAF7C0CbAFB1ed": {
+      "TLP reward in ARB tokens": "1296551880000000000"
+    },
+    "0xad9F7e317c1fc6cC861783e6dA73e73843Fe4101": {
+      "TLP reward in ARB tokens": "32150430000000000"
+    },
+    "0xae7Be83E138C6d67F3bB4E5c87182bf5FE8998fE": {
+      "TLP reward in ARB tokens": "746015110000000000"
+    },
+    "0xae886c189a289be69Fb0249F2F0793d7B1E51ceB": {
+      "TLP reward in ARB tokens": "5310424540000000000"
+    },
+    "0xaec458048379Baa58DCC5d91168b27098a0c415c": {
+      "TLP reward in ARB tokens": "109418982340000000000"
+    },
+    "0xafa4ECdad61790261eA7D894dFc38a73214fe52e": {
+      "TLP reward in ARB tokens": "178077960000000000"
+    },
+    "0xb06DA42b3D47977FeD8e16fBe5Df628D9bfD13F3": {
+      "TLP reward in ARB tokens": "24084740000000000"
+    },
+    "0xb0F094C9e85a0Ee7B89214A3A67EFBC131022CC0": {
+      "TLP reward in ARB tokens": "7904533900000000000"
+    },
+    "0xb0b36FE8B5CC7C9E4E1E1D8FdA03a412922aad84": {
+      "TLP reward in ARB tokens": "458444010000000000"
+    },
+    "0xb0e93D5fcF1b13Eb1deE547589F4b8F52a50C2ff": {
+      "TLP reward in ARB tokens": "1848166970000000000"
+    },
+    "0xb115aFF9Ce430feF6fCDe91099A377795a4319BF": {
+      "TLP reward in ARB tokens": "240084416100000000000"
+    },
+    "0xb1F1000b4FCae7CD07370cE1A3E3b11270caC0dE": {
+      "TLP reward in ARB tokens": "829153840000000000"
+    },
+    "0xb1FDE667D3DaFbC3A3Ca0DA1c03739AE0aBf7596": {
+      "TLP reward in ARB tokens": "65351580000000000"
+    },
+    "0xb1bF47Eb5a7cc8f4C36A77cD4FE0d5d607EFB7b1": {
+      "TLP reward in ARB tokens": "5994871300000000000"
+    },
+    "0xb239bC42383E270f3AA2919595FfD8Bed151B182": {
+      "TLP reward in ARB tokens": "645758540000000000"
+    },
+    "0xb25F5FFd85a08971D657A9A28345D401f9F65cde": {
+      "TLP reward in ARB tokens": "12314132700000000000"
+    },
+    "0xb284EaD15617DE056f245335573216A31E97cC12": {
+      "TLP reward in ARB tokens": "135293520000000000"
+    },
+    "0xb297fF15Ca5a87529A38F8dEf45BAcac8cF04d13": {
+      "TLP reward in ARB tokens": "133070000000000"
+    },
+    "0xb2B60AB74c57E64740cc5DA74eD018e06E75EeB0": {
+      "TLP reward in ARB tokens": "7182790100000000000"
+    },
+    "0xb2CcF74c42C8491c6EbD6388D871E90C3C237077": {
+      "TLP reward in ARB tokens": "4199810460000000000"
+    },
+    "0xb2ebdB593E3D668f1d34276bD3098Ae5D1343e7c": {
+      "TLP reward in ARB tokens": "146657390000000000"
+    },
+    "0xb3479cbc8C51302B5D39Ff673355B564f90252Ad": {
+      "TLP reward in ARB tokens": "98664410000000000"
+    },
+    "0xb38fDb9BD868242a446095818106D71267254312": {
+      "TLP reward in ARB tokens": "10787426930000000000"
+    },
+    "0xb4449f90FE785F1C764de2EB3BE86204EBD0C312": {
+      "TLP reward in ARB tokens": "1481645730000000000"
+    },
+    "0xb47C094520a9b854C1B4505c15B4fbb49170C7A8": {
+      "TLP reward in ARB tokens": "836689830000000000"
+    },
+    "0xb4D502361a3c6f823EEb9A99Af09E110382206ee": {
+      "TLP reward in ARB tokens": "481224663150000000000"
+    },
+    "0xb51eA535cD406F9e61729aFAf47fCe0372fA0020": {
+      "TLP reward in ARB tokens": "5962046230000000000"
+    },
+    "0xb563D6Bf602527B4e833B3D19BD496061441462b": {
+      "TLP reward in ARB tokens": "42045010000000000"
+    },
+    "0xb66568E742825b4bDB8c262f372F303794e8a6Ea": {
+      "TLP reward in ARB tokens": "27599727470000000000"
+    },
+    "0xb667FdBF6046f33470f9fdAD5B6E85132fcB416B": {
+      "TLP reward in ARB tokens": "33883844540000000000"
+    },
+    "0xb6b7bBC6F44f5F09eeBAfcEACB34420f5319b8Bf": {
+      "TLP reward in ARB tokens": "2445164040000000000"
+    },
+    "0xb7F31D212F3354Da32d8Dbc7A41d5c5884660f7a": {
+      "TLP reward in ARB tokens": "1837819270000000000"
+    },
+    "0xb867416A190C0d9050E941d4c19C7Ac77CEFa747": {
+      "TLP reward in ARB tokens": "82292186870000000000"
+    },
+    "0xb88699d1Ab6559570FfA3b8446C54262C1dDA8B5": {
+      "TLP reward in ARB tokens": "283045060000000000"
+    },
+    "0xb8A16Dc085F9CFd934e53E8cEa71647488f89800": {
+      "TLP reward in ARB tokens": "8548874680000000000"
+    },
+    "0xb8Fa7c4643EA5fA68FB6B4D889965e363168BA9E": {
+      "TLP reward in ARB tokens": "4455872630000000000"
+    },
+    "0xb8a354670d0D2B59c950e01dBD602c340a3cF083": {
+      "TLP reward in ARB tokens": "519614190000000000"
+    },
+    "0xb8b96dA3D7Df859E7DB191777A3cF902A53f3Bd6": {
+      "TLP reward in ARB tokens": "113580000000000"
+    },
+    "0xb9367bF71487eb10A68c3179753b9E1BA8871c8f": {
+      "TLP reward in ARB tokens": "860209980000000000"
+    },
+    "0xb9651D9Ac8b43028B9f35c4395ff2491C6c4E0bD": {
+      "TLP reward in ARB tokens": "1117459890000000000"
+    },
+    "0xb9b477D3012659eeD0a55A6916C179401FcF4C9E": {
+      "TLP reward in ARB tokens": "79291640000000000"
+    },
+    "0xbA7599031c45648D7eE9d0FA1Cc326a508DaBf4C": {
+      "TLP reward in ARB tokens": "2413310000000000"
+    },
+    "0xbA7c58E3735cC41856395aFA52514cf9F7963D32": {
+      "TLP reward in ARB tokens": "3619460000000000"
+    },
+    "0xbA8D35B178C8CB9F1f29D86c94B5fD8aa5EFf462": {
+      "TLP reward in ARB tokens": "5682535570000000000"
+    },
+    "0xbA8d8f518E826216BCEBeB1533378fE7f639F257": {
+      "TLP reward in ARB tokens": "75428110000000000"
+    },
+    "0xbBB5Ac2C0998D38E5F34dBfd9d6201A30993E555": {
+      "TLP reward in ARB tokens": "9911884530000000000"
+    },
+    "0xbBd93eF65dd1768C71fE489Ab974fA93aE6316A7": {
+      "TLP reward in ARB tokens": "16171310000000000"
+    },
+    "0xbCE18e156A7Fe3B33EA3Bc031CC8140B8c5287ac": {
+      "TLP reward in ARB tokens": "108157980000000000"
+    },
+    "0xbDd0D301C086079B766A9a37F80a4dAbBB7CDf77": {
+      "TLP reward in ARB tokens": "9373582000000000000"
+    },
+    "0xbEE2D469AACB46251aE33Cca91F482e26c971dFF": {
+      "TLP reward in ARB tokens": "20511250000000000"
+    },
+    "0xbF133C1763c0751494CE440300fCd6b8c4e80D83": {
+      "TLP reward in ARB tokens": "49534650000000000"
+    },
+    "0xba9A3c0a22bAebE8c4926227BdE32d6EdC0D5d28": {
+      "TLP reward in ARB tokens": "2398667141360000000000"
+    },
+    "0xbaE3b46e29E7CfD2BBA8164765D592CE9802ec70": {
+      "TLP reward in ARB tokens": "20643984350000000000"
+    },
+    "0xbac4d25D5c08aC6F16171cE76f5A6a42d011Db9E": {
+      "TLP reward in ARB tokens": "48198860000000000"
+    },
+    "0xbb52B52Ba48296a82713bc8009656C04a8AB5897": {
+      "TLP reward in ARB tokens": "210739360000000000"
+    },
+    "0xbc2E07a461ef6194545c4BBAd0e3F64679331eA9": {
+      "TLP reward in ARB tokens": "5274898250000000000"
+    },
+    "0xbce2bd513714d294DED39c7e6A5Bc52020588289": {
+      "TLP reward in ARB tokens": "137107828480000000000"
+    },
+    "0xbd284779D629FAf156949C4b6369101D9A4C570C": {
+      "TLP reward in ARB tokens": "311350450000000000"
+    },
+    "0xbdaD5D2d23c0d5D6B17E402a79658f787328ee08": {
+      "TLP reward in ARB tokens": "240096354180000000000"
+    },
+    "0xbea06218C56Da4E38ebE19939Af64baBB257E217": {
+      "TLP reward in ARB tokens": "1364826210000000000"
+    },
+    "0xbed58fA67Bd966A40460b42f065DccCb0fD4fE4f": {
+      "TLP reward in ARB tokens": "116785893390000000000"
+    },
+    "0xbf45f0776b8e6DD09c02976339e3EECfABbf89da": {
+      "TLP reward in ARB tokens": "1965049480000000000"
+    },
+    "0xbfb496ACb99299e9eCE84B3FD1B3fDd0f6CDDf49": {
+      "TLP reward in ARB tokens": "80716929760000000000"
+    },
+    "0xc012e97E20466797E3B57618A0DBcd63f3c4dB47": {
+      "TLP reward in ARB tokens": "146398010000000000"
+    },
+    "0xc03A690E72d449F8e105153a326B23c16013aF0a": {
+      "TLP reward in ARB tokens": "7378027480000000000"
+    },
+    "0xc07686AF7aEe9353D8E88febfbD72ec68411ccCd": {
+      "TLP reward in ARB tokens": "2695890410000000000"
+    },
+    "0xc1259E2ECDEd57467025855bc8A8526e1012445E": {
+      "TLP reward in ARB tokens": "252263900000000000"
+    },
+    "0xc141Abbf98CD008E19702995F88adB407c056f29": {
+      "TLP reward in ARB tokens": "3344191540000000000"
+    },
+    "0xc1919Db0c4D778693188c986462d351B2693Aa9a": {
+      "TLP reward in ARB tokens": "172424986220000000000"
+    },
+    "0xc1F260e33948a6bd0DeB1c64f6f61655f59132B2": {
+      "TLP reward in ARB tokens": "1372070000000000"
+    },
+    "0xc1bA166cC2C249816Db1E9D543368d80095ea33F": {
+      "TLP reward in ARB tokens": "1117050000000000"
+    },
+    "0xc279b365b33d3c6ce0d41CEF6cAD8f3D53cA6040": {
+      "TLP reward in ARB tokens": "347599190000000000"
+    },
+    "0xc348B5dD7c64a47EF461cD325611B7b8155D16BC": {
+      "TLP reward in ARB tokens": "3666435820000000000"
+    },
+    "0xc3dD02c88d1DD0cC9C02b7b96d740ae19042A674": {
+      "TLP reward in ARB tokens": "177553770000000000"
+    },
+    "0xc4268BD365C7c8F6e90Ea488B1b4f92cE96bd458": {
+      "TLP reward in ARB tokens": "30750790000000000"
+    },
+    "0xc441424302f32b0f68f8D4a604bf3E7c01a5372b": {
+      "TLP reward in ARB tokens": "102759810170000000000"
+    },
+    "0xc499049e1094907322189F8FBf39122d3792B821": {
+      "TLP reward in ARB tokens": "11095570760000000000"
+    },
+    "0xc4Ca7342787f97E0A7535BeeD86882D395c0E00F": {
+      "TLP reward in ARB tokens": "3867555140000000000"
+    },
+    "0xc4FcBB58e36E8f5C3B0e904cB20C3947Af246891": {
+      "TLP reward in ARB tokens": "15960310000000000"
+    },
+    "0xc4b919431f9357B826BEd6C5b67D76FaCBfd5498": {
+      "TLP reward in ARB tokens": "12359822840000000000"
+    },
+    "0xc5240fD754f4c52A3Cb71aB8625FB8e810E6fBb7": {
+      "TLP reward in ARB tokens": "9958002190000000000"
+    },
+    "0xc616b69b54C32f4b96f6ab02989E95a7991a9D08": {
+      "TLP reward in ARB tokens": "196762770000000000"
+    },
+    "0xc6a26b2b3eF7c55e6226E5687B05996F4649421f": {
+      "TLP reward in ARB tokens": "91481230000000000"
+    },
+    "0xc6e39d020b4974a7Be543e6b8B501EdCf28F1856": {
+      "TLP reward in ARB tokens": "31624320000000000"
+    },
+    "0xc784da01B777e6350A3F0C7CAf515f8761177b7A": {
+      "TLP reward in ARB tokens": "29493220430000000000"
+    },
+    "0xc7f5c25bFBfd25cf10474EA361328CF1612cF676": {
+      "TLP reward in ARB tokens": "5654765470000000000"
+    },
+    "0xc8B19839ae371bd541F20B15c3A3CB82BFB6A6C6": {
+      "TLP reward in ARB tokens": "201495630000000000"
+    },
+    "0xc8b93C4079841353760DC7d268490Ed61040D91C": {
+      "TLP reward in ARB tokens": "3481795240000000000"
+    },
+    "0xc95D2FA44b466271b034bDA6ba4Ce5D9967f7F2f": {
+      "TLP reward in ARB tokens": "145224470000000000"
+    },
+    "0xcB9e65e48Ca766781bee7f0Ed017e3b8aA585527": {
+      "TLP reward in ARB tokens": "6463910000000000"
+    },
+    "0xcD0D443792229355933dBB57B6B12C2389736150": {
+      "TLP reward in ARB tokens": "46744120000000000"
+    },
+    "0xcD55dcAD6fEf1Eb42Efe7D2b76807F8bCa3bc13d": {
+      "TLP reward in ARB tokens": "525864740000000000"
+    },
+    "0xcE798Ab35A2fC665106EF7a92B799007e248f17D": {
+      "TLP reward in ARB tokens": "15583766520000000000"
+    },
+    "0xcFfECd4F0e9d8Fc123934c5BC278B2c4F271e434": {
+      "TLP reward in ARB tokens": "84627042580000000000"
+    },
+    "0xca98c4155A787ee36A219cc7d25488f95a5b5aAe": {
+      "TLP reward in ARB tokens": "5144857610000000000"
+    },
+    "0xcafe028E07e0Ad8B8dabDB99e314d0C648880ed0": {
+      "TLP reward in ARB tokens": "25389021740000000000"
+    },
+    "0xcdbDb5FBb8aeB253b7Df822E5213816D8503Fb30": {
+      "TLP reward in ARB tokens": "815962695730000000000"
+    },
+    "0xcdf666Af010fB5dcE952c7CadA18377753197172": {
+      "TLP reward in ARB tokens": "40184592030000000000"
+    },
+    "0xcf834dA4C5fF49B7e47b31470a9992072fdF9222": {
+      "TLP reward in ARB tokens": "227657060000000000"
+    },
+    "0xcfDAC945c7cA7E9c47D0707Ac06AAFba4bC4eC96": {
+      "TLP reward in ARB tokens": "18373580000000000"
+    },
+    "0xcfe91C71fA42a2ED85C4e5aCF4d1B35eD480a5D7": {
+      "TLP reward in ARB tokens": "13993970000000000"
+    },
+    "0xd0e9A2fFdC40D2a884130DC9AF4Af62f56Bc96b8": {
+      "TLP reward in ARB tokens": "4162564920000000000"
+    },
+    "0xd13e791C573b4D7cF1e32455f076d7c0b7B1E401": {
+      "TLP reward in ARB tokens": "16228350640000000000"
+    },
+    "0xd1e676248071578F5e51C16088e44E71c4781555": {
+      "TLP reward in ARB tokens": "102750140000000000"
+    },
+    "0xd21F21160a29532226FabC90966269Ca63d6b599": {
+      "TLP reward in ARB tokens": "5473782020000000000"
+    },
+    "0xd2e80D60aff5377587E49FF32c9bad639d6f68Bc": {
+      "TLP reward in ARB tokens": "1863710000000000"
+    },
+    "0xd4313Fab26f6b8A972c68900d73A9E6258247819": {
+      "TLP reward in ARB tokens": "1894710110000000000"
+    },
+    "0xd45878a3a0455f9E5A735B205284f9A00a88eFcB": {
+      "TLP reward in ARB tokens": "4760516330000000000"
+    },
+    "0xd5025A2071E9CDf36CD7BB9A22e9aE44F20cF530": {
+      "TLP reward in ARB tokens": "41517999970000000000"
+    },
+    "0xd56f718C34740B782Df779BBC775c158FFa6e904": {
+      "TLP reward in ARB tokens": "5259187290000000000"
+    },
+    "0xd58957dF97B3942Ea2eCC7bfD03A736C23147Ee9": {
+      "TLP reward in ARB tokens": "13726457890000000000"
+    },
+    "0xd5bd29aA9816F2140bFE283a5b3a8f42d2060A8c": {
+      "TLP reward in ARB tokens": "2035373080000000000"
+    },
+    "0xd5dBb9e213545a4d8248d671BfCf6E5fa6E72fAF": {
+      "TLP reward in ARB tokens": "22646470000000000"
+    },
+    "0xd61015823B60A7C6E156C887A72467a8170259d2": {
+      "TLP reward in ARB tokens": "875307710000000000"
+    },
+    "0xd6ffc26607A60A0c5383533fd53F7C47c26D62D4": {
+      "TLP reward in ARB tokens": "1639014220000000000"
+    },
+    "0xd730186A778d821Ff6ca90bb0bfA4F97D4DeCeEf": {
+      "TLP reward in ARB tokens": "130215500000000000"
+    },
+    "0xd8F79522A1c1437D0DADdbf80f524e1d33149dBD": {
+      "TLP reward in ARB tokens": "440155190000000000"
+    },
+    "0xd8aaDf35723E73eF4e8e63E63C3D8528efBEEdaC": {
+      "TLP reward in ARB tokens": "84456900000000000"
+    },
+    "0xd9690de68818bAEC0ea293Beb4074cB6401822d0": {
+      "TLP reward in ARB tokens": "4589130000000000"
+    },
+    "0xdAD29981B5FeeFEeaf3eF92E678e53c5620A1Fd8": {
+      "TLP reward in ARB tokens": "7937313980000000000"
+    },
+    "0xdB135Aef1945025D7ed32095C614bD5d04B4277C": {
+      "TLP reward in ARB tokens": "464036750000000000"
+    },
+    "0xdC207A30e85bE7C755336f45E01888532147572C": {
+      "TLP reward in ARB tokens": "3589514710000000000"
+    },
+    "0xdC3f9bb2424A7bd1BE36A2cA6aDbED152a65bC25": {
+      "TLP reward in ARB tokens": "8717440000000000"
+    },
+    "0xdCFC973D50dc2346826d5AF4cC989BA1b7690b38": {
+      "TLP reward in ARB tokens": "35437640000000000"
+    },
+    "0xdEa623471efA6667BC0290C0249FA9DD138A215A": {
+      "TLP reward in ARB tokens": "82165631390000000000"
+    },
+    "0xdF4560eaf009CEd8A97ea5B998c5F1F1C69bb92b": {
+      "TLP reward in ARB tokens": "1831792910000000000"
+    },
+    "0xdFC30c075019Bb671d60D84242d814f3cdf8d76E": {
+      "TLP reward in ARB tokens": "83761400000000000"
+    },
+    "0xda215f40f590368d72BF13960E9ab9Cc231eE12f": {
+      "TLP reward in ARB tokens": "15929919480000000000"
+    },
+    "0xda540380512E10871D8AAb53B2bb66831B95ff55": {
+      "TLP reward in ARB tokens": "3507444470000000000"
+    },
+    "0xda81a723E748C782284Bbb06AB74e3D0A9dBBC77": {
+      "TLP reward in ARB tokens": "3329597000000000000"
+    },
+    "0xdca6143E849247DF9d1A32264FE5108FE31ae878": {
+      "TLP reward in ARB tokens": "1387319720000000000"
+    },
+    "0xdccb8Ce76bA233Ce3314440eB87901EF1A4AbEaD": {
+      "TLP reward in ARB tokens": "22139980000000000"
+    },
+    "0xdd5EA9FC6A056DC5bACCEcBa2C8fC64Bc546D66e": {
+      "TLP reward in ARB tokens": "83998090000000000"
+    },
+    "0xdd8466aD7472e7A9Ad473380dBE36335CFf8aD76": {
+      "TLP reward in ARB tokens": "1831630570000000000"
+    },
+    "0xde4901634990888102A7A017f36c7bd2F1Dc2B1e": {
+      "TLP reward in ARB tokens": "1448533120000000000"
+    },
+    "0xdeD8a995D7CDF6F5Bc5d06618055832E4E06D77F": {
+      "TLP reward in ARB tokens": "213196180000000000"
+    },
+    "0xdfCeC744c8417d2A0Ef72fE520438dd20F368369": {
+      "TLP reward in ARB tokens": "15903660000000000"
+    },
+    "0xe0fc880e23c8ec6EaCaD41D0A3aA3e7B945e32D0": {
+      "TLP reward in ARB tokens": "20477878730000000000"
+    },
+    "0xe1CB6231c5931d8914812801982a5D9093de61c3": {
+      "TLP reward in ARB tokens": "5688357710000000000"
+    },
+    "0xe1a4d52beC3725E2d863b091a4223316a080e3Ce": {
+      "TLP reward in ARB tokens": "3246028800000000000"
+    },
+    "0xe2405e43283F03E2dFe5A1A0893713F348803A94": {
+      "TLP reward in ARB tokens": "845476500000000000"
+    },
+    "0xe3150aB1618F9ed050B1082Aa56AD7d25Ce75EeB": {
+      "TLP reward in ARB tokens": "16357860000000000"
+    },
+    "0xe3d120e3E553C8B140fD0e9f0c1034871b434ef3": {
+      "TLP reward in ARB tokens": "25022337800000000000"
+    },
+    "0xe40602b6629ab2482043DF1Cf9eFC093dd84D337": {
+      "TLP reward in ARB tokens": "114603900000000000"
+    },
+    "0xe435BEbA6DEE3D6F99392ab9568777EB8165719d": {
+      "TLP reward in ARB tokens": "1622248110000000000"
+    },
+    "0xe589fc04ccBedb95950f25258D2a81119e6367c4": {
+      "TLP reward in ARB tokens": "670130220000000000"
+    },
+    "0xe5f7B063bc9DD00010B4213910E84D730f623Dc4": {
+      "TLP reward in ARB tokens": "5556630590000000000"
+    },
+    "0xe695cf91811DBc72733e3Cc8c6DD679695e0d895": {
+      "TLP reward in ARB tokens": "553396790000000000"
+    },
+    "0xe69e85B87E46Ff35B32bD93aa5E9cf0a09B1c221": {
+      "TLP reward in ARB tokens": "3646866820000000000"
+    },
+    "0xe7fbEad25803a32593a22a9284896D36e0Cd4a34": {
+      "TLP reward in ARB tokens": "413847950000000000"
+    },
+    "0xe832E4caB8C2FD59fa60d5818746B3c9881541E0": {
+      "TLP reward in ARB tokens": "1107015410000000000"
+    },
+    "0xe842359773d9F42f3dc81840e55dA183296f7671": {
+      "TLP reward in ARB tokens": "778478390000000000"
+    },
+    "0xe86f03D80FBF50Ff8A43aF999E957F157B492043": {
+      "TLP reward in ARB tokens": "58590830000000000"
+    },
+    "0xe876d4cee7deD8119b345a5b83Be7Cbf157512F0": {
+      "TLP reward in ARB tokens": "84130000000000"
+    },
+    "0xe8f24002e23125c741f11253585A627877e50CE9": {
+      "TLP reward in ARB tokens": "6531020000000000"
+    },
+    "0xe9805eCAB212EAbf696cf458d2C4840A619Ee6De": {
+      "TLP reward in ARB tokens": "864719630000000000"
+    },
+    "0xe9DFa6e5D1dc4deF655A30F8f90d5D500Ae5BA17": {
+      "TLP reward in ARB tokens": "153661310000000000"
+    },
+    "0xeB52A6f73496EC3f5BF0BdCD85bb507A981Eb43a": {
+      "TLP reward in ARB tokens": "415305960000000000"
+    },
+    "0xeBBC342F42778b365506fdd3cBDb3695F4765149": {
+      "TLP reward in ARB tokens": "48389517860000000000"
+    },
+    "0xeC62F25F0db55EA086c476fa695DD56Dc2b2bEf2": {
+      "TLP reward in ARB tokens": "8849027570000000000"
+    },
+    "0xeD2C2CdEc695be3A4Dc421c1A8a6756dc5A927b6": {
+      "TLP reward in ARB tokens": "3311642970000000000"
+    },
+    "0xeDF99711f3EF4f67CB51Ebd6eeBB5ad60976bC87": {
+      "TLP reward in ARB tokens": "23459000000000000"
+    },
+    "0xeE7736bc2a06b8DF20864348f7983bCA105583CB": {
+      "TLP reward in ARB tokens": "929559280000000000"
+    },
+    "0xeF5f5E5e4c84281230dd7D40B6A94dF4419d8Db3": {
+      "TLP reward in ARB tokens": "707877920000000000"
+    },
+    "0xeacbedbEeF3497aBfA7045C41e74E5fF55655a5a": {
+      "TLP reward in ARB tokens": "28996945350000000000"
+    },
+    "0xeb2EC8AbEf59AC83204ff17993bFF76c5785acbE": {
+      "TLP reward in ARB tokens": "79340000000000"
+    },
+    "0xebD65d1b26f715fc87CAF1c12f0CAd36cE44fdf5": {
+      "TLP reward in ARB tokens": "179180880000000000"
+    },
+    "0xecc25cEA153e38052CE8485F05fD5362cDfE569b": {
+      "TLP reward in ARB tokens": "1063160550000000000"
+    },
+    "0xed8A2787aa2bC78167c593931dDC9Aa4a50959f5": {
+      "TLP reward in ARB tokens": "14442257690000000000"
+    },
+    "0xee772B684F9C3F9477d0Ebf4Cc4F90c674AFE100": {
+      "TLP reward in ARB tokens": "1701183370000000000"
+    },
+    "0xef9bbaC140B530Cc3EC8AEf8Bfa941ceBB8e06eB": {
+      "TLP reward in ARB tokens": "64832240000000000"
+    },
+    "0xefdB09ED95CBD86a977f4D24f4bF3A2d7b45E1AC": {
+      "TLP reward in ARB tokens": "493732040000000000"
+    },
+    "0xf072bBF692c9BCe64745D8c282d6B107054dA3Ba": {
+      "TLP reward in ARB tokens": "4032172690000000000"
+    },
+    "0xf0CF6C29ECfC400a730511307aCe9d22594e088B": {
+      "TLP reward in ARB tokens": "114386080000000000"
+    },
+    "0xf1903B940a19349fd3BAda1c00a5Bf668E912A79": {
+      "TLP reward in ARB tokens": "12175260380000000000"
+    },
+    "0xf287C283e5160495829E4E38AE56833Ab586380D": {
+      "TLP reward in ARB tokens": "1121700000000000"
+    },
+    "0xf2F3e73be57031114dd1f4E75c1DD87658be7F0E": {
+      "TLP reward in ARB tokens": "1546580000000000"
+    },
+    "0xf3c49993cbfcc9063DFdACA6369B7A20A8d88745": {
+      "TLP reward in ARB tokens": "33813520000000000"
+    },
+    "0xf40Ff7aa7dE881c39FA7bB5e997728b05A7aEeE6": {
+      "TLP reward in ARB tokens": "4361796410000000000"
+    },
+    "0xf4621aC6803a592203a1F5f0167DB1C0F42a78F0": {
+      "TLP reward in ARB tokens": "5356588200000000000"
+    },
+    "0xf4B7d30B8B982CF35C6478672b06aa0Ffe01BC21": {
+      "TLP reward in ARB tokens": "2490142650000000000"
+    },
+    "0xf4cae903dC1698bb309c650685F69cD84b45bc3c": {
+      "TLP reward in ARB tokens": "141810280000000000"
+    },
+    "0xf4ccEA8e3c0aE38f3BcB8B1A234DBE65F8753B86": {
+      "TLP reward in ARB tokens": "31151870000000000"
+    },
+    "0xf6Fa4ca2Fbb073d7647154CAf0e9324f58612dE5": {
+      "TLP reward in ARB tokens": "8072835190000000000"
+    },
+    "0xf6f372DfAeCC1431186598c304e91B79Ce115766": {
+      "TLP reward in ARB tokens": "47701564970000000000"
+    },
+    "0xf7b4531e52211CC44379102F719cad29411dB053": {
+      "TLP reward in ARB tokens": "336836008110000000000"
+    },
+    "0xf7d5033d27B3b328b627fa62b8F3c9607E92c7BC": {
+      "TLP reward in ARB tokens": "4361490000000000"
+    },
+    "0xf8158F642FdDaaA691c5dF42A8F5BbE2590fdddc": {
+      "TLP reward in ARB tokens": "1577031470000000000"
+    },
+    "0xf8549C9299ccd83e69fDb254E74197286623e13b": {
+      "TLP reward in ARB tokens": "893369530000000000"
+    },
+    "0xf85c011c1A87840bF01A830F188CcF95899c454b": {
+      "TLP reward in ARB tokens": "2886136460000000000"
+    },
+    "0xf86efeCEf4e87cb0F625DE88804D351814Dda04D": {
+      "TLP reward in ARB tokens": "673847080000000000"
+    },
+    "0xf9239d983c27d1947c31A7c2f4Aa52fC68091078": {
+      "TLP reward in ARB tokens": "1052189260000000000"
+    },
+    "0xf93fFe71B695530D0cBbA73dd0f12BebDe813b4e": {
+      "TLP reward in ARB tokens": "25349614540000000000"
+    },
+    "0xf9A5807E32A2c887259D365BFf56f070a1d1083F": {
+      "TLP reward in ARB tokens": "818170000000000"
+    },
+    "0xfA22C7df7e1623D08E631489Ee9dA0280d546eb0": {
+      "TLP reward in ARB tokens": "25178010000000000"
+    },
+    "0xfC109b5eDe4A0E492C14dfD730CA8122ab2d54DA": {
+      "TLP reward in ARB tokens": "137900200000000000"
+    },
+    "0xfC4B2a62A06cb2E1C6A743E9aE327Bb16977E4c1": {
+      "TLP reward in ARB tokens": "15931438490000000000"
+    },
+    "0xfCbc2095e8939e691f84C3fd56A90c84649d139E": {
+      "TLP reward in ARB tokens": "196259760000000000"
+    },
+    "0xfD8137feB68b6003b59eb3333c7CF3D64F09B8A0": {
+      "TLP reward in ARB tokens": "90537440000000000"
+    },
+    "0xfFBaA0dE31Cd06c0031682E6e991b2515e71192e": {
+      "TLP reward in ARB tokens": "13229256780000000000"
+    },
+    "0xfaC2F11ba2577D5122DC1EC5301d35B16688251E": {
+      "TLP reward in ARB tokens": "17825548250000000000"
+    },
+    "0xfb91acc79fd1D9632a9d1f07E081311D3D216d7b": {
+      "TLP reward in ARB tokens": "1002328170000000000"
+    },
+    "0xfcE1DdF99259D8fFB563DdD270AAD20ecb44c92E": {
+      "TLP reward in ARB tokens": "791762030000000000"
+    },
+    "0xfca3611a920e698C58018DFcd32a545195aC718E": {
+      "TLP reward in ARB tokens": "1945313810000000000"
+    },
+    "0xfcd58CFFFFbdE2Db16F9cFFC0ca653f3310318E1": {
+      "TLP reward in ARB tokens": "15047384410000000000"
+    },
+    "0xfdeFc184D60ca6ae5965FBcF0014e8F19F728095": {
+      "TLP reward in ARB tokens": "1468081490000000000"
+    },
+    "0xff1A1AA3f81986CE934F42BE48488a6FDDB38874": {
+      "TLP reward in ARB tokens": "21055990000000000"
+    },
+    "0xffEC59F34e4D37FfAD30e0D02F75725085970bFB": {
+      "TLP reward in ARB tokens": "2084504560000000000"
+    }
+  }
+}
