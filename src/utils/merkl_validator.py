@@ -29,8 +29,8 @@ def validate_merkl_file(merkl_file, token_type=None):
             data = json.load(f)
         
         # Define expected token addresses
-        arb_token_address = "0xb50721bcf8d664c30412cfbc6cf7a15145234ad1"
-        t_token_address = "0xcdf7028ceab81fa0c6971208e83fa7872994bee5"
+        arb_token_address = "0x912ce59144191c1204e64559fe8253a0e49e6548"  # Replace with your new ARB token address
+        t_token_address = "0xcdf7028ceab81fa0c6971208e83fa7872994bee5"  # Replace with your new T token address
         
         # Initialize validation results
         results = {

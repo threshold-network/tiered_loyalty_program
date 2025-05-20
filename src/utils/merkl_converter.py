@@ -18,7 +18,7 @@ def convert_to_merkl_format(input_file, output_dir):
             raise ValueError("Invalid rewards file format: 'rewards' key not found")
         
         # ARB token address on Ethereum Mainnet
-        arb_token_address = "0xb50721bcf8d664c30412cfbc6cf7a15145234ad1"
+        arb_token_address = "0x912ce59144191c1204e64559fe8253a0e49e6548"  # Replace with your new ARB token address
         # T token address on Ethereum Mainnet
         t_token_address = "0xcdf7028ceab81fa0c6971208e83fa7872994bee5"
         
